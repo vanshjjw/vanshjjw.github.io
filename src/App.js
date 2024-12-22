@@ -28,7 +28,9 @@ function App() {
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <ScrollToTop />
-
+        <div className="content">
+          <h1 style={{ textAlign: "center", marginTop: "20%" }}>Coming Soon...</h1>
+        </div>
       </div>
     </Router>
   );
