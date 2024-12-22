@@ -18,11 +18,11 @@ const Sidebar = () => {
                 <img src="favicon.ico" alt={"Vansh Jhunjhunwala"}/>
             </div>
             <nav className="sidebar-nav">
-                <a href="/intro">About Me</a>
-                <a href="/resume">Resume</a>
-                <a href="/blog">Blog</a>
-                <a href="/garden">Digital Garden</a>
-                <a href="/resources">Resources</a>
+                <a href="/#/intro">About Me</a>
+                <a href="/#/resume">Resume</a>
+                <a href="/#/blog">Blog</a>
+                <a href="/#/garden">Digital Garden</a>
+                <a href="/#/resources">Resources</a>
             </nav>
         </div>
     );

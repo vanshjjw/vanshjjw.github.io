@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Preloader from "./components/General/Preloader";
 import ScrollToTop from "./components/General/ScrollToTop";
 import Sidebar from "./components/General/Sidebar";
@@ -29,9 +30,9 @@ function App() {
                   <Sidebar />
                   <div className="main-content">
                       <Routes>
-                          <Route path="/intro" element={<h1>Coming Soon...</h1>} />
-                          <Route path="/resume" element={<h1>Coming Soon...</h1>} />
-                          <Route path="/blog" element={<h1>Coming Soon...</h1>} />
+                          <Route path="/intro" element={<h1>Intro Coming Soon...</h1>} />
+                          <Route path="/resume" element={<h1>Resume Coming Soon...</h1>} />
+                          <Route path="/blog" element={<h1>Blog Coming Soon...</h1>} />
                           <Route path="/garden" element={<h1>Coming Soon...</h1>} />
                           <Route path="/resources" element={<h1>Coming Soon...</h1>} />
                           {/* Add other routes here when additional sections are implemented */}
