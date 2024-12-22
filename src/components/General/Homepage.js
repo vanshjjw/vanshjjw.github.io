@@ -1,7 +1,7 @@
 import React from 'react';
 import './Siderbar.css';
 
-const HomePage = () => {
+const Homepage = () => {
     return (
         <div className="homepage">
             <div className="sidebar homepage-sidebar">
@@ -20,4 +20,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Homepage;
