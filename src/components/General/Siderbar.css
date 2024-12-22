@@ -1,0 +1,180 @@
+/* Define CSS variables */
+:root {
+    --primary-color: #965f41;
+    --fade-color: #965f31;
+    --hover-color: orange;
+    --link-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    --transition-duration: 0.3s;
+    --link-scale: 1.2;
+    --link-margins: 10px;
+    --sidebar-width: 300px;
+    --collapsed-width: 60px;
+    --profile-pic-size: 150px;
+    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------------------------------------- */
+/* Homepage Sidebar: Fullscreen style */
+.homepage .homepage-sidebar {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 50px;
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure links are centered for the homepage sidebar */
+.homepage .sidebar-nav {
+    align-items: center;
+}
+
+.homepage .sidebar-nav a {
+    font-size: 24px; /* Larger text for homepage */
+    margin: 20px 0;
+}
+/* ---------------------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------------------------------------- */
+/* Sidebar container */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--sidebar-width);
+    background: var(--primary-color);
+    transition: width var(--transition-duration) ease, opacity var(--transition-duration) ease;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    overflow-x: hidden;
+    box-shadow: var(--sidebar-shadow);
+    z-index: 90;
+}
+
+
+.sidebar:not(.open):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--fade-color)); /* Fade effect */
+}
+
+/* Collapsed state */
+.sidebar.open {
+    width: var(--collapsed-width); /* Thin line when collapsed */
+    visibility: visible;
+    overflow: hidden;
+}
+
+/* Hide content when sidebar is collapsed */
+.sidebar.open .profile-pic,
+.sidebar.open .sidebar-nav {
+    visibility: hidden;
+}
+
+/* Toggle button styles */
+.sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the button */
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.sidebar-toggle:focus {
+    outline: none;
+}
+/* ---------------------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------------------------------------- */
+/* Navigation links */
+.sidebar-nav {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation links */
+.sidebar-nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    margin: var(--link-margins);
+    text-shadow: var(--link-shadow); /* Use the link shadow variable */
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block; /* To ensure we can scale it */
+    padding: 5px; /* Optional: adds some space around the text */
+}
+
+/* Hover effect */
+.sidebar-nav a:hover {
+    text-decoration: underline;
+    transform: scale(var(--link-scale)); /* Scales the link to 120% of its original size */
+    color: var(--hover-color); /* Use the hover color variable */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* First link style (to add space for the profile picture) */
+.sidebar-nav a:first-child {
+    margin-top: 30px; /* Add space for the picture */
+}
+
+
+/* Profile picture container */
+.sidebar .profile-pic {
+    width: var(--profile-pic-size); /* Use the profile picture size variable */
+    height: var(--profile-pic-size); /* Use the profile picture size variable */
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image fits within the circle */
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px; /* Added top margin only */
+    margin-left: auto; /* Center the picture horizontally */
+    margin-right: auto; /* Center the picture horizontally */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile picture image */
+.profile-pic img {
+    width: 100%; /* Fill the container */
+    height: 100%; /* Fill the container */
+    object-fit: cover; /* Ensures the image maintains aspect ratio */
+}
+
+
+/* Ensuring the body content isn't hidden behind the sidebar */
+body {
+    padding-left: var(--collapsed-width); /* Use the sidebar width variable */
+    transition: padding-left var(--transition-duration) ease;
+}
+
+/* When the sidebar is open (collapsed), adjust the body's padding */
+body.sidebar-open {
+    padding-left: var(--sidebar-width); /* Use the collapsed width variable */
+}
+
+/* ---------------------------------------------------------------------------------- */
