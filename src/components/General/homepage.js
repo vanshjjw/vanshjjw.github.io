@@ -6,7 +6,7 @@ const HomePage = () => {
         <div className="homepage">
             <div className="sidebar homepage-sidebar">
                 <div className="profile-pic">
-                    <img src="/favicon.ico" alt="Your Name" />
+                    <img src="/favicon.ico" alt="Vansh Jhunjhunwala" />
                 </div>
                 <nav className="sidebar-nav">
                     <a href="/intro">About Me</a>
