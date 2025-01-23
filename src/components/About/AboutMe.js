@@ -1,27 +1,54 @@
+import React, { useState } from "react";
+import "./AboutMe.css";
+
 const AboutMe = () => {
+    const [activeTab, setActiveTab] = useState("");
+
+    const renderContent = () => {
+        switch (activeTab) {
+            case "taylor":
+                return <p>This is the Taylor approximation of my life!</p>;
+            case "interests":
+                return <p>I love physics, movies, and entrepreneurship.</p>;
+            case "fun":
+                return <p>Fun Fact: I once organized an event for 200 students!</p>;
+            case "quotes":
+                return <p>"Carpe Diem. Seize the day!" - Dead Poets Society</p>;
+
+        }
+    };
+
     return (
-        <section id="about" className="about-me">
-            <h1>About Me</h1>
-            <div className="taylor-approximation">
-                <div className="approximation-step">
-                    <h2>1st Order</h2>
-                    <p>I am a physicist passionate about exploring the mysteries of the universe.</p>
-                </div>
-                <div className="approximation-step">
-                    <h2>2nd Order</h2>
-                    <p>I have a deep interest in entrepreneurship and innovation.</p>
-                </div>
-                <div className="approximation-step">
-                    <h2>3rd Order</h2>
-                    <p>I aspire to build impactful solutions in academia and beyond.</p>
-                </div>
+        <div className="about-container">
+            <h1 className="about-name"> Vansh Jhunjhunwala </h1>
+            <div className="about-menu">
+                <button
+                    className={activeTab === "taylor" ? "active-tab" : ""}
+                    onClick={() => setActiveTab("taylor")}
+                >
+                    Taylor Approximation
+                </button>
+                <button
+                    className={activeTab === "interests" ? "active-tab" : ""}
+                    onClick={() => setActiveTab("interests")}
+                >
+                    Interests
+                </button>
+                <button
+                    className={activeTab === "fun" ? "active-tab" : ""}
+                    onClick={() => setActiveTab("fun")}
+                >
+                    Fun Facts
+                </button>
+                <button
+                    className={activeTab === "quotes" ? "active-tab" : ""}
+                    onClick={() => setActiveTab("quotes")}
+                >
+                    Quotes
+                </button>
             </div>
-            <div className="social-links">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-            </div>
-        </section>
+            <div className="about-content">{renderContent()}</div>
+        </div>
     );
 };
 

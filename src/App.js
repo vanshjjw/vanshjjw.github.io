@@ -30,11 +30,11 @@ function App() {
                   <Sidebar />
                   <div className="main-content">
                       <Routes>
-                          <Route path="/intro" element={<h1>Intro Coming Soon...</h1>} />
-                          <Route path="/resume" element={<h1>Resume Coming Soon...</h1>} />
-                          <Route path="/blog" element={<h1>Blog Coming Soon...</h1>} />
-                          <Route path="/garden" element={<h1>Coming Soon...</h1>} />
-                          <Route path="/resources" element={<h1>Coming Soon...</h1>} />
+                          <Route path="/intro" element={<AboutMe />} />
+                          <Route path="/resume" element={<h1>Resume coming soon...</h1>} />
+                          <Route path="/blog" element={<h1></h1>} />
+                          <Route path="/garden" element={<h1></h1>} />
+                          <Route path="/resources" element={<h1></h1>} />
                           {/* Add other routes here when additional sections are implemented */}
                       </Routes>
                   </div>
