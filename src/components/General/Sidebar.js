@@ -9,7 +9,7 @@ const Sidebar = () => {
         document.body.classList.toggle('sidebar-open', isOpen);
     };
 
-    const image = require('../../Assets/favicon.ico');
+
 
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
@@ -17,7 +17,7 @@ const Sidebar = () => {
                 {isOpen ? '→' : '←'}
             </button>
             <div className="profile-pic">
-                <img src="{image}" alt={"Vansh Jhunjhunwala"}/>
+                <img src="/favicon.ico" alt={"Vansh Jhunjhunwala"}/>
             </div>
             <nav className="sidebar-nav">
                 <a href="/#/intro">About Me</a>
