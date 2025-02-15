@@ -1,19 +1,3 @@
-/* Define CSS variables */
-:root {
-    --primary-color: #965f41;
-    --fade-color: #965f31;
-    --hover-color: orange;
-    --link-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    --transition-duration: 0.3s;
-    --link-scale: 1.2;
-    --link-margins: 10px;
-    --sidebar-width: 300px;
-    --collapsed-width: 60px;
-    --profile-pic-size: 150px;
-    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-
 /* Sidebar container */
 .sidebar {
     position: fixed;
@@ -21,7 +5,7 @@
     left: 0;
     height: 100%;
     width: var(--sidebar-width);
-    background: var(--primary-color);
+    background: var(--siderbar-primary-color);
     transition: width var(--transition-duration) ease, opacity var(--transition-duration) ease;
     padding-top: 30px;
     display: flex;
@@ -40,7 +24,7 @@
     right: 0;
     width: 10px;
     height: 100%;
-    background: linear-gradient(to right, var(--primary-color), var(--fade-color)); /* Fade effect */
+    background: linear-gradient(to right, var(--siderbar-primary-color), var(--fade-color)); /* Fade effect */
 }
 
 /* Collapsed state */

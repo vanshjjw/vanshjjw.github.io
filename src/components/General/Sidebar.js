@@ -15,7 +15,7 @@ const Sidebar = () => {
                 {isOpen ? '→' : '←'}
             </button>
             <div className="profile-pic">
-                <img src="favicon.ico" alt={"Vansh Jhunjhunwala"}/>
+                <img src="../../Assets/favicon.ico" alt={"Vansh Jhunjhunwala"}/>
             </div>
             <nav className="sidebar-nav">
                 <a href="/#/intro">About Me</a>
