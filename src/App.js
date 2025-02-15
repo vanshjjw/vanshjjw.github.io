@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+
 import Preloader from "./components/General/Preloader";
 import ScrollToTop from "./components/General/ScrollToTop";
 import Sidebar from "./components/General/Sidebar";
+
 import AboutMe from "./components/About/AboutMe";
+import Resources from "./components/Resources/Resources";
 
 import "./style.css";
 import "./App.css";
@@ -34,7 +37,7 @@ function App() {
                           <Route path="/resume" element={<h1>Resume coming soon...</h1>} />
                           <Route path="/blog" element={<h1></h1>} />
                           <Route path="/garden" element={<h1></h1>} />
-                          <Route path="/resources" element={<h1></h1>} />
+                          <Route path="/resources" element={<Resources />} />
                           {/* Add other routes here when additional sections are implemented */}
                       </Routes>
                   </div>
