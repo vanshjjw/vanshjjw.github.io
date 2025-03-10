@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './AboutMe.css';
 import { tabs, taylorLevels } from './AboutData';
 
-
 const renderTabContent = (tabId, activeLevel, setActiveLevel) => {
     if (tabId === 'taylor') {
         return (
@@ -12,6 +11,7 @@ const renderTabContent = (tabId, activeLevel, setActiveLevel) => {
                         <button
                             className={`level-button ${index === activeLevel ? 'active' : ''}`}
                             onClick={() => setActiveLevel(index === activeLevel ? null : index)}
+                            aria-expanded={index === activeLevel}
                         >
                             {level.label}
                         </button>
@@ -23,11 +23,8 @@ const renderTabContent = (tabId, activeLevel, setActiveLevel) => {
     }
 
     const tab = tabs.find((t) => t.id === tabId);
-    return tab ? <p>{tab.content}</p> : null;
+    return tab ? <div className="tab-content"><p>{tab.content}</p></div> : null;
 };
-
-
-
 
 const AboutMe = () => {
     const [activeTab, setActiveTab] = useState(tabs[0].id);
@@ -60,4 +57,3 @@ const AboutMe = () => {
 };
 
 export default AboutMe;
-

@@ -1,94 +1,209 @@
 /* Container styling */
 .about-container {
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 50px;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
+    color: #333;
 }
 
 /* Header styling */
 .about-name {
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333333;
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.about-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1100px;
+    height: 3px;
+    background: linear-gradient(to right, #a67c52, #d4a276);
 }
 
 /* Menu styling */
 .about-menu {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #e0e0e0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+    flex-wrap: wrap;
 }
 
 .tab-button {
     background: none;
     border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 1em;
+    padding: 12px 25px;
+    margin: 0 8px 8px;
+    font-size: 1.1em;
     cursor: pointer;
-    color: #666666;
-    transition: color 0.3s, border-bottom 0.3s;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    border-radius: 4px;
 }
 
-.tab-button:hover,
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #a67c52, #d4a276);
+    transition: width 0.3s;
+}
+
+.tab-button:hover {
+    color: #a67c52;
+}
+
+.tab-button:hover::after {
+    width: 100%;
+}
+
 .tab-button.active {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
+    color: #a67c52;
+}
+
+.tab-button.active::after {
+    width: 100%;
 }
 
 /* Content styling */
 .about-content {
     text-align: center;
-    color: #555555;
-}
-
-.tab-content {
-    animation: fadeIn 0.5s ease-in-out;
+    line-height: 1.6;
+    font-size: 1.1em;
+    animation: fadeIn 0.6s ease-out;
+    padding: 20px;
+    /*background: #fff;*/
+    border-radius: 8px;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
-
 
 /* Taylor Approximation Section */
 .taylor-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .taylor-level {
-    width: 80%;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .level-button {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background 0.3s;
-    background-color: lightgray;
+    transition: all 0.3s;
+    background-color: #f0f0f0;
+    text-align: left;
+    color: #555;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.level-button::after {
+    content: '+';
+    font-size: 1.2rem;
+    transition: transform 0.3s;
 }
 
 .level-button.active {
-    background-color: lightblue;
+    background: linear-gradient(to right, #a67c52, #d4a276);
+    color: white;
+}
+
+.level-button.active::after {
+    content: '−';
+    transform: rotate(180deg);
 }
 
 .level-content {
-    margin-top: 5px;
+    margin: 0;
+    padding: 20px;
     font-size: 1rem;
-    font-weight: bold;
+    line-height: 1.6;
+    background-color: white;
+    border-top: 1px solid #eee;
+    text-align: left;
+    color: #555;
+    font-weight: normal;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 30px 15px;
+    }
+
+    .about-name {
+        font-size: 2.2em;
+    }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    .taylor-level {
+        width: 95%;
+    }
+}
+
+/* Other tab content styling */
+.about-content p {
+    margin: 1em 0;
+    font-size: 1.1em;
+    line-height: 1.7;
 }
