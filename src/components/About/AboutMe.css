@@ -53,8 +53,6 @@
     transition: all 0.3s ease;
     font-weight: 500;
     border-radius: 30px;
-    background-color: rgba(230, 225, 220, 0.6);
-    box-shadow: 0 2px 8px rgba(150, 95, 65, 0.08);
 }
 
 .tab-button::after {
@@ -72,9 +70,7 @@
 
 .tab-button:hover {
     color: #965f41;
-    background-color: rgba(230, 225, 220, 0.8);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(150, 95, 65, 0.12);
 }
 
 .tab-button:hover::after {
@@ -84,8 +80,6 @@
 .tab-button.active {
     color: #965f41;
     font-weight: 600;
-    background-color: rgba(230, 225, 220, 0.9);
-    box-shadow: 0 4px 15px rgba(150, 95, 65, 0.15);
 }
 
 .tab-button.active::after {
@@ -146,10 +140,10 @@
     padding: 20px 0;
     margin-bottom: 0;
     position: relative;
-    width: 80px;
-    background: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
-    border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(150, 95, 65, 0.1);
+    width: 50px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .taylor-timeline::before {
@@ -190,6 +184,7 @@
     box-shadow: 0 0 10px rgba(150, 95, 65, 0.3);
 }
 
+/* Timeline labels - simplified */
 .timeline-label {
     position: absolute;
     left: 40px;
@@ -199,19 +194,19 @@
     color: #6e4c3a;
     white-space: nowrap;
     width: max-content;
-    background-color: rgba(230, 225, 220, 0.8);
-    padding: 5px 10px;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(150, 95, 65, 0.08);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     transition: all 0.2s ease;
 }
 
 .timeline-point:hover .timeline-label,
 .timeline-point.active .timeline-label {
     color: #965f41;
-    background-color: rgba(230, 225, 220, 0.95);
+    background-color: transparent;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(150, 95, 65, 0.1);
+    box-shadow: none;
 }
 
 /* Timeline separator styling */

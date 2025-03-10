@@ -1,13 +1,11 @@
 export const education = [
     {
         id: "edu1",
-        degree: "Masters in Mathematical and Theoretical Physics",
+        degree: "Masters in Mathematical and Theoretical Physics\nBachelor of Arts in Physics",
         institution: "University of Oxford",
         location: "Oxford, UK",
         dates: "2021 - 2025",
-        description: "Specialising in quantum information, condensed matter, and computational algorithms. Dissertation on 'ZX-calculus for quantum error-correction' under Professor Aleks Kissinger.",
-        awards: ["Fox Prize for ranking in the top 5% in 1st-year exams", "Academic Scholar Prize (x3) for sustained excellence in university exams"],
-        highlights: ["Ranked 21st out of 145 in BA Physics", "First Class Honours"]
+        description: "Completed a Bachelor's in Physics (2021-2023) with First Class Honours, ranking 21st out of 145 students. Currently pursuing a Master's specializing in quantum information, condensed matter, and computational algorithms.\n\nDissertation on 'ZX-calculus for quantum error-correction' under Professor Aleks Kissinger. Received the Fox Prize for ranking in the top 5% in 1st-year exams and multiple Academic Scholar Prizes for excellence in university exams."
     },
     {
         id: "edu2",
@@ -15,7 +13,7 @@ export const education = [
         institution: "La Martinere for Boys",
         location: "Kolkata, India",
         dates: "2019 - 2021",
-        description: "High school education with a strong academic record."
+        description: "High school education with a strong academic record. Achieved top grades in Physics, Mathematics, and Computer Science. Participated in various academic competitions and extracurricular activities."
     }
 ];
 
@@ -26,7 +24,7 @@ export const experience = [
         company: "University College London",
         location: "London, UK",
         dates: "Jul - Sep 2024",
-        description: "Investigated the structure of a novel ‘bivariate bicyclic’ quantum error correction code.",
+        description: "Investigated the structure of a novel 'bivariate bicyclic' quantum error correction code.",
         responsibilities: [
             "Constructed an algorithm to improve a given code by examining the underlying connectivity graphs.",
             "Created a comprehensive codebase to optimise the search for useful correction codes, visualise their properties, and evaluate generalised versions.",

@@ -28,6 +28,14 @@ const LocationIcon = () => (
     </svg>
 );
 
+const DownloadIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+);
+
 // Section Icons
 const EducationIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -78,8 +86,28 @@ const FlipCard = ({ frontContent, backContent }) => {
     );
 };
 
+// Helper function to format text with line breaks
+const formatTextWithLineBreaks = (text) => {
+    return text.split('\n\n').map((paragraph, index) => (
+        <React.Fragment key={index}>
+            {index > 0 && <br />}
+            {paragraph}
+        </React.Fragment>
+    ));
+};
+
 // Education Section
 const EducationSection = () => {
+    // Helper function to format degrees with line breaks
+    const formatDegree = (degree) => {
+        return degree.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+                {index > 0 && <br />}
+                {line}
+            </React.Fragment>
+        ));
+    };
+    
     return (
         <div className="resume-section">
             <div className="section-header">
@@ -96,7 +124,7 @@ const EducationSection = () => {
                         frontContent={
                             <>
                                 <h3 className="card-title">{edu.institution}</h3>
-                                <div className="card-subtitle">{edu.degree}</div>
+                                <div className="card-subtitle">{formatDegree(edu.degree)}</div>
                                 <div className="card-location"><LocationIcon />{edu.location}</div>
                                 <span className="card-dates">{edu.dates}</span>
                             </>
@@ -104,31 +132,7 @@ const EducationSection = () => {
                         backContent={
                             <>
                                 <h3 className="card-title">{edu.institution}</h3>
-                                <p className="card-description">{edu.description}</p>
-                                
-                                {edu.gpa && <p><strong>GPA:</strong> {edu.gpa}</p>}
-                                
-                                {edu.awards && edu.awards.length > 0 && (
-                                    <div>
-                                        <h4>Awards</h4>
-                                        <ul className="card-list">
-                                            {edu.awards.map((award, index) => (
-                                                <li key={index}>{award}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                                
-                                {edu.highlights && edu.highlights.length > 0 && (
-                                    <div>
-                                        <h4>Highlights</h4>
-                                        <ul className="card-list">
-                                            {edu.highlights.map((highlight, index) => (
-                                                <li key={index}>{highlight}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
+                                <p className="card-description">{formatTextWithLineBreaks(edu.description)}</p>
                             </>
                         }
                     />
@@ -294,14 +298,21 @@ const SkillsSection = () => {
 const Resume = () => {
     return (
         <div className="resume-container">
-            <div className="resume-header">
-                <h1 className="resume-name">Vansh Jhunjhunwala</h1>
-            </div>
-            
             <EducationSection />
             <ExperienceSection />
             <ProjectsSection />
             <SkillsSection />
+            <div className="download-resume-container">
+                <a 
+                    href="https://drive.google.com/file/d/1rG4W4Y-c83xxfJYRDF5pRr5yVRkeMcbE/view?usp=drive_link" 
+                    className="download-resume-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DownloadIcon />
+                    Download Resume
+                </a>
+            </div>
         </div>
     );
 };

@@ -35,7 +35,7 @@ const Sidebar = () => {
             </div>
             
             <nav className="sidebar-nav">
-                <Link to="/intro" className={isActive('/intro')}>About Me</Link>
+                <Link to="/aboutme" className={isActive('/intro')}>About Me</Link>
                 <Link to="/resume" className={isActive('/resume')}>Resume</Link>
                 <Link to="/blog" className={isActive('/blog')}>Blog</Link>
                 <Link to="/garden" className={isActive('/garden')}>Digital Garden</Link>
