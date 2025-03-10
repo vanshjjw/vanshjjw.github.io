@@ -1,0 +1,111 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    text-align: center;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #555;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #965f41;
+    outline: none;
+}
+
+.login-button {
+    background: linear-gradient(45deg, #965f41, #d4a276);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(150, 95, 65, 0.2);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 6px;
+}
+
+/* Personal page content styles */
+.personal-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.personal-container h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.4em;
+}
+
+.content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+    
+    .personal-container {
+        padding: 20px;
+    }
+} 
