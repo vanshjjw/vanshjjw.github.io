@@ -1,0 +1,39 @@
+/* Website Color Variables */
+:root {
+    /* Primary browns */
+    --primary-brown: #965f41;
+    --primary-brown-light: #d4a276;
+    --primary-brown-dark: #5a3a28;
+    
+    /* Text colors */
+    --text-primary: #4a3426;
+    --text-secondary: #6e4c3a;
+    --text-tertiary: #7d5a46;
+    
+    /* Background colors */
+    --bg-primary: rgba(230, 225, 220, 0.7);
+    --bg-secondary: rgba(245, 240, 235, 0.6);
+    
+    /* Gradient combinations */
+    --gradient-brown: linear-gradient(to right, var(--primary-brown), var(--primary-brown-light));
+    --gradient-bg: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+    
+    /* Shadow colors */
+    --shadow-light: rgba(150, 95, 65, 0.08);
+    --shadow-medium: rgba(150, 95, 65, 0.1);
+    --shadow-dark: rgba(150, 95, 65, 0.15);
+    
+    /* Accent colors */
+    --accent-color: rgba(150, 95, 65, 0.7);
+    --hover-bg: rgba(230, 225, 220, 0.8);
+    --active-bg: rgba(230, 225, 220, 0.9);
+    
+    /* Border colors */
+    --border-light: rgba(150, 95, 65, 0.15);
+}
+
+/* Usage example:
+   color: var(--primary-brown);
+   background: var(--gradient-bg);
+   box-shadow: 0 4px 10px var(--shadow-medium);
+*/ 

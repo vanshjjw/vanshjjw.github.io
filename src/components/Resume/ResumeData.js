@@ -11,9 +11,9 @@ export const education = [
     },
     {
         id: "edu2",
-        degree: "Indian School Certificate (Grade 12) - 98.5% Aggregate",
+        degree: "Indian School Certificate",
         institution: "La Martinere for Boys",
-        location: "India",
+        location: "Kolkata, India",
         dates: "2019 - 2021",
         description: "High school education with a strong academic record."
     }
@@ -23,7 +23,7 @@ export const experience = [
     {
         id: "exp1",
         role: "Research Intern",
-        company: "London Centre for Nanotechnology",
+        company: "University College London",
         location: "London, UK",
         dates: "Jul - Sep 2024",
         description: "Investigated the structure of a novel ‘bivariate bicyclic’ quantum error correction code.",
@@ -97,7 +97,6 @@ export const skills = {
         { category: "Frameworks & Tools", items: ["Docker", "Git", "Unix", "ASP.NET Core", "Entity Framework", "Node.js", "Azure DevOps"] }
     ],
     extracurriculars: [
-        { category: "Leadership & Student Committees", items: ["President, Oxford Quantum Information Society", "Oxford Entrepreneurs", "CapitOx Consulting Group", "Corpus Christi College JCR"] },
-        { category: "Other Interests", items: ["History of civil and military aviation", "Bespoke suits", "Photography", "Formula One"] }
+        { category: "Leadership & Student Committees", items: ["President, Oxford Quantum Information Society", "Oxford Entrepreneurs", "CapitOx Consulting Group", "Corpus Christi College JCR"] }
     ]
 };

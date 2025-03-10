@@ -9,7 +9,7 @@
 
 .resume-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 .resume-name {
@@ -30,131 +30,188 @@
     transform: translateX(-50%);
     width: 180px;
     height: 4px;
-    background: linear-gradient(to right, #a67c52, #d4a276);
+    background: linear-gradient(to right, #965f41, #d4a276);
     border-radius: 2px;
 }
 
 /* Section styling */
 .resume-section {
-    margin-bottom: 60px;
+    margin-bottom: 90px;
     animation: fadeIn 0.8s ease-in-out;
+    padding-top: 20px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    opacity: 0.8;
+    color: #965f41;
 }
 
 .section-title {
-    font-size: 1.8em;
-    margin-bottom: 25px;
+    font-size: 2em;
     color: #333;
-    display: flex;
-    align-items: center;
     position: relative;
     padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    margin: 0;
 }
 
-.section-title::before {
-    content: '';
-    width: 6px;
-    height: 24px;
-    background: linear-gradient(to bottom, #a67c52, #d4a276);
-    margin-right: 12px;
-    border-radius: 3px;
-}
-
-/* Card styling for resume items */
-.resume-card {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    padding: 25px;
-    margin-bottom: 25px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.resume-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.resume-card::before {
+.section-title::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 4px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #965f41, #d4a276);
+    border-radius: 2px;
+}
+
+/* Card grid layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Flip card styling */
+.flip-card {
+    perspective: 1000px;
+    height: 250px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #a67c52, #d4a276);
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-.card-header {
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(150, 95, 65, 0.1);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
+    flex-direction: column;
 }
 
+.flip-card-front {
+    background: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
+    border-left: 4px solid;
+    border-image: linear-gradient(to bottom, #965f41, #d4a276) 1;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    border-right: 4px solid;
+    border-image: linear-gradient(to bottom, #965f41, #d4a276) 1;
+    background: linear-gradient(45deg, rgba(230, 225, 220, 0.8), rgba(245, 240, 235, 0.7));
+}
+
+.card-hover-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    color: #965f41;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.card-hover-hint svg {
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+}
+
+/* Card content styling */
 .card-title {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 600;
-    color: #444;
-    margin-bottom: 5px;
+    color: #5a3a28;
+    margin-bottom: 8px;
 }
 
 .card-subtitle {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #6e4c3a;
+    margin-bottom: 15px;
 }
 
 .card-dates {
     font-size: 0.9em;
-    color: #888;
+    color: #7d5a46;
     font-weight: 500;
-    padding: 5px 12px;
-    background-color: rgba(166, 124, 82, 0.1);
-    border-radius: 20px;
-    white-space: nowrap;
+    margin-top: auto;
+    display: inline-block;
 }
 
 .card-location {
-    font-size: 0.95em;
-    color: #777;
-    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #7d5a46;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
+    padding-top: 5px;
 }
 
-.card-location::before {
-    content: '📍';
+.card-location svg {
     margin-right: 5px;
-    font-size: 0.9em;
+    width: 14px;
+    height: 14px;
+    color: #965f41;
 }
 
 .card-description {
-    margin: 15px 0;
+    margin: 0 0 15px;
     line-height: 1.6;
-    color: #555;
+    color: #4a3426;
+    font-size: 0.95em;
 }
 
 .card-list {
     margin: 15px 0;
     padding-left: 20px;
+    font-size: 0.95em;
 }
 
 .card-list li {
     margin-bottom: 8px;
     position: relative;
-    padding-left: 10px;
-    color: #555;
-    line-height: 1.6;
+    padding-left: 5px;
+    color: #4a3426;
+    line-height: 1.5;
 }
 
 .card-list li::before {
     content: '•';
     position: absolute;
     left: -12px;
-    color: #a67c52;
+    color: #965f41;
     font-weight: bold;
 }
 
@@ -169,19 +226,18 @@
 .tech-tag {
     font-size: 0.85em;
     padding: 5px 12px;
-    background-color: rgba(166, 124, 82, 0.1);
-    color: #a67c52;
+    background-color: rgba(150, 95, 65, 0.1);
+    color: #965f41;
     border-radius: 15px;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .tech-tag:hover {
-    background-color: rgba(166, 124, 82, 0.2);
-    transform: translateY(-2px);
+    background-color: rgba(150, 95, 65, 0.2);
 }
 
-/* Project section specific styling */
+/* Project links */
 .project-links {
     display: flex;
     gap: 15px;
@@ -192,7 +248,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #a67c52;
+    color: #965f41;
     font-weight: 500;
     transition: all 0.2s ease;
 }
@@ -202,26 +258,47 @@
     text-decoration: underline;
 }
 
-.project-link span {
-    margin-left: 5px;
+.project-link svg {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
 }
 
 /* Skills section styling */
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
 }
 
 .skill-category {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
+    box-shadow: 0 4px 15px rgba(150, 95, 65, 0.1);
+    border-left: 4px solid;
+    border-image: linear-gradient(to bottom, #965f41, #d4a276) 1;
 }
 
 .skill-category-title {
     font-size: 1.2em;
-    color: #555;
-    margin-bottom: 10px;
+    color: #5a3a28;
+    margin-bottom: 15px;
     font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.skill-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, #965f41, #d4a276);
+    border-radius: 2px;
 }
 
 .skill-list {
@@ -248,12 +325,21 @@
         padding: 30px 20px;
     }
     
-    .card-header {
-        flex-direction: column;
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
     
-    .card-dates {
-        margin-top: 10px;
+    .flip-card {
+        height: 280px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .section-icon {
+        margin-bottom: 15px;
     }
     
     .skills-container {

@@ -1,3 +1,5 @@
+@import './styles/colors.css';
+
 .app-layout {
     display: flex;
     flex-direction: row;
@@ -30,7 +32,7 @@
 :root {
     --siderbar-primary-color: #965f41;
     --fade-color: #965f31;
-    --hover-color: orange;
+    --hover-color: #d4a276;
     --link-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     --transition-duration: 0.3s;
     --link-scale: 1.2;
