@@ -10,13 +10,13 @@
 /* Header styling */
 .about-name {
     text-align: center;
-    font-size: 3em;
-    margin-bottom: 30px;
+    font-size: 3.2em;
+    margin-bottom: 40px;
     color: #333;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 18px;
 }
 
 .about-name::after {
@@ -25,9 +25,10 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1100px;
-    height: 3px;
+    width: 180px;
+    height: 4px;
     background: linear-gradient(to right, #a67c52, #d4a276);
+    border-radius: 2px;
 }
 
 /* Menu styling */
@@ -35,7 +36,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: none;
     padding-bottom: 5px;
     flex-wrap: wrap;
 }
@@ -44,55 +45,59 @@
     background: none;
     border: none;
     padding: 12px 25px;
-    margin: 0 8px 8px;
+    margin: 0 12px 12px;
     font-size: 1.1em;
     cursor: pointer;
     color: #666;
-    font-weight: 500;
-    transition: all 0.3s;
     position: relative;
-    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-radius: 30px;
 }
 
 .tab-button::after {
     content: '';
     position: absolute;
-    bottom: -6px;
-    left: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 3px;
     background: linear-gradient(to right, #a67c52, #d4a276);
-    transition: width 0.3s;
+    transition: width 0.3s ease;
+    border-radius: 3px;
 }
 
 .tab-button:hover {
     color: #a67c52;
+    background-color: rgba(212, 162, 118, 0.08);
 }
 
 .tab-button:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
 .tab-button.active {
     color: #a67c52;
+    font-weight: 600;
 }
 
 .tab-button.active::after {
-    width: 100%;
+    width: 90%;
 }
 
 /* Content styling */
 .about-content {
-    text-align: center;
-    line-height: 1.6;
-    font-size: 1.1em;
-    animation: fadeIn 0.6s ease-out;
-    padding: 20px;
-    /*background: #fff;*/
-    border-radius: 8px;
+    position: relative;
+    padding: 30px;
+    background-color: transparent;
+    border-radius: 12px;
+    box-shadow: none;
+    animation: fadeIn 0.5s ease-in-out;
+    min-height: 300px;
+    overflow: hidden;
 }
 
-/* Fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -104,106 +109,203 @@
     }
 }
 
-/* Taylor Approximation Section */
+/* Taylor approximation styling */
 .taylor-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    margin-top: 20px;
     width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    position: relative;
+    padding: 20px 0;
 }
 
-.taylor-level {
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.level-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    background-color: #f0f0f0;
-    text-align: left;
-    color: #555;
-    font-weight: 500;
+/* Horizontally arranged container for timeline and content */
+.taylor-horizontal-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 100px;
+}
+
+/* Vertical timeline for Taylor levels */
+.taylor-timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    height: auto;
+    min-height: 400px;
+    padding: 20px 0;
+    margin-bottom: 0;
+    position: relative;
+    width: 80px;
 }
 
-.level-button::after {
-    content: '+';
-    font-size: 1.2rem;
-    transition: transform 0.3s;
+.taylor-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    background: linear-gradient(to bottom, #a67c52, #d4a276);
+    border-radius: 2px;
+    z-index: 1;
+    transform: translateX(-50%);
 }
 
-.level-button.active {
-    background: linear-gradient(to right, #a67c52, #d4a276);
-    color: white;
+.timeline-point {
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 3px solid #a67c52;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0;
 }
 
-.level-button.active::after {
-    content: '−';
-    transform: rotate(180deg);
+.timeline-point.active {
+    background: #d4a276;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(212, 162, 118, 0.5);
 }
 
-.level-content {
-    margin: 0;
-    padding: 20px;
-    font-size: 1rem;
-    line-height: 1.6;
-    background-color: white;
-    border-top: 1px solid #eee;
+.timeline-point:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(166, 124, 82, 0.3);
+}
+
+.timeline-label {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95em;
+    color: #666;
+    white-space: nowrap;
+    width: max-content;
+}
+
+/* Timeline separator styling */
+.timeline-separator {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+
+.separator-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #a67c52;
+    border-radius: 50%;
+    margin: 2px 0;
+}
+
+/* Taylor level content */
+.taylor-level-content {
+    width: calc(100% - 150px);
+    padding: 30px;
+    margin-top: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 25px rgba(166, 124, 82, 0.08);
     text-align: left;
-    color: #555;
-    font-weight: normal;
-    animation: slideDown 0.3s ease-out;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+    position: relative;
+    max-width: 800px;
+    border-left: 5px solid rgba(212, 162, 118, 0.7);
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.taylor-level-content.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* Media queries for responsiveness */
+.taylor-level-content::before {
+    display: none;
+}
+
+.taylor-level-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Add a nice title to the content */
+.taylor-level-title {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #a67c52;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(166, 124, 82, 0.15);
+    padding-bottom: 10px;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
     .about-container {
-        padding: 30px 15px;
+        padding: 30px 20px;
     }
-
+    
     .about-name {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
-
+    
     .tab-button {
         padding: 10px 15px;
-        font-size: 0.95em;
+        margin: 0 8px 8px;
     }
-
-    .taylor-level {
-        width: 95%;
+    
+    .taylor-horizontal-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    
+    .taylor-timeline {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0;
+        min-height: 350px;
+        max-width: 80px;
+    }
+    
+    .taylor-level-content {
+        width: 100%;
+        max-width: 100%;
+        transform: translateY(20px);
+        border-left: none;
+        border-top: 5px solid rgba(212, 162, 118, 0.7);
+        margin-top: 10px;
+    }
+    
+    .taylor-level-content.visible {
+        transform: translateY(0);
+    }
+    
+    .timeline-label {
+        left: auto;
+        right: -80px;
+    }
+    
+    .timeline-point {
+        width: 20px;
+        height: 20px;
     }
 }
 
-/* Other tab content styling */
 .about-content p {
-    margin: 1em 0;
-    font-size: 1.1em;
     line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1.05em;
 }

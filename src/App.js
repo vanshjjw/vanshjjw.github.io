@@ -8,6 +8,7 @@ import Sidebar from "./components/General/Sidebar";
 
 import AboutMe from "./components/About/AboutMe";
 import Resources from "./components/Resources/Resources";
+import Resume from "./components/Resume/Resume";
 
 import "./style.css";
 import "./App.css";
@@ -33,10 +34,11 @@ function App() {
                   <Sidebar />
                   <div className="main-content">
                       <Routes>
+                          <Route path="/" element={<AboutMe />} />
                           <Route path="/intro" element={<AboutMe />} />
-                          <Route path="/resume" element={<h1>Resume coming soon...</h1>} />
-                          <Route path="/blog" element={<h1></h1>} />
-                          <Route path="/garden" element={<h1></h1>} />
+                          <Route path="/resume" element={<Resume />} />
+                          <Route path="/blog" element={<h1>Blog coming soon...</h1>} />
+                          <Route path="/garden" element={<h1>Digital Garden coming soon...</h1>} />
                           <Route path="/resources" element={<Resources />} />
                           {/* Add other routes here when additional sections are implemented */}
                       </Routes>
