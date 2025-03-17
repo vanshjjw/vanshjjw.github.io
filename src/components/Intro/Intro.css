@@ -1,0 +1,192 @@
+/* Intro page styling using the website's color scheme */
+:root {
+  /* Primary colors */
+  --primary-dark: #965f41;
+  --primary-light: #d4a276;
+  --primary-gradient: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
+  
+  /* Text colors */
+  --text-dark: #333;
+  --text-title: #5a3a28;
+  --text-subtitle: #6e4c3a;
+  --text-body: #4a3426;
+  --text-muted: #7d5a46;
+  
+  /* Fonts */
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Raleway', Arial, sans-serif;
+  --font-cursive: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --spacing-large: 40px;
+  --spacing-xlarge: 90px;
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xlarge) var(--spacing-medium);
+  font-family: var(--font-body);
+  color: var(--text-body);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-name {
+  font-family: var(--font-cursive);
+  font-size: 3.5em;
+  color: var(--text-title);
+  margin-bottom: var(--spacing-large);
+  position: relative;
+  padding-bottom: var(--spacing-medium);
+  text-align: center;
+  font-weight: 500;
+}
+
+.intro-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+.intro-bio {
+  margin-bottom: var(--spacing-xlarge);
+  line-height: 1.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-bio p {
+  margin-bottom: var(--spacing-large);
+  font-size: 1.2em;
+  text-align: center;
+  font-family: var(--font-cursive);
+}
+
+.contact-section {
+  margin-top: var(--spacing-xlarge);
+}
+
+.contact-section .section-title {
+  font-family: var(--font-cursive);
+  font-size: 1.4em;
+  color: var(--text-title);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+/* Remove the underline decoration from the section title */
+.contact-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xlarge);
+  margin-top: var(--spacing-small);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-small) var(--spacing-medium);
+  text-decoration: none;
+  color: var(--text-body);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: var(--font-cursive);
+  font-size: 1em;
+  opacity: 0.8;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-dark);
+  transition: all 0.3s ease;
+}
+
+.contact-link svg {
+  margin-right: var(--spacing-small);
+  color: var(--primary-dark);
+  transition: transform 0.3s ease;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.contact-link:hover {
+  color: var(--primary-dark);
+  opacity: 1;
+}
+
+.contact-link:hover::after {
+  width: 100%;
+}
+
+.contact-link:hover svg {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-container {
+    padding: var(--spacing-large) var(--spacing-medium);
+  }
+  
+  .intro-name {
+    font-size: 2.5em;
+  }
+  
+  .intro-bio p {
+    font-size: 1.1em;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-large);
+  }
+  
+  .contact-link {
+    padding: var(--spacing-small);
+  }
+} 

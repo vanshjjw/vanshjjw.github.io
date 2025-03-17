@@ -1,6 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import './AboutMe.css';
-import { tabs, taylorLevels } from './AboutData';
+import './Personal.css';
+import { tabs, taylorLevels } from './PersonalData';
+
+// Login credentials (in a real app, these would be stored securely)
+const CORRECT_USERNAME = "vansh";
+const CORRECT_PASSWORD = "personalpage";
+
+const LoginScreen = ({ onLogin }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (username === CORRECT_USERNAME && password === CORRECT_PASSWORD) {
+            onLogin();
+            // Store authentication state in sessionStorage
+            sessionStorage.setItem('isAuthenticated', 'true');
+        } else {
+            setError('Invalid credentials');
+        }
+    };
+
+    return (
+        <div className="login-container">
+            <form onSubmit={handleSubmit} className="login-form">
+                <h2>Personal Page Login</h2>
+                {error && <div className="error-message">{error}</div>}
+                <div className="form-group">
+                    <label htmlFor="username">Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit" className="login-button">Login</button>
+            </form>
+        </div>
+    );
+};
 
 const renderTabContent = (tabId, activeLevel, setActiveLevel) => {
     if (tabId === 'taylor') {
@@ -68,11 +119,14 @@ const renderTabContent = (tabId, activeLevel, setActiveLevel) => {
     return tab ? <div className="tab-content"><p>{tab.content}</p></div> : null;
 };
 
-const AboutMe = () => {
+const Personal = () => {
     const [activeTab, setActiveTab] = useState(tabs[0].id);
-    const [activeLevel, setActiveLevel] = useState(null); // Stores the active Taylor level
-    
-    // Effect to handle animation timing when changing levels
+    const [activeLevel, setActiveLevel] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(() => {
+        // Check if user is already authenticated
+        return sessionStorage.getItem('isAuthenticated') === 'true';
+    });
+
     useEffect(() => {
         if (activeLevel !== null) {
             const content = document.querySelector('.taylor-level-content');
@@ -82,9 +136,24 @@ const AboutMe = () => {
         }
     }, [activeLevel]);
 
+    if (!isAuthenticated) {
+        return <LoginScreen onLogin={() => setIsAuthenticated(true)} />;
+    }
+
     return (
         <div className="about-container">
-            <h1 className="about-name">Vansh Jhunjhunwala</h1>
+            <div className="header-container">
+                <h1 className="about-name">Vansh Jhunjhunwala</h1>
+                <button 
+                    className="logout-button"
+                    onClick={() => {
+                        setIsAuthenticated(false);
+                        sessionStorage.removeItem('isAuthenticated');
+                    }}
+                >
+                    Logout
+                </button>
+            </div>
 
             {/* Tab Buttons */}
             <div className="about-menu">
@@ -94,7 +163,7 @@ const AboutMe = () => {
                         className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
                         onClick={() => {
                             setActiveTab(tab.id);
-                            setActiveLevel(null); // Reset active Taylor level when switching tabs
+                            setActiveLevel(null);
                         }}
                     >
                         {tab.label}
@@ -108,4 +177,4 @@ const AboutMe = () => {
     );
 };
 
-export default AboutMe;
+export default Personal;

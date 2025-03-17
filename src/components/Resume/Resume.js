@@ -77,9 +77,21 @@ const ResumeSection = ({ title, icon: Icon, data }) => {
     );
 };
 
-// New Skill Card component with downward expansion
+// Skill Card component with proficiency bars
 const SkillCard = ({ category, items }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    
+    // Helper function to get proficiency level description
+    const getProficiencyLabel = (level) => {
+        switch(level) {
+            case 1: return 'Beginner';
+            case 2: return 'Basic';
+            case 3: return 'Intermediate';
+            case 4: return 'Advanced';
+            case 5: return 'Expert';
+            default: return 'Intermediate';
+        }
+    };
     
     return (
         <div className="skill-card-container">
@@ -96,9 +108,29 @@ const SkillCard = ({ category, items }) => {
                 </div>
             </div>
             <div className={`skill-content-panel ${isExpanded ? 'expanded' : ''}`}>
-                <div className="skill-tags">
+                <div className="skill-content">
                     {items.map((skill, index) => (
-                        <span key={index} className="tech-tag">{skill}</span>
+                        <div key={index} className="skill-item">
+                            <div className="skill-item-header">
+                                <span className="skill-name">{skill.name}</span>
+                                {skill.specialty && (
+                                    <span className="skill-specialty">({skill.specialty})</span>
+                                )}
+                                {skill.context && (
+                                    <span className="skill-context">{skill.context}</span>
+                                )}
+                            </div>
+                            <div className="skill-proficiency">
+                                <div className="proficiency-bar-container">
+                                    <div 
+                                        className="proficiency-bar" 
+                                        style={{ width: `${skill.proficiency * 20}%` }}
+                                        title={getProficiencyLabel(skill.proficiency)}
+                                    ></div>
+                                </div>
+                                <span className="proficiency-label">{getProficiencyLabel(skill.proficiency)}</span>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -106,7 +138,7 @@ const SkillCard = ({ category, items }) => {
     );
 };
 
-// Updated Skills Section with horizontal card layout
+// Updated Skills Section with simplified data structure
 const SkillsSection = () => {
     return (
         <div className="resume-section">
@@ -118,21 +150,23 @@ const SkillsSection = () => {
             </div>
             
             <div className="skills-container">
-                {skills.technical.map((category, index) => (
-                    <SkillCard 
-                        key={index} 
-                        category={category.category} 
-                        items={category.items} 
-                    />
-                ))}
+                <SkillCard 
+                    key="languages" 
+                    category={skills.languages.category} 
+                    items={skills.languages.items} 
+                />
                 
-                {skills.extracurriculars && skills.extracurriculars.map((category, index) => (
-                    <SkillCard 
-                        key={`extra-${index}`} 
-                        category={category.category} 
-                        items={category.items} 
-                    />
-                ))}
+                <SkillCard 
+                    key="tools" 
+                    category={skills.tools.category} 
+                    items={skills.tools.items} 
+                />
+                
+                <SkillCard 
+                    key="other" 
+                    category={skills.other.category} 
+                    items={skills.other.items} 
+                />
             </div>
         </div>
     );

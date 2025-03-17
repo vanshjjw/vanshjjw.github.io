@@ -59,11 +59,41 @@ export const otherExperience = [
 
 
 export const skills = {
-    technical: [
-        { category: "Programming", items: ["Python (Qiskit, Django)", "Java", "C/C++", "C#", "CUDA", "React", "TypeScript", "SQL"] },
-        { category: "Frameworks", items: ["Docker", "Git", "Unix", "ASP.NET Core", "Entity Framework", "Node.js", "Azure DevOps"] }
-    ],
-    extracurriculars: [
-        { category: "Leadership", items: ["Oxford Entrepreneurs", "CapitOx Consulting Group", "Corpus Christi College JCR"] }
-    ]
+    languages: {
+        category: "Languages",
+        items: [
+            { name: "Python", proficiency: 5, specialty: "Qiskit, Django" },
+            { name: "Java", proficiency: 4 },
+            { name: "C/C++", proficiency: 4 },
+            { name: "JavaScript/TypeScript", proficiency: 4, specialty: "React" },
+            { name: "C#", proficiency: 3 },
+            { name: "SQL", proficiency: 3 },
+            { name: "CUDA", proficiency: 3 }
+        ]
+    },
+    tools: {
+        category: "Tools & Frameworks",
+        items: [
+            { name: "Git", proficiency: 5 },
+            { name: "Docker", proficiency: 4 },
+            { name: "Unix/Linux", proficiency: 4 },
+            { name: "ASP.NET Core", proficiency: 3 },
+            { name: "Entity Framework", proficiency: 3 },
+            { name: "Node.js", proficiency: 3 },
+            { name: "Azure DevOps", proficiency: 3 }
+        ]
+    },
+    other: {
+        category: "Other Skills",
+        items: [
+            { name: "Team Leadership", proficiency: 5, context: "President of Oxford Quantum Information Society" },
+            { name: "Event Organization", proficiency: 4, context: "Workshops and seminars" },
+            { name: "Project Management", proficiency: 4, context: "Research and development projects" },
+            { name: "Academic Presentation", proficiency: 4, context: "Research presentations" },
+            { name: "Technical Writing", proficiency: 4, context: "Research documentation" },
+            { name: "Cross-functional Collaboration", proficiency: 4, context: "Working across disciplines" },
+            { name: "Entrepreneurship", proficiency: 3, context: "Oxford University Innovation Incubator" },
+            { name: "Networking", proficiency: 3, context: "Industry connections" }
+        ]
+    }
 };

@@ -31,12 +31,13 @@ const Sidebar = () => {
             </button>
             
             <div className="profile-pic">
-                <img src="/favicon.ico" alt="Vansh Jhunjhunwala"/>
+                <img src="/profile-photo.ico" alt="Vansh Jhunjhunwala"/>
             </div>
             
             <nav className="sidebar-nav">
-                <Link to="/aboutme" className={isActive('/intro')}>About Me</Link>
+                <Link to="/intro" className={isActive('/intro')}>Intro</Link>
                 <Link to="/resume" className={isActive('/resume')}>Resume</Link>
+                <Link to="/projects" className={isActive('/projects')}>Projects</Link>
                 <Link to="/blog" className={isActive('/blog')}>Blog</Link>
                 <Link to="/garden" className={isActive('/garden')}>Digital Garden</Link>
                 <Link to="/resources" className={isActive('/resources')}>Resources</Link>
