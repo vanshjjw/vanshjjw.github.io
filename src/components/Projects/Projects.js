@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { projects } from './ProjectsData';
+import Markdown from 'react-markdown';
+import { projectsData } from './ProjectsData';
 import './Projects.css';
 
 // Icons for links
@@ -17,26 +18,23 @@ const ExternalLinkIcon = () => (
   </svg>
 );
 
+const Introduction = `A collection of my recent development work. 
+Each project represents different skills and technologies I've worked with.`
+
+
+
+
 // Modal for displaying full project description
 const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!isOpen) return null;
-  
-  // Format description paragraphs
-  const paragraphs = project.fullDescription.split('\n\n');
 
   // Determine image to show (alternate or original)
   const displayImage = project.alternateImage || project.image;
   
-  // Handle close button click with stopPropagation
-  const handleCloseClick = (e) => {
-    e.stopPropagation();
-    onClose();
-  };
-  
   return (
     <div className="project-modal-overlay" onClick={onClose}>
       <div className="project-modal" onClick={e => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={handleCloseClick}>×</button>
+        <button className="modal-close-btn" onClick={onClose}>×</button>
         <h2 className="modal-title">{project.name}</h2>
         
         <div className="modal-content">
@@ -53,9 +51,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           </div>
           
           <div className="modal-description">
-            {paragraphs.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
+            <Markdown>{project.description}</Markdown>
           </div>
           
           <div className="modal-tags">
@@ -162,11 +158,11 @@ const Projects = () => {
   return (
     <div className="projects-container">
       <p className="projects-subtitle">
-        A collection of my recent development work. Each project represents different skills and technologies I've worked with.
+        {Introduction}
       </p>
       
       <div className="projects-grid">
-        {projects.map((project) => (
+        {projectsData.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>

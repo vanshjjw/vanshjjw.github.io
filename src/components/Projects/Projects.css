@@ -63,7 +63,7 @@
 /* Projects grid layout */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--spacing-md);
 }
 
@@ -74,7 +74,7 @@
   overflow: hidden;
   box-shadow: 0 4px 12px var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  height: 100%;
+  height: 110%;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -378,4 +378,202 @@
 .project-modal button:focus {
   outline: none;
   box-shadow: none;
+}
+
+/* Add styling for rich text elements */
+
+/* Paragraph styling in modal */
+.modal-paragraph {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+/* Inline links */
+.inline-link {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 1px dotted var(--primary-light);
+}
+
+.inline-link:hover {
+  color: var(--primary-light);
+  border-bottom: 1px solid var(--primary-light);
+}
+
+/* Block links */
+.modal-link-block {
+  margin-top: var(--spacing-md);
+}
+
+.content-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.content-link svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
+.content-link:hover {
+  color: var(--primary-light);
+}
+
+/* List styling */
+.modal-list {
+  margin-bottom: var(--spacing-md);
+  padding-left: 1.5rem;
+}
+
+.modal-list-item {
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.modal-list-item::before {
+  content: "•";
+  position: absolute;
+  left: -1.2rem;
+  color: var(--primary-dark);
+}
+
+/* Code blocks */
+.modal-code-block {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Remove outline on focus for interactive elements */
+.project-modal a:focus,
+.project-modal button:focus {
+  outline: none;
+}
+
+/* Markdown styling */
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-family: var(--font-heading);
+  color: var(--text-title);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.markdown-content a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 1px dotted var(--primary-light);
+}
+
+.markdown-content a:hover {
+  color: var(--primary-light);
+  border-bottom: 1px solid var(--primary-light);
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.markdown-content li p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.markdown-content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+.markdown-content pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  overflow-x: auto;
+}
+
+.markdown-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid var(--primary-light);
+  padding-left: var(--spacing-md);
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-muted);
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Markdown error styling */
+.markdown-error {
+  background: rgba(255, 235, 235, 0.5);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  margin-bottom: var(--spacing-md);
+}
+
+.markdown-error p {
+  color: #721c24;
+  margin-bottom: var(--spacing-sm);
+}
+
+.markdown-raw {
+  background: rgba(255, 255, 255, 0.8);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
 } 
