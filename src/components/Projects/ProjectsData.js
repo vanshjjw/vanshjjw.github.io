@@ -29,26 +29,6 @@ export const projects = [
     link: 'https://github.com/your-username/task-manager',
     demo: 'https://your-task-app.com',
     technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT Authentication']
-  },
-  {
-    id: 'project4',
-    name: 'Weather Forecast Dashboard',
-    image: '/images/projects/weather-dashboard.jpg',
-    description: 'A weather dashboard that displays current conditions and 5-day forecasts for any location. Integrates with the OpenWeatherMap API and features beautiful visualizations for temperature, humidity, and wind data.',
-    shortDescription: 'Interactive weather dashboard with forecasts',
-    link: 'https://github.com/your-username/weather-dashboard',
-    demo: 'https://your-weather-app.com',
-    technologies: ['JavaScript', 'API Integration', 'Chart.js', 'CSS3']
-  },
-  {
-    id: 'project5',
-    name: 'E-commerce Shopping Cart',
-    image: '/images/projects/ecommerce.jpg',
-    description: 'A shopping cart system for e-commerce websites with product filtering, user reviews, and payment processing integration. Includes inventory management and order tracking features.',
-    shortDescription: 'Complete e-commerce solution with payment processing',
-    link: 'https://github.com/your-username/ecommerce-cart',
-    demo: 'https://your-shop-demo.com',
-    technologies: ['React', 'Redux', 'Firebase', 'Stripe API', 'Responsive Design']
   }
 ];
 

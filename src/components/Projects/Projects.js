@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { projects } from './ProjectsData';
 import './Projects.css';
 
@@ -19,6 +19,22 @@ const ExternalLinkIcon = () => (
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState('/images/projects/placeholder.jpg');
+  
+  // Handle image loading
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setImgSrc(project.image);
+      setImageLoaded(true);
+    };
+    img.onerror = () => {
+      setImgSrc('/images/projects/placeholder.jpg');
+      setImageLoaded(true);
+    };
+    img.src = project.image;
+  }, [project.image]);
   
   return (
     <div 
@@ -51,15 +67,13 @@ const ProjectCard = ({ project }) => {
             )}
           </div>
         </div>
-        <img 
-          src={project.image} 
-          alt={project.name} 
-          className="project-image"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = '/images/projects/placeholder.jpg';
-          }}
-        />
+        {imageLoaded && (
+          <img 
+            src={imgSrc} 
+            alt={project.name} 
+            className="project-image"
+          />
+        )}
       </div>
       
       <div className="project-content">
@@ -81,7 +95,6 @@ const ProjectCard = ({ project }) => {
 const Projects = () => {
   return (
     <div className="projects-container">
-      <h1 className="projects-title">My Projects</h1>
       <p className="projects-subtitle">
         A collection of my recent development work. Each project represents different skills and technologies I've worked with.
       </p>

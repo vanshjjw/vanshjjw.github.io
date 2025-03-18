@@ -6,6 +6,7 @@ import Preloader from "./components/General/Preloader";
 import ScrollToTop from "./components/General/ScrollToTop";
 import Sidebar from "./components/General/Sidebar";
 
+import Blog from "./components/Blog/Blog";
 import Intro from "./components/Intro/Intro";
 import Personal from "./components/Personal/PersonalPage";
 import Projects from "./components/Projects/Projects";
@@ -40,7 +41,7 @@ function App() {
                           <Route path="/personal" element={<Personal />} />
                           <Route path="/resume" element={<Resume />} />
                           <Route path="/projects" element={<Projects />} />
-                          <Route path="/blog" element={<h1>Blog coming soon...</h1>} />
+                          <Route path="/blog" element={<Blog />} />
                           <Route path="/garden" element={<h1>Digital Garden coming soon...</h1>} />
                           <Route path="/resources" element={<Resources />} />
                           <Route path="*" element={<Navigate to="/intro" replace />} />
