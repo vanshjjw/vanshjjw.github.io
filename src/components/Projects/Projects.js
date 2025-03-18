@@ -27,10 +27,16 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   // Determine image to show (alternate or original)
   const displayImage = project.alternateImage || project.image;
   
+  // Handle close button click with stopPropagation
+  const handleCloseClick = (e) => {
+    e.stopPropagation();
+    onClose();
+  };
+  
   return (
     <div className="project-modal-overlay" onClick={onClose}>
       <div className="project-modal" onClick={e => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={onClose}>×</button>
+        <button className="modal-close-btn" onClick={handleCloseClick}>×</button>
         <h2 className="modal-title">{project.name}</h2>
         
         <div className="modal-content">

@@ -214,6 +214,8 @@
   justify-content: center;
   border-radius: 50%;
   transition: background-color 0.2s ease;
+  z-index: 10;
+  outline: none;
 }
 
 .modal-close-btn:hover {
@@ -280,6 +282,11 @@
   border-radius: var(--border-radius-sm);
   font-weight: 600;
   transition: opacity 0.2s ease;
+  outline: none;
+}
+
+.modal-link:focus {
+  outline: none;
 }
 
 .modal-link svg {
@@ -360,4 +367,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Remove blue highlight on all modal interactive elements */
+.project-modal * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-modal a:focus,
+.project-modal button:focus {
+  outline: none;
+  box-shadow: none;
 } 

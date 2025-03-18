@@ -4,9 +4,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Preloader from "./components/General/Preloader";
 import ScrollToTop from "./components/General/ScrollToTop";
-import Sidebar from "./components/General/Sidebar";
 
-import Blog from "./components/Blog/Blog";
+import Sidebar from "./components/Sidebar/Sidebar";
+
 import Intro from "./components/Intro/Intro";
 import Personal from "./components/Personal/PersonalPage";
 import Projects from "./components/Projects/Projects";
@@ -38,13 +38,14 @@ function App() {
                   <div className="main-content">
                       <Routes>
                           <Route path="/intro" element={<Intro />} />
-                          <Route path="/personal" element={<Personal />} />
                           <Route path="/resume" element={<Resume />} />
                           <Route path="/projects" element={<Projects />} />
-                          <Route path="/blog" element={<Blog />} />
                           <Route path="/garden" element={<h1>Digital Garden coming soon...</h1>} />
                           <Route path="/resources" element={<Resources />} />
+                          {/* Unrenddered Private Routes */}
+                          <Route path="/personal" element={<Personal />} />
                           <Route path="*" element={<Navigate to="/intro" replace />} />
+                          
                           {/* Add other routes here when additional sections are implemented */}
                       </Routes>
                   </div>
