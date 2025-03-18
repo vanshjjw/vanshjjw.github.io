@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { projects } from './ProjectsData';
 import './Projects.css';
 
-// Icons for project links
+// Icons for links
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -17,10 +17,82 @@ const ExternalLinkIcon = () => (
   </svg>
 );
 
+// Modal for displaying full project description
+const ProjectModal = ({ project, isOpen, onClose }) => {
+  if (!isOpen) return null;
+  
+  // Format description paragraphs
+  const paragraphs = project.fullDescription.split('\n\n');
+
+  // Determine image to show (alternate or original)
+  const displayImage = project.alternateImage || project.image;
+  
+  return (
+    <div className="project-modal-overlay" onClick={onClose}>
+      <div className="project-modal" onClick={e => e.stopPropagation()}>
+        <button className="modal-close-btn" onClick={onClose}>×</button>
+        <h2 className="modal-title">{project.name}</h2>
+        
+        <div className="modal-content">
+          <div className="modal-image-container">
+            <img 
+              src={displayImage} 
+              alt={project.name} 
+              className="modal-image"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/images/projects/placeholder.jpg';
+              }}
+            />
+          </div>
+          
+          <div className="modal-description">
+            {paragraphs.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+          </div>
+          
+          <div className="modal-tags">
+            {project.tags.map((tag, index) => (
+              <span key={index} className="project-tech-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+          
+          <div className="modal-actions">
+            {project.link && (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-link github-link"
+              >
+                <GithubIcon /> View Code
+              </a>
+            )}
+            
+            {project.demo && (
+              <a 
+                href={project.demo} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-link demo-link"
+              >
+                <ExternalLinkIcon /> Try it out
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ProjectCard = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imgSrc, setImgSrc] = useState('/images/projects/placeholder.jpg');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Handle image loading
   useEffect(() => {
@@ -37,58 +109,46 @@ const ProjectCard = ({ project }) => {
   }, [project.image]);
   
   return (
-    <div 
-      className="project-card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="project-image-container">
-        <div className={`project-image-overlay ${isHovered ? 'hovered' : ''}`}>
-          <div className="project-links">
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="project-link"
-              aria-label={`View code for ${project.name}`}
-            >
-              <GithubIcon /> View Code
-            </a>
-            {project.demo && (
-              <a 
-                href={project.demo} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="project-link demo-link"
-                aria-label={`Try out ${project.name}`}
-              >
-                <ExternalLinkIcon /> Try it out
-              </a>
+    <>
+      <div 
+        className="project-card"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <div className="project-image-container">
+          {imageLoaded && (
+            <img 
+              src={imgSrc} 
+              alt={project.name} 
+              className="project-image"
+            />
+          )}
+        </div>
+        
+        <div className="project-content">
+          <h3 className="project-title">{project.name}</h3>
+          <p className="project-description">
+            {project.shortDescription}
+          </p>
+          
+          <div className="project-technologies">
+            {project.tags.slice(0, 3).map((tag, index) => (
+              <span key={index} className="project-tech-tag">
+                {tag}
+              </span>
+            ))}
+            {project.tags.length > 3 && (
+              <span className="project-tech-tag more-tag">+{project.tags.length - 3}</span>
             )}
           </div>
         </div>
-        {imageLoaded && (
-          <img 
-            src={imgSrc} 
-            alt={project.name} 
-            className="project-image"
-          />
-        )}
       </div>
       
-      <div className="project-content">
-        <h3 className="project-title">{project.name}</h3>
-        <p className="project-description">{project.description}</p>
-        
-        <div className="project-technologies">
-          {project.technologies.map((tech, index) => (
-            <span key={index} className="project-tech-tag">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
+      <ProjectModal 
+        project={project} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </>
   );
 };
 

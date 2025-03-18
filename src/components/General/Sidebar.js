@@ -31,7 +31,7 @@ const Sidebar = () => {
             </button>
             
             <div className="profile-pic">
-                <img src="/profile-photo.ico" alt="Vansh Jhunjhunwala"/>
+                <img src="/images/general/profile-photo.ico" alt="Vansh Jhunjhunwala"/>
             </div>
             
             <nav className="sidebar-nav">
