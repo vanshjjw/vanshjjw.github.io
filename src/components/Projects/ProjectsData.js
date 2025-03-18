@@ -34,7 +34,7 @@ const snews = {
 // Quantum Tic-Tac-Toe
 
 const qTTTName = "Quantum Tic-Tac-Toe"
-const qTTTImage = "/images/projects/qtic-head"
+const qTTTImage = "/images/projects/qtic-head.png"
 const qTTTAlternateImage = "/images/projects/qtic-main.png"
 const qTTTShortDescription = "A Quantum version of the classic Tic-Tac-Toe game-conceptualised and created in 24 hours."
 const qTTTLink = "https://github.com/vanshjjw/q-tic-tac-toe"
@@ -68,8 +68,8 @@ const ld50Name = "Ludum Dare 50"
 const ld50Image = "/images/projects/ludumdare-head.png"
 const ld50AlternateImage = "/images/projects/ludumdare-main.png"
 const ld50ShortDescription = "Created a zombie-apocalypse-based strategy and simulation game in 72 hours."
-const ld50Link = ""
-const ld50Demo = ""
+const ld50Link = "https://github.com/vanshjjw/Ludum-Dare-22"
+const ld50Demo = "https://draconicchipmunk.itch.io/defending-hope"
 const ld50Tags = ["Game Development", "C#", "Game Design", "Rapid Prototyping", "Simulation"]
 
 const ld50Description = `

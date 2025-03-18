@@ -9,7 +9,7 @@ import {
     WorkExperienceIcon,
     OtherExperienceIcon,
     SkillsIcon
-} from './Icons';
+} from '../../assets/Icons';
 import './Resume.css';
 
 

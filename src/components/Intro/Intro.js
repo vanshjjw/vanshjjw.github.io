@@ -1,6 +1,6 @@
 import React from 'react';
 import './Intro.css';
-import { GithubIcon, LinkedInIcon, EmailIcon } from './Icons';
+import { GithubIcon, LinkedInIcon, EmailIcon } from '../../assets/Icons';
 import { bioParagraphs, socialLinks, personalInfo } from './IntroData';
 
 const Intro = () => {

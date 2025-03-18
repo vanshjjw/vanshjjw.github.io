@@ -1,28 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
 import { projectsData } from './ProjectsData';
+import { GithubIcon, ExternalLinkIcon } from '../../assets/Icons';
 import './Projects.css';
 
-// Icons for links
-const GithubIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-  </svg>
-);
-
-const ExternalLinkIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-    <polyline points="15 3 21 3 21 9"></polyline>
-    <line x1="10" y1="14" x2="21" y2="3"></line>
-  </svg>
-);
+// Custom renderers for Markdown components
+const MarkdownRenderers = {
+  // Custom link renderer
+  a: ({ node, ...props }) => (
+    <a 
+      {...props} 
+      className="inline-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    />
+  ),
+  // Custom paragraph renderer
+  p: ({ node, ...props }) => (
+    <p {...props} className="modal-paragraph" />
+  ),
+  // Custom heading renderers
+  h1: ({ node, ...props }) => (
+    <h1 {...props} className="markdown-heading markdown-h1" />
+  ),
+  h2: ({ node, ...props }) => (
+    <h2 {...props} className="markdown-heading markdown-h2" />
+  ),
+  h3: ({ node, ...props }) => (
+    <h3 {...props} className="markdown-heading markdown-h3" />
+  ),
+  // Custom list renderers
+  ul: ({ node, ...props }) => (
+    <ul {...props} className="modal-list" />
+  ),
+  li: ({ node, ...props }) => (
+    <li {...props} className="modal-list-item" />
+  ),
+  // Custom code renderer
+  code: ({ node, ...props }) => (
+    <code {...props} className="modal-code" />
+  ),
+  pre: ({ node, ...props }) => (
+    <pre {...props} className="modal-code-block" />
+  ),
+};
 
 const Introduction = `A collection of my recent development work. 
 Each project represents different skills and technologies I've worked with.`
-
-
-
 
 // Modal for displaying full project description
 const ProjectModal = ({ project, isOpen, onClose }) => {
@@ -50,8 +74,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             />
           </div>
           
-          <div className="modal-description">
-            <Markdown>{project.description}</Markdown>
+          <div className="modal-description markdown-content">
+            <Markdown components={MarkdownRenderers}>{project.description}</Markdown>
           </div>
           
           <div className="modal-tags">
@@ -70,7 +94,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 rel="noopener noreferrer"
                 className="modal-link github-link"
               >
-                <GithubIcon /> View Code
+                <GithubIcon width={20} height={20} /> View Code
               </a>
             )}
             
@@ -81,7 +105,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 rel="noopener noreferrer"
                 className="modal-link demo-link"
               >
-                <ExternalLinkIcon /> Try it out
+                <ExternalLinkIcon width={20} height={20} /> Try it out
               </a>
             )}
           </div>
