@@ -12,6 +12,7 @@ import Personal from "./components/Personal/PersonalPage";
 import Projects from "./components/Projects/Projects";
 import Resources from "./components/Resources/Resources";
 import Resume from "./components/Resume/Resume";
+import Garden from "./components/Garden/Garden";
 
 import "./style.css";
 import "./App.css";
@@ -40,7 +41,7 @@ function App() {
                           <Route path="/intro" element={<Intro />} />
                           <Route path="/resume" element={<Resume />} />
                           <Route path="/projects" element={<Projects />} />
-                          <Route path="/garden" element={<h1>Digital Garden coming soon...</h1>} />
+                          <Route path="/garden" element={<Garden />} />
                           <Route path="/resources" element={<Resources />} />
                           {/* Unrenddered Private Routes */}
                           <Route path="/personal" element={<Personal />} />
