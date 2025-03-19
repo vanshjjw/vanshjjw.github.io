@@ -96,9 +96,9 @@
 .project-image-container {
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 150px;
   background-color: var(--bg-light);
-  display: flex;
+  display: fit;
   align-items: center;
   justify-content: center;
 }
