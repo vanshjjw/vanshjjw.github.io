@@ -9,12 +9,9 @@ const snewsLink = "https://github.com/Ouroboros42/SNEWS/tree/Synergy"
 const snewsDemo = ""
 const snewsTags = ["Research", "Algorithm Design", "Data Analysis","Python", "CUDA"]
 
-const snewsDescription = `
-The [SNEWS](https://snews.org) collaboration is a global network of neutrino detectors designed to provide early warning of galactic supernovas.
-One of the key steps in their analysis is to find the time-difference between neutrino arrivals at detectors around the world. 
+const snewsDescription =
+`
 
-I helped optimise this part of directional analysis algorithm by **reformulating the mathematics** and developing a **specialised calculation method** that 
-reduced processing time from hours to **under 2 minutes** - fast enough to give astronomers time to observe the entire optical spectrum of a supernova event.
 `
 
 const snews = {

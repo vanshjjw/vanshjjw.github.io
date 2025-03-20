@@ -1,3 +1,18 @@
+
+const oxfordDescription =
+`
+Masters (Ongoing): Specialising in Quantum Information, Condensed Matter and Computational Algorithms. \n\n\n
+
+Bachelors: Achieved First-Class Honours (Ranked 21 out of 145)
+`
+
+const lmbDescription =
+`
+High School Diploma with 98.5% Aggregate.
+`
+
+
+
 export const education = [
     {
         id: "edu1",
@@ -6,16 +21,16 @@ export const education = [
         subtitle: "Masters, Mathematical and Theoretical Physics\nBachelor of Arts, Physics",
         location: "Oxford, UK",
         dates: "2021 - 2025",
-        description: "Completed a Bachelor's in Physics (2021-2023) with First Class Honours, ranking 21st out of 145 students. Currently pursuing a Master's specializing in quantum information, condensed matter, and computational algorithms.\n\nDissertation on 'ZX-calculus for quantum error-correction' under Professor Aleks Kissinger. Received the Fox Prize for ranking in the top 5% in 1st-year exams and multiple Academic Scholar Prizes for excellence in university exams."
+        description: oxfordDescription
     },
     {
         id: "edu2",
         title: "La Martinere for Boys",
         subtitle: "Indian School Certificate",
-        website: "https://www.lamartinerieschool.com/",
+        website: "https://wbacs.in/la-martiniere-for-boys-kolkata",
         location: "Kolkata, India",
-        dates: "2019 - 2021",
-        description: "High school education with a strong academic record. Achieved top grades in Physics, Mathematics, and Computer Science. Participated in various academic competitions and extracurricular activities."
+        dates: "2017 - 2021",
+        description: lmbDescription
     }
 ];
 
