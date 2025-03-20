@@ -1,7 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import { GithubIcon, ExternalLinkIcon } from '../../assets/Icons';
-import MarkdownRenderers from './MarkdownRenderers';
+import MarkdownRenderers from '../General/MarkdownRenderers';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -16,16 +16,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
         <h2 className="modal-title">{project.name}</h2>
         
         <div className="modal-content">
+
           <div className="modal-image-container">
-            <img 
-              src={displayImage} 
-              alt={project.name} 
-              className="modal-image"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = '/images/projects/placeholder.jpg';
-              }}
-            />
+            <img src={displayImage} className="modal-image"/>
           </div>
           
           <div className="modal-description markdown-content">
