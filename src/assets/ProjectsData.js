@@ -38,12 +38,18 @@ const qTTTLink = "https://github.com/vanshjjw/q-tic-tac-toe"
 const qTTTDemo = "https://github.com/vanshjjw/q-tic-tac-toe/blob/main/README.md"
 const qTTTTags = ["Python", "Qiskit", "Quantum Simulators", "Game Design"]
 
-const qTTTDescription = `
-[QTicTacToe](https://qtictactoe.org) is an educational simulation that demonstrates quantum computing principles through a 
-playable quantum version of the classic game. I contributed to developing the **quantum state representation** and created a
- **simplified visual interface** that helps users understand superposition and entanglement while playing. The application reduces complex quantum 
- concepts to **intuitive game mechanics** - making quantum physics accessible to students without advanced mathematical background.
- `
+const qTTTDescription =
+`
+### **I made a game!** 
+
+This was originally made for IBM's challenge at the [Quantum Coalition](https://www.quantumcoalition.io/) Hackathon
+
+I worked with a friend to conceptualise and develop a Quantum version of tic-tac-toe in 24 hours. The goal was to create a simple
+game where the player would have an advantage over the computer due to quantum stuff!
+
+We ended up using Enta
+
+`
 
 const qTTT = {
     id: "qtictactoe",

@@ -1,24 +1,26 @@
 
+// #############################################
+//              Education
+// #############################################
+
+
 const oxfordDescription =
 `
-Masters (Ongoing): Specialising in Quantum Information, Condensed Matter and Computational Algorithms. \n\n\n
-
-Bachelors: Achieved First-Class Honours (Ranked 21 out of 145)
+In my Masters, I am mostly doing courses on Quantum Information, Condensed Matter and Computational Algorithms.
+In my Bachelors, I achieved First-Class Honours and ranked 21 out of 145. 
 `
 
 const lmbDescription =
 `
-High School Diploma with 98.5% Aggregate.
+I scored a 98.2% aggregate in my ISC exams, and won a few awards for overall excellence throughout my time in school.
 `
-
-
 
 export const education = [
     {
         id: "edu1",
         title: "University of Oxford",
         website: "https://www.ox.ac.uk/",
-        subtitle: "Masters, Mathematical and Theoretical Physics\nBachelor of Arts, Physics",
+        subtitle: "Masters, Mathematical and Theoretical Physics\nBachelors, Physics",
         location: "Oxford, UK",
         dates: "2021 - 2025",
         description: oxfordDescription
@@ -34,15 +36,43 @@ export const education = [
     }
 ];
 
+
+// #############################################
+//              Work Experience
+// #############################################
+
+
+const uclDescription =
+`
+I worked with Professor Dan Browne, and researched quantum error-correction codes 
+(specifically the bivariate bicycle codes). I did some work on optimisation these codes, creating nice families 
+of such codes and ended up creating a python package to do so.
+`
+
+const ghystonDescription =
+`   
+I worked as a full-stack developer, and worked on multiple projects. I worked on the backend of a project to
+create a database ETL pipeline, and also worked on the frontend of a project to create an API endpoint.
+I also worked on a project to create a web app for a client, and worked on the backend of that project.
+`
+
+
+const oxfordIncubatorDescription =
+    `
+I co-founded a startup to use quantum memristors as anti-counterfeiting devices. 
+I worked on the business side of things, and also did some work on the technical side.
+I worked on the business plan, and also did some work on the technical side to create a prototype of the device.
+`
+
 export const workExperience = [
     {
         id: "exp1",
         title: "University College London",
-        website: "https://www.ucl.ac.uk/",
+        website: "https://www.ucl.ac.uk/quantum/study-here/quantum-doctoral-programmes",
         subtitle: "Research Intern",
         location: "London, UK",
         dates: "Jul - Sep 2024",
-        description: "Investigated the structure of a novel 'bivariate bicyclic' quantum error correction code. Constructed an algorithm to improve code by examining connectivity graphs. Created a comprehensive codebase to optimise the search for useful correction codes, visualise their properties, and evaluate generalised versions. Published results on PyPI."
+        description: uclDescription
     },
     {
         id: "exp2",
@@ -51,18 +81,27 @@ export const workExperience = [
         subtitle: "Software Developer",
         location: "Bristol, UK",
         dates: "Jul - Sep 2023",
-        description: "Worked across multiple projects, contributing full-stack components including database ETL pipelines and API endpoints."
+        description: ghystonDescription
     },
     {
         id: "exp3",
-        title: "Oxford University Innovation Incubator",
-        website: "https://innovation.ox.ac.uk/",
+        title: "STEP Ignite Incubator",
+        website: "https://unistep.org/",
         subtitle: "Student Entrepreneur",
         location: "Oxford, UK",
-        dates: "Jul - Aug 2022",
-        description: "Co-founded a startup to utilise quantum memristors as anti-counterfeiting devices."
+        dates: "Jl - Aug 2022",
+        description: oxfordIncubatorDescription
     }
 ];
+
+
+
+// #############################################
+//              Other Experience
+// #############################################
+
+
+
 
 export const otherExperience = [
     {
@@ -77,20 +116,27 @@ export const otherExperience = [
 ];
 
 
+
+
+// #############################################
+//              Skills
+// #############################################
+
+
+
 export const skills = {
     "Languages": [
-        "Python (Qiskit, Django)",
+        "Python",
         "Java",
-        "C/C++",
-        "JavaScript/TypeScript (React)",
+        "JavaScript",
+        "React",
         "C#",
-        "SQL",
+        "C++",
         "CUDA"
     ],
     "Tools & Frameworks": [
         "Git",
         "Docker",
-        "Unix/Linux",
         "ASP.NET Core",
         "Entity Framework",
         "Node.js",
@@ -98,12 +144,8 @@ export const skills = {
     ],
     "Other Skills": [
         "Team Leadership",
-        "Event Organization",
-        "Project Management",
-        "Academic Presentation",
-        "Technical Writing",
-        "Cross-functional Collaboration",
-        "Entrepreneurship",
-        "Networking"
+        "Events",
+        "Management",
+        "Presentations"
     ]
 };
