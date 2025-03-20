@@ -7,7 +7,7 @@ const snewsAlternateImage = ""
 const snewsShortDescription = `Designed and Optimised new Algorithms for calculating supernova directions.`
 const snewsLink = "https://github.com/Ouroboros42/SNEWS/tree/Synergy"
 const snewsDemo = ""
-const snewsTags = ["Python", "Algorithm Design", "Data Analysis", "CUDA"]
+const snewsTags = ["Research", "Algorithm Design", "Data Analysis","Python", "CUDA"]
 
 const snewsDescription = `
 The [SNEWS](https://snews.org) collaboration is a global network of neutrino detectors designed to provide early warning of galactic supernovas.
@@ -70,7 +70,7 @@ const ld50AlternateImage = "/images/projects/ludumdare-main.png"
 const ld50ShortDescription = "Created a zombie-apocalypse-based strategy and simulation game in 72 hours."
 const ld50Link = "https://github.com/vanshjjw/Ludum-Dare-22"
 const ld50Demo = "https://draconicchipmunk.itch.io/defending-hope"
-const ld50Tags = ["Game Development", "C#", "Game Design", "Rapid Prototyping", "Simulation"]
+const ld50Tags = ["Game Development", "C#", "Unity Engine", "Simulation"]
 
 const ld50Description = `
 Participated in the Ludum Dare Game Jam, an intense 72-hour competition where I designed and developed a complete zombie-apocalypse-themed simulation and strategy game from scratch. 
@@ -93,11 +93,56 @@ const ld50 = {
 
 
 
+// QEC bivariate bicycle
+
+const qecName = "Quantum Error Correction"
+const qecImage = "/images/projects/qecbb-head.png"
+const qecAlternateImage = ""
+const qecShortDescription = "Developed a python package to construct and analyse Bivariate Bicycle QEC codes."
+const qecLink = "https://github.com/vanshjjw/qec-bivariate-bicycle"
+const qecDemo = "https://pypi.org/project/qec-bb"
+const qecTags = ["Researcg", "Optimisation", "Python", "GAP"]
+
+const qecDescription = `
+🔬 **Bivariate Bicycle Quantum Error-Correction Codes**
+
+Working under **Prof. Dan Browne** at University College London during Summer 2024, I tackled fundamental challenges in quantum computing reliability.
+
+**Research Achievements:**
+- Constructed an innovative algorithm utilizing bivariate codes with disconnected Tanner graphs
+- Developed a family of codes with constant check-weights and increasing encoding rates
+- Explored the generalisation of bicycle codes to non-abelian (symmetric) groups
+- Created a comprehensive codebase for numerical code search and property visualization
+
+**Technical Implementation:**
+- Designed efficient algorithms to optimize quantum code structure
+- Built visualization tools to understand complex code properties
+- Implemented systematic testing frameworks to validate performance
+- Published reusable components on PyPI for broader research community access
+
+*This research contributes to the growing field of quantum error correction, addressing one of the key obstacles in developing practical, fault-tolerant quantum computers.*
+`
+
+const qecbb = {
+    id: "qecbb",
+    name: qecName,
+    image: qecImage,
+    alternateImage: qecAlternateImage,
+    shortDescription: qecShortDescription,
+    description: qecDescription,
+    link: qecLink,
+    demo: qecDemo,
+    tags: qecTags
+
+}
+
 
 
 // Final List of Projects
 
+
 export const projectsData = [
+  qecbb,
   snews,
   qTTT,
   ld50

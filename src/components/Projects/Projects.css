@@ -493,6 +493,20 @@
   line-height: 1.6;
 }
 
+/* Bold text styling */
+.markdown-content strong,
+.markdown-bold {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* Emphasis (italic) styling */
+.markdown-content em,
+.markdown-emphasis {
+  color: var(--text-subtitle);
+  font-style: italic;
+}
+
 /* Heading styles */
 .markdown-heading {
   font-family: var(--font-heading);

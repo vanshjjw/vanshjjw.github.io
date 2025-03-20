@@ -230,7 +230,6 @@
     width: 450px;
     padding: 25px;
     box-shadow: 0 4px 20px var(--shadow-light);
-    border-left: 4px solid var(--border-color);
 }
 
 .card-description {
@@ -243,6 +242,8 @@
     max-height: 170px;
     padding-right: 10px;
     text-align: left;
+
+    scrollbar-width: none;
 }
 
 /* Custom scrollbar for description */
@@ -457,9 +458,33 @@
 
 .skill-content {
     padding: 20px;
+}
+
+.skill-tags-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--tag-bg);
+    color: var(--primary-dark);
+    border-radius: var(--tag-radius);
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--hover-light);
+}
+
+.skill-specialty-tag {
+    color: var(--text-subtitle);
+    font-style: italic;
+    font-weight: normal;
 }
 
 /* Skill item styles */
@@ -487,35 +512,6 @@
     color: var(--text-subtitle);
     margin-left: 5px;
     font-size: 0.9em;
-}
-
-/* Proficiency bar styles */
-.skill-proficiency {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 3px;
-}
-
-.proficiency-bar-container {
-    height: 8px;
-    background-color: var(--tag-bg);
-    border-radius: 4px;
-    overflow: hidden;
-    flex: 1;
-}
-
-.proficiency-bar {
-    height: 100%;
-    background: var(--primary-horizontal-gradient);
-    border-radius: 4px;
-}
-
-.proficiency-label {
-    font-size: 0.75em;
-    color: var(--text-muted);
-    min-width: 70px;
-    text-align: left;
 }
 
 /* Responsive adjustments for skills */

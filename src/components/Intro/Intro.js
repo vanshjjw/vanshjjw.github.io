@@ -1,7 +1,7 @@
 import React from 'react';
 import './Intro.css';
 import { GithubIcon, LinkedInIcon, EmailIcon } from '../../assets/Icons';
-import { bioParagraphs, socialLinks, personalInfo } from './IntroData';
+import { bioParagraphs, socialLinks, personalInfo } from '../../assets/IntroData';
 
 const Intro = () => {
   // Helper function to render the correct icon based on type

@@ -77,21 +77,9 @@ const ResumeSection = ({ title, icon: Icon, data }) => {
     );
 };
 
-// Skill Card component with proficiency bars
+// Skill Card component with skills displayed as tags
 const SkillCard = ({ category, items }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    
-    // Helper function to get proficiency level description
-    const getProficiencyLabel = (level) => {
-        switch(level) {
-            case 1: return 'Beginner';
-            case 2: return 'Basic';
-            case 3: return 'Intermediate';
-            case 4: return 'Advanced';
-            case 5: return 'Expert';
-            default: return 'Intermediate';
-        }
-    };
     
     return (
         <div className="skill-card-container">
@@ -109,29 +97,19 @@ const SkillCard = ({ category, items }) => {
             </div>
             <div className={`skill-content-panel ${isExpanded ? 'expanded' : ''}`}>
                 <div className="skill-content">
-                    {items.map((skill, index) => (
-                        <div key={index} className="skill-item">
-                            <div className="skill-item-header">
-                                <span className="skill-name">{skill.name}</span>
+                    <div className="skill-tags-container">
+                        {items.map((skill, index) => (
+                            <span key={index} className="skill-tag">
+                                {skill.name}
                                 {skill.specialty && (
-                                    <span className="skill-specialty">({skill.specialty})</span>
+                                    <span className="skill-specialty-tag"> ({skill.specialty})</span>
                                 )}
                                 {skill.context && (
-                                    <span className="skill-context">{skill.context}</span>
+                                    <span className="skill-specialty-tag"> ({skill.context})</span>
                                 )}
-                            </div>
-                            <div className="skill-proficiency">
-                                <div className="proficiency-bar-container">
-                                    <div 
-                                        className="proficiency-bar" 
-                                        style={{ width: `${skill.proficiency * 20}%` }}
-                                        title={getProficiencyLabel(skill.proficiency)}
-                                    ></div>
-                                </div>
-                                <span className="proficiency-label">{getProficiencyLabel(skill.proficiency)}</span>
-                            </div>
-                        </div>
-                    ))}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Personal.css';
-import { tabs, taylorLevels } from './PersonalData';
+import { tabs, taylorLevels } from '../../assets/PersonalData';
 
 // Login credentials (in a real app, these would be stored securely)
 const CORRECT_USERNAME = "vansh";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
-import { projectsData } from './ProjectsData';
+import { projectsData } from '../../assets/ProjectsData';
 import { GithubIcon, ExternalLinkIcon } from '../../assets/Icons';
 import './Projects.css';
 
@@ -42,6 +42,14 @@ const MarkdownRenderers = {
   ),
   pre: ({ node, ...props }) => (
     <pre {...props} className="modal-code-block" />
+  ),
+  // Custom strong/bold renderer
+  strong: ({ node, ...props }) => (
+    <strong {...props} className="markdown-bold" />
+  ),
+  // Custom emphasis/italic renderer
+  em: ({ node, ...props }) => (
+    <em {...props} className="markdown-emphasis" />
   ),
 };
 
