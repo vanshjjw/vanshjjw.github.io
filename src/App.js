@@ -45,7 +45,7 @@ function App() {
                           <Route path="/resources" element={<Resources />} />
                           {/* Unrenddered Private Routes */}
                           <Route path="/personal" element={<Personal />} />
-                          <Route path="*" element={<Navigate to="/personal" replace />} />
+                          <Route path="*" element={<Navigate to="/intro" replace />} />
                           
                           {/* Add other routes here when additional sections are implemented */}
                       </Routes>
