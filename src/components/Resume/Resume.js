@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { education, workExperience, otherExperience, skills } from './ResumeData';
+import { education, workExperience, otherExperience, skills } from '../../assets/ResumeData';
 import {
     FlipIcon,
     RightArrowIcon,
