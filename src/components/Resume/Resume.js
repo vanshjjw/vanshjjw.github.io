@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { education, workExperience, otherExperience, skills } from '../../assets/ResumeData';
 import {
-    FlipIcon,
     RightArrowIcon,
     LocationIcon,
     DownloadIcon,
@@ -11,8 +10,6 @@ import {
     SkillsIcon
 } from '../../assets/Icons';
 import './Resume.css';
-
-
 
 // Helper function to format text with line breaks
 const formatTextWithLineBreaks = (text) => {
@@ -24,7 +21,7 @@ const formatTextWithLineBreaks = (text) => {
     ));
 };
 
-// Replace FlipCard with ExpandableCard
+// Expandable card with website link in title
 const ExpandableCard = ({ item }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     
@@ -37,10 +34,24 @@ const ExpandableCard = ({ item }) => {
         ));
     };
     
+    const title = item.website ? (
+        <a 
+            href={item.website} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            onClick={(e) => e.stopPropagation()}
+            className="card-title-link"
+        >
+            {item.title}
+        </a>
+    ) : (
+        item.title
+    );
+    
     return (
         <div className={`expandable-card ${isExpanded ? 'expanded' : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
             <div className="card-front">
-                <h3 className="card-title">{item.title}</h3>
+                <h3 className="card-title">{title}</h3>
                 <div className="card-subtitle">
                     {formatSubtitle(item.subtitle)}
                 </div>
@@ -57,7 +68,7 @@ const ExpandableCard = ({ item }) => {
     );
 };
 
-// Update ResumeSection to use new card style
+// Resume section component
 const ResumeSection = ({ title, icon: Icon, data }) => {
     return (
         <div className="resume-section">
@@ -77,7 +88,7 @@ const ResumeSection = ({ title, icon: Icon, data }) => {
     );
 };
 
-// Skill Card component with skills displayed as tags
+// Simplified Skill Card component
 const SkillCard = ({ category, items }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     
@@ -100,13 +111,7 @@ const SkillCard = ({ category, items }) => {
                     <div className="skill-tags-container">
                         {items.map((skill, index) => (
                             <span key={index} className="skill-tag">
-                                {skill.name}
-                                {skill.specialty && (
-                                    <span className="skill-specialty-tag"> ({skill.specialty})</span>
-                                )}
-                                {skill.context && (
-                                    <span className="skill-specialty-tag"> ({skill.context})</span>
-                                )}
+                                {skill}
                             </span>
                         ))}
                     </div>
@@ -116,7 +121,7 @@ const SkillCard = ({ category, items }) => {
     );
 };
 
-// Updated Skills Section with simplified data structure
+// Simplified Skills Section
 const SkillsSection = () => {
     return (
         <div className="resume-section">
@@ -128,23 +133,13 @@ const SkillsSection = () => {
             </div>
             
             <div className="skills-container">
-                <SkillCard 
-                    key="languages" 
-                    category={skills.languages.category} 
-                    items={skills.languages.items} 
-                />
-                
-                <SkillCard 
-                    key="tools" 
-                    category={skills.tools.category} 
-                    items={skills.tools.items} 
-                />
-                
-                <SkillCard 
-                    key="other" 
-                    category={skills.other.category} 
-                    items={skills.other.items} 
-                />
+                {Object.entries(skills).map(([category, items]) => (
+                    <SkillCard 
+                        key={category} 
+                        category={category} 
+                        items={items} 
+                    />
+                ))}
             </div>
         </div>
     );
