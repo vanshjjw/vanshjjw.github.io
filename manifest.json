@@ -1,13 +1,24 @@
 {
-  "short_name": "Vansh Jhunjhunwala",
+  "short_name": "Vansh",
   "name": "Vansh Jhunjhunwala",
+  "description": "Vansh Jhunjhunwala's personal portfolio and projects",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "images/general/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "images/general/sidebar-photo.ico",
+      "type": "image/x-icon",
+      "sizes": "192x192"
     }
   ],
   "start_url": ".",
-  "display": "standalone"
+  "display": "standalone",
+  "theme_color": "#965f41",
+  "background_color": "#f5f0eb",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en-US"
 }
