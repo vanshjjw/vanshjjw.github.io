@@ -6,7 +6,8 @@ import './Projects.css';
 
 
 const INTRODUCTION =
-`A collection of my recent development work showcasing different skills and technologies I've worked with.`;
+`Sometimes, I build stuff. Most of the stuff I build is not ready for presentation and I have often do not build for
+for others. I am trying to get better at showing my projects. This page is a work in progress. I am trying to be better!`;
 
 const Projects = () => {
   return (

@@ -8,7 +8,6 @@ import ScrollToTop from "./components/General/ScrollToTop";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 import Intro from "./components/Intro/Intro";
-import Personal from "./components/Personal/PersonalPage";
 import Projects from "./components/Projects/Projects";
 import Resources from "./components/Resources/Resources";
 import Resume from "./components/Resume/Resume";
@@ -43,8 +42,6 @@ function App() {
                           <Route path="/projects" element={<Projects />} />
                           <Route path="/garden" element={<Garden />} />
                           <Route path="/resources" element={<Resources />} />
-                          {/* Unrenddered Private Routes */}
-                          <Route path="/personal" element={<Personal />} />
                           <Route path="*" element={<Navigate to="/intro" replace />} />
                           
                           {/* Add other routes here when additional sections are implemented */}

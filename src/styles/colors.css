@@ -14,11 +14,11 @@
     --text-muted: #6d4c41;
     
     /* Background colors - darker cards, more matte finish */
-    --bg-light: rgba(245, 240, 235, 0.8);
+    --bg-light: #EAE1D8CC;
     --bg-card: rgba(245, 240, 235, 0.9);
     --bg-card-dark: rgba(224, 215, 205, 0.95);
     --bg-gradient: linear-gradient(45deg, rgba(224, 215, 205, 0.7), rgba(245, 240, 235, 0.7));
-    --bg-page: #e0e8e7;
+    --bg-page: #E0E6E5FF;
 
     /* Shadow colors - more subtle */
     --shadow-light: rgba(93, 64, 55, 0.1);

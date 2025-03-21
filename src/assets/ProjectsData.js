@@ -7,18 +7,6 @@ const snewsLink = "https://github.com/Ouroboros42/SNEWS/tree/Synergy"
 const snewsDemo = "https://www.snews2.org"
 const snewsTags = ["Research", "Algorithm Design", "Data Analysis","Python", "CUDA"]
 
-const snewsDescription =
-`🔬 **Supernova Early Warning System (SNEWS)**
-
-Designed and optimized algorithms for detecting and analyzing supernova signals as part of an international collaboration. My work focused on:
-
-- Developing more efficient triangulation algorithms
-- Implementing CUDA acceleration for faster analysis
-- Creating visualization tools for directional data
-- Benchmarking and optimizing key algorithms
-
-This research contributes to astronomers' ability to quickly identify and respond to supernova events.`
-
 // Quantum Tic-Tac-Toe
 
 const qTTTName = "Quantum Tic-Tac-Toe"
@@ -31,7 +19,7 @@ const qTTTTags = ["Python", "Qiskit", "Quantum Simulators", "Game Design"]
 
 // Ludum Dare 50 
 
-const ld50Name = "Ludum Dare 50"
+const ld50Name = "Ludum Dare 50 Game Jam"
 const ld50Image = "/images/projects/ludumdare-head.png"
 const ld50ShortDescription = "Created a zombie-apocalypse-based strategy and simulation game in 72 hours."
 const ld50Link = "https://github.com/vanshjjw/Ludum-Dare-22"
