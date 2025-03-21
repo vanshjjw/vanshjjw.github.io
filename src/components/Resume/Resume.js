@@ -21,9 +21,10 @@ const formatTextWithLineBreaks = (text) => {
     ));
 };
 
-// Expandable card with website link in title
-const ExpandableCard = ({ item }) => {
+// Expandable card component for all experience types
+const ResumeCard = ({ item }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const hasDescription = item.description && item.description.trim().length > 0;
     
     // Helper function to format subtitle with line breaks
     const formatSubtitle = (subtitle) => {
@@ -49,21 +50,35 @@ const ExpandableCard = ({ item }) => {
     );
     
     return (
-        <div className={`expandable-card ${isExpanded ? 'expanded' : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
-            <div className="card-front">
-                <h3 className="card-title">{title}</h3>
-                <div className="card-subtitle">
-                    {formatSubtitle(item.subtitle)}
-                </div>
-                <div className="card-location"><LocationIcon />{item.location}</div>
-                <span className="card-dates">{item.dates}</span>
-                <div className="card-hover-hint">
-                    <RightArrowIcon />
+        <div className="card-wrapper">
+            <div 
+                className={`resume-card ${isExpanded ? 'expanded' : ''} ${!hasDescription ? 'no-description' : ''}`} 
+                onClick={() => hasDescription && setIsExpanded(!isExpanded)}
+            >
+                <div className="card-content">
+                    <h3 className="card-title">{title}</h3>
+                    <div className="card-subtitle">
+                        {formatSubtitle(item.subtitle)}
+                    </div>
+                    <div className="card-meta">
+                        <div className="card-location"><LocationIcon />{item.location}</div>
+                        <div className="card-dates">{item.dates}</div>
+                    </div>
+                    {hasDescription && (
+                        <div className="card-expand-indicator">
+                            <RightArrowIcon />
+                        </div>
+                    )}
                 </div>
             </div>
-            <div className="card-description-panel">
-                <p className="card-description">{formatTextWithLineBreaks(item.description)}</p>
-            </div>
+            
+            {hasDescription && isExpanded && (
+                <div className="card-description-container">
+                    <div className="card-description">
+                        {formatTextWithLineBreaks(item.description)}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
@@ -77,18 +92,19 @@ const ResumeSection = ({ title, icon: Icon, data }) => {
                     <Icon />
                 </div>
                 <h2 className="section-title">{title}</h2>
+                <div className="section-underline"></div>
             </div>
             
-            <div className="cards-container">
+            <div className="cards-grid">
                 {data.map(item => (
-                    <ExpandableCard key={item.id} item={item} />
+                    <ResumeCard key={item.id} item={item} />
                 ))}
             </div>
         </div>
     );
 };
 
-// Simplified Skill Card component
+// Simplified Skill Card component (from original)
 const SkillCard = ({ category, items }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     
@@ -121,7 +137,7 @@ const SkillCard = ({ category, items }) => {
     );
 };
 
-// Skills Section
+// Skills Section (kept from original)
 const SkillsSection = () => {
     return (
         <div className="resume-section">
@@ -130,6 +146,7 @@ const SkillsSection = () => {
                     <SkillsIcon />
                 </div>
                 <h2 className="section-title">Skills</h2>
+                <div className="section-underline"></div>
             </div>
             
             <div className="skills-container">

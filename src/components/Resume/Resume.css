@@ -17,13 +17,15 @@
 .resume-section {
     margin-bottom: var(--spacing-xl);
     animation: fadeIn 0.6s ease-out;
-    padding-top: var(--spacing-md);
     padding: var(--spacing-lg);
 }
 
 .section-header {
     display: flex;
     align-items: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
 }
 
 .section-icon {
@@ -43,153 +45,164 @@
     letter-spacing: var(--letter-spacing-heading);
 }
 
-/* Update to vertical stack layout */
-.cards-container {
+.section-underline {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-dark);
+}
+
+/* Card Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - var(--spacing-md)), 1fr));
+    gap: var(--spacing-md);
+}
+
+.card-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    width: 100%;
+    margin-bottom: var(--spacing-md);
 }
 
 /* Card styling */
-.expandable-card {
-    display: flex;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 210px;
+.resume-card {
+    background-color: var(--bg-card);
     border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: 0 3px 10px var(--shadow-light);
-    background-color: var(--bg-card-dark);
-    border: 1px solid var(--border-light);
-}
-
-.expandable-card:hover {
-    box-shadow: 0 5px 15px var(--shadow-medium);
-    transform: translateY(-2px);
-}
-
-.card-front {
-    width: 400px;
-    flex-shrink: 0;
     padding: var(--spacing-md);
-    position: relative;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    height: 160px;
     transition: all 0.3s ease;
-    text-align: left;
-    border-right: 1px solid var(--border-light);
+    position: relative;
+}
+
+/* Change border radius when expanded */
+.resume-card.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none; /* Remove bottom border when expanded */
+}
+
+.resume-card:not(.no-description) {
+    cursor: pointer;
+}
+
+.resume-card:not(.no-description):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    font-family: var(--font-heading);
     color: var(--text-title);
-    margin-bottom: 10px;
-    padding-right: 30px;
-    letter-spacing: var(--letter-spacing-tight);
+    margin: 0 0 var(--spacing-xs) 0;
+    padding-right: 20px;
 }
 
-.card-title a {
+.card-title-link {
     color: inherit;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.card-title a:hover {
+.card-title-link:hover {
     color: var(--primary-dark);
 }
 
 .card-subtitle {
-    font-size: var(--font-size-md);
     color: var(--text-subtitle);
-    margin-bottom: 15px;
-    text-align: left;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+    flex-grow: 1;
 }
 
 .subtitle-line {
     line-height: 1.4;
 }
 
-.subtitle-line:last-child {
-    margin-bottom: 10px;
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
 }
 
 .card-location {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
-    margin-bottom: 12px;
     display: flex;
     align-items: center;
 }
 
 .card-location svg {
-    margin-right: 5px;
     width: 14px;
     height: 14px;
+    margin-right: 5px;
     color: var(--primary-dark);
 }
 
 .card-dates {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
     font-weight: var(--font-weight-medium);
-    display: block;
-    margin-top: 5px;
 }
 
-.card-hover-hint {
+.card-expand-indicator {
     position: absolute;
-    right: 15px;
     top: 15px;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    right: 15px;
+    width: 20px;
+    height: 20px;
     transition: transform 0.3s ease;
-}
-
-.card-hover-hint svg {
-    width: 15px;
-    height: 15px;
     color: var(--primary-dark);
 }
 
-.expanded .card-hover-hint {
+.resume-card.expanded .card-expand-indicator {
     transform: rotate(90deg);
 }
 
-.card-description-panel {
-    flex-grow: 1;
+/* Description container */
+.card-description-container {
+    background-color: var(--bg-card);  /* Match card background */
+    border: 1px solid var(--border-light);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
     padding: var(--spacing-md);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    position: relative;
-    opacity: 0;
-    width: 0;
-}
-
-.expandable-card:not(.expanded) .card-description-panel {
-    width: 0;
-    padding: 0;
-}
-
-.expandable-card.expanded .card-description-panel {
-    opacity: 1;
-    width: auto;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    animation: expandDescription 0.3s ease-out;
+    height: 160px;
     overflow-y: auto;
+    margin-top: 0; /* Remove any gap */
+    z-index: 1; /* Ensure it appears above other elements */
+
+    scrollbar-width: none;
 }
 
 .card-description {
     font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
+    line-height: var(--line-height-relaxed);
     color: var(--text-body);
-    overflow-y: auto;
-    max-height: 100%;
-    padding-right: 10px;
 }
 
-/* Skills section styling */
+/* Add a subtle animation for the description expansion */
+@keyframes expandDescription {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 200px;
+        opacity: 1;
+    }
+}
+
+/* Keep original Skills section styling */
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -204,7 +217,7 @@
 .skill-card {
     border-radius: var(--border-radius-md);
     box-shadow: 0 3px 10px var(--shadow-light);
-    background-color: var(--bg-card-dark);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-light);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -309,9 +322,9 @@
 .download-resume-button {
     display: flex;
     align-items: center;
-    padding: 12px 25px;
-    background-color: var(--primary-dark);
+    background-color: var(--primary-light);
     color: white;
+    padding: 12px 25px;
     border-radius: var(--border-radius-md);
     text-decoration: none;
     font-weight: var(--font-weight-semibold);
@@ -334,39 +347,7 @@
     height: 18px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .expandable-card {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .card-front {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--border-light);
-    }
-
-    .expandable-card.expanded .card-description-panel {
-        padding: var(--spacing-md);
-        height: auto;
-        max-height: 300px;
-    }
-
-    .download-resume-container {
-        padding: 0 var(--spacing-md);
-    }
-
-    .download-resume-button {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-}
-
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -375,5 +356,42 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-description-container {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .resume-section {
+        padding: var(--spacing-md);
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-resume-button {
+        width: 100%;
+        justify-content: center;
     }
 } 
