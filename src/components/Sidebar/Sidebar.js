@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import './Siderbar.css';
+import './Sidebar.css';
 
 const Sidebar = () => {
     // Start with sidebar expanded (not open class)

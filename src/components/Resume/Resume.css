@@ -1,82 +1,45 @@
-/* Define color palette using CSS custom properties */
-:root {
-    /* Primary colors */
-    --primary-dark: #965f41;
-    --primary-light: #d4a276;
-    --primary-gradient: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
-    --primary-border-gradient: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
-    --primary-horizontal-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
-    
-    /* Border color - use single color instead of gradient for consistency */
-    --border-color: var(--primary-dark);
-    
-    /* Text colors */
-    --text-dark: #333;
-    --text-title: #5a3a28;
-    --text-subtitle: #6e4c3a;
-    --text-body: #4a3426;
-    --text-muted: #7d5a46;
-    
-    /* Fonts */
-    --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Raleway', Arial, sans-serif;
-    --font-cursive: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-    
-    /* Background colors */
-    --bg-light: rgba(245, 240, 235, 0.6);
-    --bg-gradient: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
-    
-    /* Interactive colors */
-    --hover-light: rgba(150, 95, 65, 0.2);
-    --hover-dark: #d4a276;
-    --tag-bg: rgba(150, 95, 65, 0.1);
-
-    /* Shadow colors */
-    --shadow-light: rgba(150, 95, 65, 0.1);
-    --shadow-medium: rgba(150, 95, 65, 0.2);
-    --shadow-dark: rgba(150, 95, 65, 0.3);
-    
-    /* Border radius */
-    --card-radius: 12px;
-    --tag-radius: 15px;
-}
+/* Resume Styling */
+@import '../../styles/colors.css';
+@import '../../styles/typography.css';
+@import '../../styles/layout.css';
 
 /* Resume component styling */
 .resume-container {
-    max-width: 1200px;
+    max-width: var(--container-xl);
     margin: 0 auto;
-    padding: 50px;
+    padding: var(--spacing-xl);
     font-family: var(--font-body);
-    color: var(--text-dark);
+    color: var(--text-body);
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 /* Section styling */
 .resume-section {
-    margin-bottom: 90px;
+    margin-bottom: var(--spacing-xl);
     animation: fadeIn 0.8s ease-in-out;
-    padding-top: 20px;
+    padding-top: var(--spacing-md);
 }
 
 .section-header {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .section-icon {
     width: 40px;
     height: 40px;
-    margin-right: 15px;
+    margin-right: var(--spacing-md);
     opacity: 0.8;
     color: var(--primary-dark);
 }
 
 .section-title {
-    font-size: 2em;
+    font-size: var(--font-size-xl);
     font-family: var(--font-heading);
     color: var(--text-dark);
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: var(--spacing-sm);
     margin: 0;
 }
 

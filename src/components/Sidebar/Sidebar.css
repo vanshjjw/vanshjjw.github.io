@@ -1,3 +1,19 @@
+/* Sidebar Styling */
+@import '../../styles/colors.css';
+@import '../../styles/typography.css';
+@import '../../styles/layout.css';
+
+/* Variables moved from App.css */
+:root {
+    /* These should be using the centralized colors, but keeping them for backwards compatibility */
+    --sidebar-primary-color: var(--primary-dark, #965f41);
+    --fade-color: #965f31;
+    --hover-color: var(--primary-light, #d4a276);
+    --link-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    --link-scale: 1.2;
+    --link-margins: 10px;
+}
+
 /* Sidebar container */
 .sidebar {
     position: fixed;
@@ -5,14 +21,14 @@
     left: 0;
     height: 100vh;
     width: var(--sidebar-width);
-    background: linear-gradient(145deg, var(--siderbar-primary-color) 0%, #8D5B3F 100%);
-    transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: 20px;
+    background: linear-gradient(145deg, var(--sidebar-primary-color) 0%, #8D5B3F 100%);
+    transition: all var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: var(--spacing-md);
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
     box-shadow: var(--sidebar-shadow);
-    z-index: 1000;
+    z-index: var(--z-overlay);
     transform: translateX(0);
 }
 
@@ -25,8 +41,8 @@
 /* Toggle button styles */
 .sidebar-toggle {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
     background-color: rgba(255, 255, 255, 0.15);
     border: none;
     width: 36px;
@@ -38,8 +54,8 @@
     font-size: 18px;
     color: white;
     cursor: pointer;
-    z-index: 100;
-    transition: all 0.2s ease;
+    z-index: var(--z-above);
+    transition: all var(--transition-fast) ease;
 }
 
 .sidebar-toggle:hover {
@@ -60,7 +76,7 @@
     margin: 50px auto 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     border: 4px solid rgba(255, 255, 255, 0.2);
-    transition: all var(--transition-duration) ease;
+    transition: all var(--transition-medium) ease;
     opacity: 1;
     transform: scale(1);
 }
@@ -82,12 +98,12 @@
 
 /* Navigation links container */
 .sidebar-nav {
-    margin-top: 20px;
+    margin-top: var(--spacing-md);
     display: flex;
     flex-direction: column;
     padding: 0 25px;
     opacity: 1;
-    transition: opacity var(--transition-duration) ease;
+    transition: opacity var(--transition-medium) ease;
 }
 
 .sidebar.open .sidebar-nav {
@@ -97,31 +113,33 @@
 /* Navigation links */
 .sidebar-nav a {
     text-decoration: none;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    font-size: 17px;
-    font-weight: 500;
+    color: white; /* Ensure links are white */
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
     margin: 8px 0;
     padding: 12px 15px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast) ease;
     display: flex;
     align-items: center;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
 }
 
-/* Hover effect */
+/* Hover effect - using a noticeable but not blue color */
 .sidebar-nav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
     text-decoration: none;
+    color: white; /* Keep text white on hover */
 }
 
 /* Active link style */
 .sidebar-nav a.active {
     background-color: rgba(255, 255, 255, 0.2);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
+    color: white; /* Ensure active links remain white */
 }
 
 .sidebar-nav a.active::before {
@@ -139,7 +157,7 @@
 /* Ensuring the body content isn't hidden behind the sidebar and doesn't move */
 .app-layout {
     display: flex;
-    transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
     padding-left: var(--sidebar-width);
 }
 
@@ -152,7 +170,7 @@
     width: 100%;
     padding: 30px;
     overflow-x: hidden;
-    transition: margin-left var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: margin-left var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Responsive adjustments */
@@ -179,7 +197,7 @@
     /* Move toggle button to visible area */
     .sidebar-toggle {
         right: calc(-1 * var(--collapsed-width) + 15px);
-        background-color: var(--siderbar-primary-color);
+        background-color: var(--sidebar-primary-color);
     }
     
     /* Show sidebar content when open */
@@ -193,4 +211,4 @@
         margin-top: 50px;
         height: var(--profile-pic-size);
     }
-}
+} 

@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
-    background-color: #e0e8e7;
     position: relative;
+    background-color: var(--bg-page);
 }
 
 .main-content {
@@ -15,6 +15,7 @@
     /* Fixed content width that doesn't shift with sidebar */
     max-width: calc(100% - var(--collapsed-width));
     margin-left: var(--collapsed-width);
+    background-color: var(--bg-page);
 }
 
 #scroll {
@@ -29,19 +30,6 @@
     text-align: center;
 }
 
-:root {
-    --siderbar-primary-color: #965f41;
-    --fade-color: #965f31;
-    --hover-color: #d4a276;
-    --link-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    --transition-duration: 0.3s;
-    --link-scale: 1.2;
-    --link-margins: 10px;
-    --sidebar-width: 300px;
-    --collapsed-width: 60px;
-    --profile-pic-size: 150px;
-    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-}
 
 /* Section container styling */
 .content-section {

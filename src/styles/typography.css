@@ -1,0 +1,77 @@
+/* Website Typography Variables */
+:root {
+  /* Font families */
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Raleway', Arial, sans-serif;
+  --font-cursive: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: monospace, 'Courier New', Courier;
+  
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Font sizes */
+  --font-size-xs: 0.7em;
+  --font-size-sm: 0.85rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.2rem;
+  --font-size-lg: 1.3rem;
+  --font-size-xl: 1.8rem;
+  --font-size-2xl: 2.4rem;
+  
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.9;
+  
+  /* Letter spacing */
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+  
+  /* Animation timing */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-slow: 0.5s;
+}
+
+/* Heading base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--text-title);
+  margin-bottom: 0.5em;
+}
+
+/* Base text styles */
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-body);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Usage example:
+   font-family: var(--font-heading);
+   font-size: var(--font-size-lg);
+   line-height: var(--line-height-base);
+*/ 

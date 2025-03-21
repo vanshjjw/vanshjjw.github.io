@@ -1,39 +1,49 @@
 /* Website Color Variables */
 :root {
-    /* Primary browns */
-    --primary-brown: #965f41;
-    --primary-brown-light: #d4a276;
-    --primary-brown-dark: #5a3a28;
+    /* Primary colors */
+    --primary-dark: #965f41;
+    --primary-light: #d4a276;
+    --primary-gradient: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
+    --primary-horizontal-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
     
     /* Text colors */
-    --text-primary: #4a3426;
-    --text-secondary: #6e4c3a;
-    --text-tertiary: #7d5a46;
+    --text-dark: #333;
+    --text-title: #5a3a28;
+    --text-subtitle: #6e4c3a;
+    --text-body: #4a3426;
+    --text-muted: #7d5a46;
     
     /* Background colors */
-    --bg-primary: rgba(230, 225, 220, 0.7);
-    --bg-secondary: rgba(245, 240, 235, 0.6);
-    
-    /* Gradient combinations */
-    --gradient-brown: linear-gradient(to right, var(--primary-brown), var(--primary-brown-light));
-    --gradient-bg: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+    --bg-light: rgba(245, 240, 235, 0.6);
+    --bg-gradient: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
+    --bg-page: #e6f2ff; /* Light blue background */
     
     /* Shadow colors */
-    --shadow-light: rgba(150, 95, 65, 0.08);
-    --shadow-medium: rgba(150, 95, 65, 0.1);
-    --shadow-dark: rgba(150, 95, 65, 0.15);
+    --shadow-light: rgba(150, 95, 65, 0.1);
+    --shadow-medium: rgba(150, 95, 65, 0.2);
+    --shadow-dark: rgba(150, 95, 65, 0.3);
     
-    /* Accent colors */
+    /* Accent and interactive colors */
     --accent-color: rgba(150, 95, 65, 0.7);
     --hover-bg: rgba(230, 225, 220, 0.8);
     --active-bg: rgba(230, 225, 220, 0.9);
     
     /* Border colors */
     --border-light: rgba(150, 95, 65, 0.15);
+    --border-medium: rgba(150, 95, 65, 0.3);
+    
+    /* Sidebar specific colors */
+    --sidebar-primary-color: #965f41;
+    --sidebar-hover-color: #d4a276;
+    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Overlay colors */
+    --overlay-dark: rgba(90, 58, 40, 0.8);
+    --overlay-light: rgba(150, 95, 65, 0.1);
 }
 
 /* Usage example:
-   color: var(--primary-brown);
-   background: var(--gradient-bg);
+   color: var(--primary-dark);
+   background: var(--bg-gradient);
    box-shadow: 0 4px 10px var(--shadow-medium);
 */ 

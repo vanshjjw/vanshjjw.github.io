@@ -14,8 +14,8 @@ import Resources from "./components/Resources/Resources";
 import Resume from "./components/Resume/Resume";
 import Garden from "./components/Garden/Garden";
 
-import "./style.css";
-import "./App.css";
+// Import main centralized CSS
+import "./styles/main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
