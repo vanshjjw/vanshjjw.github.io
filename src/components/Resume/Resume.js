@@ -121,7 +121,7 @@ const SkillCard = ({ category, items }) => {
     );
 };
 
-// Simplified Skills Section
+// Skills Section
 const SkillsSection = () => {
     return (
         <div className="resume-section">
@@ -152,7 +152,6 @@ const Resume = () => {
             <ResumeSection title="Education" icon={EducationIcon} data={education} />
             <ResumeSection title="Work Experience" icon={WorkExperienceIcon} data={workExperience} />
             <ResumeSection title="Other Experience" icon={OtherExperienceIcon} data={otherExperience} />
-            
             <SkillsSection />
             
             <div className="download-resume-container">

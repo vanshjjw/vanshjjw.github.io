@@ -1,45 +1,47 @@
 /* Website Color Variables */
 :root {
-    /* Primary colors */
-    --primary-dark: #965f41;
-    --primary-light: #d4a276;
+    /* Primary colors - richer, more professional browns */
+    --primary-dark: #5d4037;
+    --primary-light: #8d6e63;
     --primary-gradient: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
     --primary-horizontal-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
     
-    /* Text colors */
-    --text-dark: #333;
-    --text-title: #5a3a28;
-    --text-subtitle: #6e4c3a;
-    --text-body: #4a3426;
-    --text-muted: #7d5a46;
+    /* Text colors - higher contrast for better readability */
+    --text-dark: #2d2420;
+    --text-title: #3e2723;
+    --text-subtitle: #4e342e;
+    --text-body: #3e2723;
+    --text-muted: #6d4c41;
     
-    /* Background colors */
-    --bg-light: rgba(245, 240, 235, 0.6);
-    --bg-gradient: linear-gradient(45deg, rgba(230, 225, 220, 0.7), rgba(245, 240, 235, 0.6));
-    --bg-page: #e6f2ff; /* Light blue background */
-    
-    /* Shadow colors */
-    --shadow-light: rgba(150, 95, 65, 0.1);
-    --shadow-medium: rgba(150, 95, 65, 0.2);
-    --shadow-dark: rgba(150, 95, 65, 0.3);
+    /* Background colors - darker cards, more matte finish */
+    --bg-light: rgba(245, 240, 235, 0.8);
+    --bg-card: rgba(245, 240, 235, 0.9);
+    --bg-card-dark: rgba(224, 215, 205, 0.95);
+    --bg-gradient: linear-gradient(45deg, rgba(224, 215, 205, 0.7), rgba(245, 240, 235, 0.7));
+    --bg-page: #e0e8e7;
+
+    /* Shadow colors - more subtle */
+    --shadow-light: rgba(93, 64, 55, 0.1);
+    --shadow-medium: rgba(93, 64, 55, 0.15);
+    --shadow-dark: rgba(93, 64, 55, 0.25);
     
     /* Accent and interactive colors */
-    --accent-color: rgba(150, 95, 65, 0.7);
-    --hover-bg: rgba(230, 225, 220, 0.8);
-    --active-bg: rgba(230, 225, 220, 0.9);
+    --accent-color: rgba(93, 64, 55, 0.7);
+    --hover-bg: rgba(224, 215, 205, 0.9);
+    --active-bg: rgba(215, 204, 192, 0.95);
     
     /* Border colors */
-    --border-light: rgba(150, 95, 65, 0.15);
-    --border-medium: rgba(150, 95, 65, 0.3);
+    --border-light: rgba(93, 64, 55, 0.15);
+    --border-medium: rgba(93, 64, 55, 0.25);
     
     /* Sidebar specific colors */
-    --sidebar-primary-color: #965f41;
-    --sidebar-hover-color: #d4a276;
-    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    --sidebar-primary-color: #5d4037;
+    --sidebar-hover-color: #8d6e63;
+    --sidebar-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
     
     /* Overlay colors */
-    --overlay-dark: rgba(90, 58, 40, 0.8);
-    --overlay-light: rgba(150, 95, 65, 0.1);
+    --overlay-dark: rgba(62, 39, 35, 0.8);
+    --overlay-light: rgba(93, 64, 55, 0.08);
 }
 
 /* Usage example:
