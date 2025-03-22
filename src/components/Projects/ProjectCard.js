@@ -10,27 +10,17 @@ const ProjectCard = ({ project }) => {
         
         {/* Hover overlay with buttons */}
         <div className="project-overlay">
-          {project.link && (
+          {project.buttons && Object.entries(project.buttons).map(([label, url], index) => (
             <a 
-              href={project.link} 
+              key={index}
+              href={url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="project-btn github-btn"
+              className={`project-btn ${index === 0 ? 'github-btn' : 'demo-btn'}`}
             >
-              <GithubIcon width={16} height={16} /> View Code
+              {index === 0 ? <GithubIcon width={16} height={16} /> : <ExternalLinkIcon width={16} height={16} />} {label}
             </a>
-          )}
-          
-          {project.demo && (
-            <a 
-              href={project.demo} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="project-btn demo-btn"
-            >
-              <ExternalLinkIcon width={16} height={16} /> Try it out
-            </a>
-          )}
+          ))}
         </div>
       </div>
 
