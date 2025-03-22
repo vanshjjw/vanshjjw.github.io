@@ -12,6 +12,7 @@ import Projects from "./components/Projects/Projects";
 import Resources from "./components/Resources/Resources";
 import Resume from "./components/Resume/Resume";
 import Garden from "./components/Garden/Garden";
+import Interests from "./components/Interests/Interests";
 
 // Import main centralized CSS
 import "./styles/main.css";
@@ -42,6 +43,7 @@ function App() {
                           <Route path="/projects" element={<Projects />} />
                           <Route path="/garden" element={<Garden />} />
                           <Route path="/resources" element={<Resources />} />
+                          <Route path="/interests" element={<Interests />} />
                           <Route path="*" element={<Navigate to="/intro" replace />} />
                           
                           {/* Add other routes here when additional sections are implemented */}
