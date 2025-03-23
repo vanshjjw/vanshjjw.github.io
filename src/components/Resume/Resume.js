@@ -199,6 +199,16 @@ const Resume = () => {
                 {/* Middle Pane - Sub-Skills */}
                 <div className="pane middle-pane">
                     <div className="sub-skills-container">
+
+                        {showClickGuidance && (
+                            <div className="subskill-guidance-message">
+                                <div className="guidance-content">
+                                    <span className="guidance-icon">💡</span>
+                                    <p>Click again to see related tags!</p>
+                                </div>
+                            </div>
+                        )}
+
                         {subSkills.map(subSkill => (
                             <SubSkillCard 
                                 key={subSkill.id} 
@@ -210,15 +220,6 @@ const Resume = () => {
                         ))}
                     </div>
 
-                    {/* Guidance message for subskill interaction */}
-                    {showClickGuidance && (
-                        <div className="subskill-guidance-message">
-                            <div className="guidance-content">
-                                <span className="guidance-icon">💡</span>
-                                <p>Click the selected skill again to see related tags!</p>
-                            </div>
-                        </div>
-                    )}
 
                 </div>
 
