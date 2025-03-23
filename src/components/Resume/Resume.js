@@ -78,7 +78,7 @@ const Resume = () => {
         }
         
         // Get all selected subskill IDs
-        const selectedSubSkillIds = Object.keys(selectedSubSkills).map(id => parseInt(id, 10));
+        const selectedSubSkillIds = Object.keys(selectedSubSkills)
         
         // If no subskills are selected, no active experiences
         if (selectedSubSkillIds.length === 0) {
@@ -101,7 +101,7 @@ const Resume = () => {
         
         // Update active experiences
         setActiveExperienceIds(activeExperiences);
-    }, [selectedSkill, subSkills, selectedSubSkills]);
+    }, [selectedSkill, subSkills, selectedSubSkills, setActiveExperienceIds]);
     
     // Handler for subskill selection - update selected subskills
     const handleSubSkillClick = (subSkillId) => {
@@ -152,6 +152,14 @@ const Resume = () => {
     const isExperienceHighlighted = (experienceId) => {
         return activeExperienceIds.includes(experienceId) || hoveredExperienceId === experienceId;
     };
+
+    // Force re-render when activeExperienceIds changes
+    useEffect(() => {
+        // Force a redraw of connection lines after experiences are highlighted
+        if (activeExperienceIds.length > 0 || hoveredExperienceId !== null) {
+            window.dispatchEvent(new Event('resize'));
+        }
+    }, [activeExperienceIds, hoveredExperienceId]);
 
     return (
         <div className="resume-container">

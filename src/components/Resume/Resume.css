@@ -413,7 +413,10 @@
 .resume-card.connected {
     opacity: 1;
     border-color: #8d6e63;
+    border-width: 2px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 245, 1);
 }
 
 /* Make sure the middle pane has relative positioning for the connections */

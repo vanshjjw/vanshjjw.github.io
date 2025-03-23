@@ -33,7 +33,7 @@ const ExperienceCard = ({ item, isConnected, isConnectable, onExpand, onHover })
         if (onExpand && hasDescription) {
             onExpand(item.id, isExpanded);
         }
-    }, [isExpanded, item.id, hasDescription, onExpand]);
+    }, [isExpanded, item, hasDescription, onExpand]);
     
     // Prepare title with optional link
     const title = item.website ? (
@@ -71,7 +71,7 @@ const ExperienceCard = ({ item, isConnected, isConnectable, onExpand, onHover })
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {isConnectable && shouldHighlight && <div className="connection-dot connection-dot-left"></div>}
+            {isConnectable && (isConnected || isHovered) && <div className="connection-dot connection-dot-left"></div>}
             <div 
                 className={`resume-card ${isExpanded ? 'expanded' : ''} ${shouldHighlight ? 'connected' : ''} ${!hasDescription ? 'no-description' : ''}`} 
                 onClick={() => hasDescription && setIsExpanded(!isExpanded)}
