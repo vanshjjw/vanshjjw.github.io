@@ -66,14 +66,14 @@ const ExperienceCard = ({ item, isConnected, isConnectable, onExpand, onHover })
     
     return (
         <div 
-            className="card-wrapper" 
+            className={`card-wrapper ${shouldHighlight ? 'connected' : ''}`}
             id={`experience-${item.id}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             {isConnectable && (isConnected || isHovered) && <div className="connection-dot connection-dot-left"></div>}
             <div 
-                className={`resume-card ${isExpanded ? 'expanded' : ''} ${shouldHighlight ? 'connected' : ''} ${!hasDescription ? 'no-description' : ''}`} 
+                className={`resume-card ${isExpanded ? 'expanded' : ''} ${!hasDescription ? 'no-description' : ''}`} 
                 onClick={() => hasDescription && setIsExpanded(!isExpanded)}
             >
                 <div className="card-content">

@@ -28,6 +28,12 @@ const Resume = () => {
     const [expandedCards, setExpandedCards] = useState([]);
     const [selectedSubSkills, setSelectedSubSkills] = useState({});
     
+    // Track if we should show the guidance message for double-click functionality
+    const [showClickGuidance, setShowClickGuidance] = useState(false);
+    
+    // Track if the user has seen the guidance message in this session
+    const [hasSeenGuidance, setHasSeenGuidance] = useState(false);
+    
     // Get the selected skill and its subskills
     const selectedSkill = primarySkills.find(skill => skill.id === selectedSkillId);
     const subSkills = selectedSkill ? selectedSkill.subSkills : [];
@@ -40,6 +46,7 @@ const Resume = () => {
             setConnectedExperienceIds([]);
             setActiveExperienceIds([]);
             setSelectedSubSkills({});
+            setShowClickGuidance(false);
         } else {
             // Select a skill
             setSelectedSkillId(skillId);
@@ -65,6 +72,7 @@ const Resume = () => {
                 
                 // Reset subskill selection state
                 setSelectedSubSkills({});
+                setShowClickGuidance(false);
             }
         }
     };
@@ -111,6 +119,13 @@ const Resume = () => {
             // If not selected, select it (first click)
             if (!newState[subSkillId]) {
                 newState[subSkillId] = { state: 0 }; // State 0: selected, show connections
+                
+                // Show guidance message after first selection if user hasn't seen it
+                if (!hasSeenGuidance) {
+                    setShowClickGuidance(true);
+                    setHasSeenGuidance(true);
+                }
+                
                 return newState;
             }
             
@@ -119,6 +134,9 @@ const Resume = () => {
             if (currentState === 0) {
                 // First click → second click: show tags (keep same connections)
                 newState[subSkillId] = { state: 1 };
+                
+                // Hide guidance message after second click
+                setShowClickGuidance(false);
             } else if (currentState === 1) {
                 // Second click → third click: reset
                 delete newState[subSkillId]; // Remove from selected
@@ -191,6 +209,17 @@ const Resume = () => {
                             />
                         ))}
                     </div>
+
+                    {/* Guidance message for subskill interaction */}
+                    {showClickGuidance && (
+                        <div className="subskill-guidance-message">
+                            <div className="guidance-content">
+                                <span className="guidance-icon">💡</span>
+                                <p>Click the selected skill again to see related tags!</p>
+                            </div>
+                        </div>
+                    )}
+
                 </div>
 
                 {/* Right Pane - Experiences */}
