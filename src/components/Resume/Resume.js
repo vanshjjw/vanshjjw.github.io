@@ -7,6 +7,8 @@ import SubSkillCard from './components/SubSkillCard';
 import ExperienceCard from './components/ExperienceCard';
 import ConnectionLines from './components/ConnectionLines';
 
+import { DownloadIcon } from '../../assets/Icons';
+
 // Import data
 import { software, research, leadership, entrepreneurship } from '../../assets/GraphicalData/SkillGraphData';
 import experiencesData from '../../assets/GraphicalData/ExperiencesData';
@@ -186,9 +188,9 @@ const Resume = () => {
                 <div className="pane primary-skills-pane">
                     <div className="primary-skills-container">
                         {primarySkills.map(skill => (
-                            <PrimarySkillCard 
-                                key={skill.id} 
-                                skill={skill} 
+                            <PrimarySkillCard
+                                key={skill.id}
+                                skill={skill}
                                 isSelected={selectedSkillId === skill.id}
                                 onClick={handleSkillClick}
                             />
@@ -210,8 +212,8 @@ const Resume = () => {
                         )}
 
                         {subSkills.map(subSkill => (
-                            <SubSkillCard 
-                                key={subSkill.id} 
+                            <SubSkillCard
+                                key={subSkill.id}
                                 subSkill={subSkill}
                                 isSelected={!!selectedSubSkills[subSkill.id]}
                                 clickState={selectedSubSkills[subSkill.id]?.state || 0}
@@ -227,9 +229,9 @@ const Resume = () => {
                 <div className="pane experiences-pane">
                     <div className="experiences-container">
                         {experiencesData.map(experience => (
-                            <ExperienceCard 
-                                key={experience.id} 
-                                item={experience} 
+                            <ExperienceCard
+                                key={experience.id}
+                                item={experience}
                                 isConnected={isExperienceHighlighted(experience.id)}
                                 isConnectable={connectedExperienceIds.includes(experience.id)}
                                 onExpand={handleCardExpand}
@@ -238,17 +240,31 @@ const Resume = () => {
                         ))}
                     </div>
                 </div>
-                
+
                 {/* SVG Overlay for connection lines */}
                 {selectedSkill && (
-                    <ConnectionLines 
-                        selectedSkill={selectedSkill} 
+                    <ConnectionLines
+                        selectedSkill={selectedSkill}
                         subSkills={subSkills}
                         selectedSubSkills={selectedSubSkills}
                         connectedExperiences={connectedExperienceIds}
                     />
                 )}
             </div>
+
+            <div className="download-resume-container">
+                <a
+                    href="https://drive.google.com/file/d/1rG4W4Y-c83xxfJYRDF5pRr5yVRkeMcbE/view?usp=drive_link"
+                    className="download-resume-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DownloadIcon/>
+                    Download Resume
+                </a>
+            </div>
+
+
         </div>
     );
 };

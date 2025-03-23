@@ -504,4 +504,57 @@
         opacity: 1;
         transform: translate(-50%, 0);
     }
-} 
+}
+
+
+
+
+/* Download Resume Button */
+.download-resume-container {
+    position: relative;
+    margin-top: var(--spacing-xl);
+    margin-left: 400px;
+    display: flex;
+    margin-top: -30px;
+    margin-bottom: 60px;
+}
+
+.download-resume-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+.download-resume-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-dark);
+}
+
+.download-resume-button svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .download-resume-container {
+        margin-top: -15px;
+        margin-bottom: 40px;
+    }
+
+    .download-resume-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
