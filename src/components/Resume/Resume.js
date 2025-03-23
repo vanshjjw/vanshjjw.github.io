@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { education, workExperience, otherExperience, skills } from '../../assets/ResumeData';
-import {
-    RightArrowIcon,
-    LocationIcon,
-    DownloadIcon,
-    EducationIcon,
-    WorkExperienceIcon,
-    OtherExperienceIcon,
-    SkillsIcon
-} from '../../assets/Icons';
 import './Resume.css';
+import { LocationIcon, RightArrowIcon } from '../../assets/Icons';
+
+// Import data
+import { software, research, leadership, entrepreneurship } from '../../assets/GraphicalData/SkillGraphData';
+import experiencesData from '../../assets/GraphicalData/ExperiencesData';
 
 // Helper function to format text with line breaks
 const formatTextWithLineBreaks = (text) => {
@@ -21,13 +16,14 @@ const formatTextWithLineBreaks = (text) => {
     ));
 };
 
-// Expandable card component for all experience types
-const ResumeCard = ({ item }) => {
+// Keeping the same card structure from the original Resume component
+const ExperienceCard = ({ item }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const hasDescription = item.description && item.description.trim().length > 0;
     
     // Helper function to format subtitle with line breaks
     const formatSubtitle = (subtitle) => {
+        if (!subtitle) return null;
         return subtitle.split('\n').map((line, index) => (
             <div key={index} className="subtitle-line">
                 {line}
@@ -83,104 +79,44 @@ const ResumeCard = ({ item }) => {
     );
 };
 
-// Resume section component
-const ResumeSection = ({ title, icon: Icon, data }) => {
+// Simple Primary Skill Card component
+const PrimarySkillCard = ({ skill }) => {
     return (
-        <div className="resume-section">
-            <div className="section-header">
-                <div className="section-icon">
-                    <Icon />
-                </div>
-                <h2 className="section-title">{title}</h2>
-                <div className="section-underline"></div>
-            </div>
-            
-            <div className="cards-grid">
-                {data.map(item => (
-                    <ResumeCard key={item.id} item={item} />
-                ))}
-            </div>
+        <div className="primary-skill-card">
+            <h3>{skill.name}</h3>
         </div>
     );
 };
 
-// Simplified Skill Card component (from original)
-const SkillCard = ({ category, items }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
-    
+// Main Resume Component with 3-pane layout
+const Resume = () => {
+    const primarySkills = [software, research, leadership, entrepreneurship];
+
     return (
-        <div className="skill-card-container">
-            <div 
-                className={`skill-card ${isExpanded ? 'expanded' : ''}`} 
-                onClick={() => setIsExpanded(!isExpanded)}
-            >
-                <div className="skill-card-front">
-                    <h3 className="skill-title">{category}</h3>
-                    <div className="skill-count">{items.length} {items.length === 1 ? 'skill' : 'skills'}</div>
-                    <div className="skill-hover-hint">
-                        <RightArrowIcon />
-                    </div>
-                </div>
-            </div>
-            <div className={`skill-content-panel ${isExpanded ? 'expanded' : ''}`}>
-                <div className="skill-content">
-                    <div className="skill-tags-container">
-                        {items.map((skill, index) => (
-                            <span key={index} className="skill-tag">
-                                {skill}
-                            </span>
+        <div className="resume-container">
+            <div className="resume-layout">
+                {/* Left Pane - Primary Skills */}
+                <div className="pane primary-skills-pane">
+                    <div className="primary-skills-container">
+                        {primarySkills.map(skill => (
+                            <PrimarySkillCard key={skill.id} skill={skill} />
                         ))}
                     </div>
                 </div>
-            </div>
-        </div>
-    );
-};
 
-// Skills Section (kept from original)
-const SkillsSection = () => {
-    return (
-        <div className="resume-section">
-            <div className="section-header">
-                <div className="section-icon">
-                    <SkillsIcon />
+                {/* Middle Pane - Reserved for future use */}
+                <div className="pane middle-pane">
+                    {/* This pane is intentionally left empty */}
                 </div>
-                <h2 className="section-title">Skills</h2>
-                <div className="section-underline"></div>
-            </div>
-            
-            <div className="skills-container">
-                {Object.entries(skills).map(([category, items]) => (
-                    <SkillCard 
-                        key={category} 
-                        category={category} 
-                        items={items} 
-                    />
-                ))}
-            </div>
-        </div>
-    );
-};
 
-// Main Resume Component
-const Resume = () => {
-    return (
-        <div className="resume-container">
-            <ResumeSection title="Education" icon={EducationIcon} data={education} />
-            <ResumeSection title="Work Experience" icon={WorkExperienceIcon} data={workExperience} />
-            <ResumeSection title="Other Experience" icon={OtherExperienceIcon} data={otherExperience} />
-            <SkillsSection />
-            
-            <div className="download-resume-container">
-                <a 
-                    href="https://drive.google.com/file/d/1rG4W4Y-c83xxfJYRDF5pRr5yVRkeMcbE/view?usp=drive_link" 
-                    className="download-resume-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <DownloadIcon />
-                    Download Resume
-                </a>
+                {/* Right Pane - Experiences */}
+                <div className="pane experiences-pane">
+                    <div className="experiences-container">
+                        {experiencesData.map(experience => (
+                            <ExperienceCard key={experience.id} item={experience} />
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );

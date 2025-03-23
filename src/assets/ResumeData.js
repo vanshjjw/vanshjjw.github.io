@@ -101,6 +101,13 @@ export const workExperience = [
 // #############################################
 
 
+const oqsDescription =
+`
+Led the society's initiatives in quantum computing education and outreach. Organized workshops, 
+seminars, and networking events with industry professionals.
+`
+
+
 
 
 export const otherExperience = [
@@ -111,7 +118,7 @@ export const otherExperience = [
         subtitle: "President",
         location: "Oxford, UK",
         dates: "2023 - Present",
-        description: "Led the society's initiatives in quantum computing education and outreach. Organized workshops, seminars, and networking events with industry professionals."
+        description: oqsDescription
     }
 ];
 
