@@ -511,18 +511,17 @@
 
 /* Download Resume Button */
 .download-resume-container {
-    position: relative;
-    margin-top: var(--spacing-xl);
-    margin-left: 400px;
+    width: 100%;
     display: flex;
-    margin-top: -30px;
-    margin-bottom: 60px;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 
 .download-resume-button {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 24px;
     background: var(--primary-gradient);
     color: white;
     border: none;
@@ -544,7 +543,11 @@
 .download-resume-button svg {
     width: 20px;
     height: 20px;
-    margin-left: 5px;
+    margin-left: 10px;
+}
+
+.download-resume-button span {
+    margin-left: 10px;
 }
 
 @media (max-width: 768px) {

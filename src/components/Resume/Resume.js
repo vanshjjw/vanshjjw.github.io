@@ -260,7 +260,7 @@ const Resume = () => {
                     rel="noopener noreferrer"
                 >
                     <DownloadIcon/>
-                    Download Resume
+                    <span>Download PDF</span>
                 </a>
             </div>
 
