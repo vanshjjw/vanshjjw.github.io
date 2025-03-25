@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Intro.css';
 import { 
   GithubIcon, 
   LinkedInIcon, 
   EmailIcon,
-  ExternalLinkIcon,
   SubstackIcon,
   LetterboxdIcon
 } from '../../assets/Icons';
-import { personalInfo, links } from '../../assets/IntroData';
+
+import { personalInfo, ProfessionalLinks } from '../../assets/IntroData';
+import ReactMarkdown from 'react-markdown';
+import MarkdownRenderers from '../General/MarkdownRenderers';
 
 const Intro = () => {
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
+
   // Helper function to render the correct icon based on type
   const renderIcon = (iconType) => {
     switch (iconType) {
@@ -20,8 +24,6 @@ const Intro = () => {
         return <LinkedInIcon />;
       case 'email':
         return <EmailIcon />;
-      case 'externalLink':
-        return <ExternalLinkIcon />;
       case 'substack':
         return <SubstackIcon />;
       case 'letterboxd':
@@ -31,51 +33,54 @@ const Intro = () => {
     }
   };
 
-  // Group links by category
-  const connectLinks = links.filter(link => link.category === 'connect');
-  const interestLinks = links.filter(link => link.category === 'interests');
+  const handleHelloClick = () => {
+    setShowEasterEgg(true);
+    // Hide the Easter egg after 3 seconds
+    setTimeout(() => {
+      setShowEasterEgg(false);
+    }, 3000);
+  };
 
   return (
     <div className="intro-container">
       <div className="intro-content">
-        <div className="intro-header">
-          <h1 className="greeting">
-            Hi, I am <span className="name">{personalInfo.name}</span>
-          </h1>
-          <p className="description">{personalInfo.description}</p>
-        </div>
 
-        <div className="intro-links">
-          <div className="links-section">
-            <span className="links-label">Connect:</span>
-            <div className="links-row">
-              {connectLinks.map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.url} 
-                  target={link.isExternal ? "_blank" : undefined} 
-                  rel={link.isExternal ? "noopener noreferrer" : undefined}
-                  className="link-item"
-                  aria-label={link.name}
-                >
-                  {renderIcon(link.iconType)}
-                  <span>{link.name}</span>
-                </a>
-              ))}
-            </div>
+        {/* Header with greeting, name and description */}
+        <header className="intro-header">
+          {showEasterEgg && (
+            <div className="easter-egg"> My regards, General Kenobi!</div>
+          )}
+          <p className="intro-name">
+            <span 
+              className="name-a clickable" 
+              onClick={handleHelloClick}
+            > 
+              Hello There, 
+            </span>
+            <span className="name-a"> I'm </span>
+            <span className="name-b"> Vansh Jhunjhunwala </span>
+          </p>
+          
+          <div className="description-container">
+            <ReactMarkdown components={MarkdownRenderers}>
+              {personalInfo.description}
+            </ReactMarkdown>
           </div>
+        </header>
 
-          <div className="links-section">
-            <span className="links-label">Interests:</span>
-            <div className="links-row">
-              {interestLinks.map((link, index) => (
+        {/* Links section - inline layout */}
+        <div className="links-section">
+          <div className="links-row">
+            <p className="links-message">Find me Online:</p>
+            
+            <div className="all-links">
+              {ProfessionalLinks.map((link, index) => (
                 <a 
                   key={index}
                   href={link.url} 
                   target={link.isExternal ? "_blank" : undefined} 
                   rel={link.isExternal ? "noopener noreferrer" : undefined}
                   className="link-item"
-                  aria-label={link.name}
                 >
                   {renderIcon(link.iconType)}
                   <span>{link.name}</span>

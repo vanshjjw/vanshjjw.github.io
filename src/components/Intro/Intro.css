@@ -12,6 +12,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--bg-page);
+  --intro-padding-x: var(--spacing-xs); /* Control horizontal padding */
 }
 
 /* Background design element - subtle gradient */
@@ -23,108 +24,161 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, var(--bg-light) 0%, rgba(224, 215, 205, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
-  animation: pulse 15s infinite alternate ease-in-out;
+  animation: pulse 20s infinite alternate ease-in-out;
   z-index: 0;
 }
 
-/* Content wrapper */
+/* Content wrapper - left aligned */
 .intro-content {
   z-index: 1;
   width: 100%;
   max-width: 900px;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--intro-padding-x);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; /* Left alignment */
   gap: var(--spacing-xl);
-  transform: translateY(-15%); /* Position above the middle */
+  transform: translateY(-5%);
 }
 
-/* Intro header section */
+/* Intro header section - left aligned */
 .intro-header {
-  text-align: left;
+  text-align: left; /* Left alignment */
   margin-bottom: var(--spacing-xl);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left alignment */
+  position: relative;
 }
 
-/* Greeting heading */
-.greeting {
+/* Easter egg styling */
+.easter-egg {
+  position: absolute;
+  top: -5rem;
+  left: -2rem;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9));
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Clickable element styling */
+.clickable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.clickable:hover {
+  color: var(--primary-light);
+}
+
+
+/* Intro name - second element */
+.intro-name {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  color: var(--text-title);
-  margin-bottom: var(--spacing-sm);
-  position: relative;
-  display: inline-block;
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-lg) 0;
+  font-weight: normal;
   opacity: 0;
-  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards 0.6s;
+}
+
+name-a {
+  color: var(--text-title);
+  position: relative;
 }
 
 /* Name styling with emphasis */
-.name {
-  color: var(--primary-dark);
+.name-b {
+  color: var(--text-title);
   position: relative;
-  display: inline-block;
-  font-size: 2.2rem;
 }
 
 /* Animated underline for name */
-.name::after {
+.name-b::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 2px;
-  width: 100%;
+  bottom: 0px;
+  width: 101%;
   height: 3px;
-  background: var(--primary-gradient);
+  background: var(--primary-dark);
   border-radius: 2px;
   transform-origin: left;
-  animation: expandWidth 0.6s ease-out forwards 0.6s;
+  animation: expandWidth 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 1.4s;
   transform: scaleX(0);
 }
 
-/* Description text */
-.description {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-subtitle);
-  margin-top: var(--spacing-sm);
-  max-width: 600px;
+/* Description container to handle markdown formatting */
+.description-container {
+  max-width: 95%;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards 1.5s;
+  animation: fadeIn 1.5s ease-out forwards 2s; /* Appears after name underline */
+  text-align: left; /* Left alignment */
 }
 
-/* Links container */
-.intro-links {
+/* Description text styling */
+.description-container p {
+  font-family: var(--font-body);
+  font-size: 1.25rem; /* Increased size */
+  color: var(--text-subtitle);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+/* Applying markdown styling */
+.description-container .markdown-bold {
+  font-weight: 600;
+  color: var(--text-title);
+}
+
+.description-container .markdown-emphasis {
+  font-style: italic;
+}
+
+/* Links section - left aligned */
+.links-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  width: 100%;
+  align-items: flex-start; /* Left alignment */
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards 2s;
+  animation: fadeIn 1s ease-out forwards 3s; /* Appears after description */
 }
 
-/* Links section */
-.links-section {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-/* Links label */
-.links-label {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  color: var(--text-subtitle);
-  font-weight: 500;
-  min-width: 80px;
-}
-
-/* Links row */
+/* Links row - contains message and links in one row */
 .links-row {
   display: flex;
-  gap: var(--spacing-lg);
+  align-items: center;
   flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+/* Links message */
+.links-message {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text-title);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* All links container - horizontal layout */
+.all-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-md); /* Space between links */
 }
 
 /* Individual link */
@@ -134,26 +188,47 @@
   gap: var(--spacing-xs);
   text-decoration: none;
   color: var(--text-subtitle);
-  transition: all var(--transition-medium) ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0.3rem 0.5rem;
+  position: relative;
 }
 
 /* Icon styling */
 .link-item svg {
   width: 20px;
   height: 20px;
-  transition: all var(--transition-medium) ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Text styling */
 .link-item span {
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: color var(--transition-medium) ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hover effects */
+/* Underline for links on hover */
+.link-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced hover effects */
 .link-item:hover {
   color: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.link-item:hover::after {
+  transform: scaleX(1);
 }
 
 .link-item:hover svg {
@@ -187,42 +262,93 @@
   50% { opacity: 0.8; transform: scale(1.05); }
 }
 
+@keyframes popIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .intro-container {
+    --intro-padding-x: var(--spacing-md);
+  }
+  
   .intro-content {
-    transform: translateY(-10%);
+    transform: translateY(0);
   }
   
-  .greeting, .name {
-    font-size: 2rem;
+  .greeting, .intro-name {
+    font-size: 2.2rem;
   }
   
-  .description {
-    font-size: 1rem;
+  .description-container p {
+    font-size: 1.15rem;
   }
   
-  .links-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
+  .links-message {
+    font-size: 1.3rem;
   }
   
   .links-row {
-    margin-left: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  
+  .all-links {
+    gap: var(--spacing-md);
+  }
+  
+  .easter-egg {
+    font-size: 1rem;
+    top: -1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .intro-content {
-    transform: translateY(-5%);
     padding: 0 var(--spacing-md);
   }
   
-  .greeting, .name {
+  .greeting, .intro-name {
     font-size: 1.8rem;
   }
   
+  .description-container p {
+    font-size: 1.1rem;
+  }
+  
+  .links-message {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+  }
+  
   .links-row {
-    gap: var(--spacing-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+  
+  .all-links {
+    gap: var(--spacing-sm);
+  }
+  
+  .link-item {
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .link-item span {
+    font-size: 0.9rem;
+  }
+  
+  .easter-egg {
+    font-size: 0.9rem;
+    top: -1.6rem;
+    left: 0.5rem;
+    padding: 0.2rem 0.6rem;
   }
 }
