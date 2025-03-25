@@ -1,19 +1,21 @@
 import React from 'react';
+import './markdownRenderers.css';
 
-// Custom renderers for Markdown components
+
+
 const MarkdownRenderers = {
   // Custom link renderer
   a: ({ node, ...props }) => (
     <a 
       {...props} 
-      className="inline-link"
+      className="markdown-link"
       target="_blank"
       rel="noopener noreferrer"
     />
   ),
   // Custom paragraph renderer
   p: ({ node, ...props }) => (
-    <p {...props} className="modal-paragraph" />
+    <p {...props} className="markdown-paragraph" />
   ),
   // Custom heading renderers
   h1: ({ node, ...props }) => (
@@ -27,17 +29,17 @@ const MarkdownRenderers = {
   ),
   // Custom list renderers
   ul: ({ node, ...props }) => (
-    <ul {...props} className="modal-list" />
+    <ul {...props} className="markdown-list" />
   ),
   li: ({ node, ...props }) => (
-    <li {...props} className="modal-list-item" />
+    <li {...props} className="markdown-list-item" />
   ),
   // Custom code renderer
   code: ({ node, ...props }) => (
-    <code {...props} className="modal-code" />
+    <code {...props} className="markdown-code" />
   ),
   pre: ({ node, ...props }) => (
-    <pre {...props} className="modal-code-block" />
+    <pre {...props} className="markdown-pre" />
   ),
   // Custom strong/bold renderer
   strong: ({ node, ...props }) => (

@@ -1,13 +1,11 @@
 // Personal information
 export const personalInfo = {
   name: 'Vansh Jhunjhunwala',
-  description: `
-    I am a passionate software engineer with a keen interest 
-    in web development and open-source contributions. I love exploring new technologies and building
-    innovative solutions to real-world problems. My goal is to create impactful applications that 
-    enhance user experiences and drive positive change in the tech community.
-  \n\n\n\n
-  `
+  description:
+   `I am a passionate software engineer with a keen interest 
+    in web development and open-source [contributions](https://www.mesgeg.org). I love exploring new technologies and building
+    innovative **solutions** to real-world problems. My goal is to create impactful applications that 
+    enhance user experiences and drive positive change in the tech community.`
 };
 
 

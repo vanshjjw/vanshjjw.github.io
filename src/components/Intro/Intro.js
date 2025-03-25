@@ -45,18 +45,13 @@ const Intro = () => {
     <div className="intro-container">
       <div className="intro-content">
 
-        {/* Header with greeting, name and description */}
+        {/* Greeting and Name */}
         <header className="intro-header">
           {showEasterEgg && (
             <div className="easter-egg"> My regards, General Kenobi!</div>
           )}
           <p className="intro-name">
-            <span 
-              className="name-a clickable" 
-              onClick={handleHelloClick}
-            > 
-              Hello There, 
-            </span>
+            <span className="name-a clickable" onClick={handleHelloClick}> Hello There, </span>
             <span className="name-a"> I'm </span>
             <span className="name-b"> Vansh Jhunjhunwala </span>
           </p>
