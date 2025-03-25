@@ -12,10 +12,9 @@
   position: relative;
   overflow: hidden;
   background-color: var(--bg-page);
-  padding: 0 var(--spacing-xl);
 }
 
-/* Background design element */
+/* Background design element - subtle gradient */
 .intro-container::before {
   content: '';
   position: absolute;
@@ -32,27 +31,23 @@
 .intro-content {
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
-  perspective: 1000px;
-}
-
-/* Intro header section - left aligned */
-.intro-header {
-  text-align: left;
+  max-width: 900px;
+  padding: 0 var(--spacing-lg);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: var(--spacing-xl);
+  transform: translateY(-15%); /* Position above the middle */
 }
 
-/* Welcome message container */
-.welcome-message {
-  margin-bottom: var(--spacing-lg);
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: slideInFromLeft 0.6s ease-out forwards;
+/* Intro header section */
+.intro-header {
+  text-align: left;
+  margin-bottom: var(--spacing-xl);
 }
 
-/* Greeting heading - consistent size */
+/* Greeting heading */
 .greeting {
   font-family: var(--font-heading);
   font-size: 2.2rem;
@@ -60,10 +55,12 @@
   margin-bottom: var(--spacing-sm);
   position: relative;
   display: inline-block;
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
 }
 
 /* Name styling with emphasis */
-.greeting .name {
+.name {
   color: var(--primary-dark);
   position: relative;
   display: inline-block;
@@ -71,7 +68,7 @@
 }
 
 /* Animated underline for name */
-.greeting .name::after {
+.name::after {
   content: '';
   position: absolute;
   left: 0;
@@ -91,117 +88,79 @@
   font-size: 1.1rem;
   color: var(--text-subtitle);
   margin-top: var(--spacing-sm);
+  max-width: 600px;
   opacity: 0;
   animation: fadeIn 0.5s ease-out forwards 1.5s;
 }
 
-/* Modular action sections */
-.action-modules {
+/* Links container */
+.intro-links {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
+  width: 100%;
   opacity: 0;
   animation: fadeIn 0.5s ease-out forwards 2s;
 }
 
-/* Individual module */
-.action-module {
-  margin-bottom: var(--spacing-lg);
-}
-
-/* Module title */
-.module-title {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: var(--text-title);
-  margin-bottom: var(--spacing-xs);
-  position: relative;
-  display: inline-block;
-}
-
-/* Module text */
-.module-text {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-body);
-  margin-bottom: var(--spacing-md);
-  max-width: 600px;
-}
-
-/* Module actions container */
-.module-actions {
+/* Links section */
+.links-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-
-/* Action button */
-.action-button {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: var(--bg-card);
-  color: var(--text-body);
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--border-light);
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: all var(--transition-medium) ease;
-  box-shadow: 0 2px 4px var(--shadow-light);
-}
-
-.action-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-light);
-  background-color: var(--primary-dark);
-  color: white;
-  border-color: var(--primary-dark);
-}
-
-/* Social links container - matching image style */
-.social-links-container {
-  display: flex;
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-md);
   align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
-/* Individual social link */
-.social-link {
+/* Links label */
+.links-label {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text-subtitle);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+/* Links row */
+.links-row {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+/* Individual link */
+.link-item {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
   text-decoration: none;
-  transition: all var(--transition-medium) ease;
   color: var(--text-subtitle);
-}
-
-/* Icon styling for social links */
-.social-link svg {
-  width: 24px;
-  height: 24px;
   transition: all var(--transition-medium) ease;
 }
 
-/* Text label for social links */
-.social-link span {
+/* Icon styling */
+.link-item svg {
+  width: 20px;
+  height: 20px;
+  transition: all var(--transition-medium) ease;
+}
+
+/* Text styling */
+.link-item span {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: color var(--transition-medium) ease;
 }
 
-/* Hover effects for social links */
-.social-link:hover {
+/* Hover effects */
+.link-item:hover {
   color: var(--primary-dark);
 }
 
-.social-link:hover svg {
+.link-item:hover svg {
   transform: translateY(-2px);
 }
 
-/* New animations */
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -210,7 +169,7 @@
 @keyframes slideInFromLeft {
   from { 
     opacity: 0; 
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to { 
     opacity: 1; 
@@ -230,63 +189,40 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .intro-container {
-    padding: 0 var(--spacing-lg);
+  .intro-content {
+    transform: translateY(-10%);
   }
   
-  .greeting {
+  .greeting, .name {
     font-size: 2rem;
   }
   
   .description {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
-  .module-title {
-    font-size: 1.3rem;
+  .links-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
   }
   
-  .module-text {
-    font-size: 1.1rem;
-  }
-  
-  .action-button {
-    font-size: 1.1rem;
-  }
-  
-  .social-link span {
-    font-size: 1.1rem;
+  .links-row {
+    margin-left: var(--spacing-sm);
   }
 }
 
 @media (max-width: 480px) {
-  .intro-container {
+  .intro-content {
+    transform: translateY(-5%);
     padding: 0 var(--spacing-md);
   }
   
-  .greeting {
+  .greeting, .name {
     font-size: 1.8rem;
   }
   
-  .description {
-    font-size: 1rem;
-  }
-  
-  .module-title {
-    font-size: 1.2rem;
-  }
-  
-  .module-text {
-    font-size: 1rem;
-  }
-  
-  .action-button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .social-links-container {
-    flex-wrap: wrap;
+  .links-row {
     gap: var(--spacing-md);
   }
 }

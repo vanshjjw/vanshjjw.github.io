@@ -1,38 +1,47 @@
-// Bio paragraphs content
-export const bioParagraphs = [
-  `Hello! I'm a computer science enthusiast with a passion for building innovative solutions. 
-  I specialize in web development, machine learning, and data analysis, always looking for 
-  ways to leverage technology to solve real-world problems.`,
-  
-  `Currently, I'm focused on exploring the intersection of AI and user experience, 
-  aiming to create more intuitive and personalized digital experiences. When I'm not coding, 
-  you can find me reading about the latest tech trends or exploring new hiking trails.`
-];
+// Personal information
+export const personalInfo = {
+  name: 'Vansh Jhunjhunwala',
+  description: 'Software developer passionate about creating meaningful experiences.'
+};
 
-// Social links data
-export const socialLinks = [
+// All links in a single structure
+export const links = [
+  // Professional links
   {
     name: 'GitHub',
     url: 'https://github.com/your-username',
     iconType: 'github',
+    category: 'connect',
     isExternal: true
   },
   {
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/your-profile',
     iconType: 'linkedin',
+    category: 'connect',
     isExternal: true
   },
   {
     name: 'Email',
     url: 'mailto:your.email@example.com',
     iconType: 'email',
+    category: 'connect',
     isExternal: false
+  },
+  
+  // Interest links
+  {
+    name: 'Substack',
+    url: 'https://substack.com/@yourname',
+    iconType: 'substack',
+    category: 'interests',
+    isExternal: true
+  },
+  {
+    name: 'Letterboxd',
+    url: 'https://letterboxd.com/yourusername/',
+    iconType: 'letterboxd',
+    category: 'interests',
+    isExternal: true
   }
-];
-
-// Personal information
-export const personalInfo = {
-  name: 'Vansh Jhunjhunwala',
-  greetingText: 'Say Hello'
-}; 
+]; 

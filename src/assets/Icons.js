@@ -30,6 +30,23 @@ export const ExternalLinkIcon = ({ width = 24, height = 24 }) => (
   </svg>
 );
 
+// Interest Platform Icons
+export const SubstackIcon = ({ width = 24, height = 24 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="4" y="4" width="16" height="3" rx="1"></rect>
+    <rect x="4" y="10" width="16" height="3" rx="1"></rect>
+    <rect x="4" y="16" width="16" height="3" rx="1"></rect>
+  </svg>
+);
+
+export const LetterboxdIcon = ({ width = 24, height = 24 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="7.5" cy="12" r="4.5"></circle>
+    <circle cx="16.5" cy="12" r="4.5"></circle>
+    <path d="M12 12h0"></path>
+  </svg>
+);
+
 // Navigation & UI Icons
 export const FlipIcon = ({ width = 16, height = 16 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill="currentColor" viewBox="0 0 16 16">
