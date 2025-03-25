@@ -1,20 +1,20 @@
 /* Website Color Variables */
 :root {
     /* Primary colors - richer, more professional browns */
-    --primary-dark: #5d4037;
-    --primary-light: #8d6e63;
+    --primary-dark: #965f41;
+    --primary-light: #d4a276;
     --primary-gradient: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
     --primary-horizontal-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
     
     /* Text colors - higher contrast for better readability */
-    --text-dark: #2d2420;
-    --text-title: #3e2723;
-    --text-subtitle: #4e342e;
-    --text-body: #3e2723;
-    --text-muted: #6d4c41;
-    
+    --text-dark: #333;
+    --text-title: #5a3a28;
+    --text-subtitle: #6e4c3a;
+    --text-body: #4a3426;
+    --text-muted: #7d5a46;
+
     /* Background colors - darker cards, more matte finish */
-    --bg-light: #EAE1D8CC;
+    --bg-light: rgba(245, 240, 235, 0.6);
     --bg-card: rgba(245, 240, 235, 0.9);
     --bg-card-dark: rgba(224, 215, 205, 0.95);
     --bg-gradient: linear-gradient(45deg, rgba(224, 215, 205, 0.7), rgba(245, 240, 235, 0.7));
@@ -43,9 +43,3 @@
     --overlay-dark: rgba(62, 39, 35, 0.8);
     --overlay-light: rgba(93, 64, 55, 0.08);
 }
-
-/* Usage example:
-   color: var(--primary-dark);
-   background: var(--bg-gradient);
-   box-shadow: 0 4px 10px var(--shadow-medium);
-*/ 

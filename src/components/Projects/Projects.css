@@ -291,3 +291,19 @@
 .section-heading svg {
   color: var(--primary-dark);
 }
+
+.section-heading span {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 40%;
+  height: 2px;
+  background-color: var(--primary-dark);
+  transition: width 0.3s ease;
+}

@@ -20,7 +20,7 @@ const Projects = () => {
       <div className="projects-section">
         <h2 className="section-heading">
           <ResearchIcon width={24} height={24} />
-          <span>Research Projects</span>
+          <span>Research</span>
         </h2>
         <div className="projects-grid">
           {ResearchProjects.map((project) => (
@@ -33,7 +33,7 @@ const Projects = () => {
       <div className="projects-section">
         <h2 className="section-heading">
           <CodingIcon width={24} height={24} />
-          <span>Coding Projects</span>
+          <span>Code</span>
         </h2>
         <div className="projects-grid">
           {CodingProjects.map((project) => (
