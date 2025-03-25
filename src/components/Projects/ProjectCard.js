@@ -2,6 +2,21 @@ import React from 'react';
 import { GithubIcon, ExternalLinkIcon } from '../../assets/Icons';
 
 const ProjectCard = ({ project }) => {
+  const renderButton = (label, url, index) => {
+    const isGithub = index === 0;
+    return (
+      <a 
+        key={index}
+        href={url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className={`project-btn ${isGithub ? 'github-btn' : 'demo-btn'}`}
+      >
+        {isGithub ? <GithubIcon width={16} height={16} /> : <ExternalLinkIcon width={16} height={16} />} 
+        {isGithub ? 'View Code' : label}
+      </a>
+    );
+  };
  
   return (
     <div className="project-card">
@@ -11,15 +26,7 @@ const ProjectCard = ({ project }) => {
         {/* Hover overlay with buttons */}
         <div className="project-overlay">
           {project.buttons && Object.entries(project.buttons).map(([label, url], index) => (
-            <a 
-              key={index}
-              href={url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`project-btn ${index === 0 ? 'github-btn' : 'demo-btn'}`}
-            >
-              {index === 0 ? <GithubIcon width={16} height={16} /> : <ExternalLinkIcon width={16} height={16} />} {label}
-            </a>
+            renderButton(label, url, index)
           ))}
         </div>
       </div>

@@ -2,10 +2,10 @@
 export const personalInfo = {
   name: 'Vansh Jhunjhunwala',
   description: `
-  Software developer passionate about creating meaningful experiences.
-  I enjoy building solutions that positively impact people's lives while exploring 
-  new technologies and creative ideas.  Welcome to my digital home — 
-  feel free to explore and discover more about my work and interests.
+    I am a passionate software engineer with a keen interest 
+    in web development and open-source contributions. I love exploring new technologies and building
+    innovative solutions to real-world problems. My goal is to create impactful applications that 
+    enhance user experiences and drive positive change in the tech community.
   \n\n\n\n
   `
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-import { projectsData } from '../../assets/ProjectsData';
+import { ResearchProjects, CodingProjects } from '../../assets/ProjectsData';
 import ProjectCard from './ProjectCard';
+import { ResearchIcon, CodingIcon } from '../../assets/Icons';
 
 import './Projects.css';
-
 
 const INTRODUCTION =
 `Sometimes, I build stuff. Most of the stuff I build is not ready for presentation and I have often do not build for
@@ -16,10 +16,30 @@ const Projects = () => {
         {INTRODUCTION}
       </p>
       
-      <div className="projects-grid">
-        {projectsData.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+      {/* Research Projects Section */}
+      <div className="projects-section">
+        <h2 className="section-heading">
+          <ResearchIcon width={24} height={24} />
+          <span>Research Projects</span>
+        </h2>
+        <div className="projects-grid">
+          {ResearchProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+
+      {/* Coding Projects Section */}
+      <div className="projects-section">
+        <h2 className="section-heading">
+          <CodingIcon width={24} height={24} />
+          <span>Coding Projects</span>
+        </h2>
+        <div className="projects-grid">
+          {CodingProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   );

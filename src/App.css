@@ -1,5 +1,30 @@
-@import './styles/colors.css';
+/* Import base styles */
+@import 'styles/colors.css';
+@import 'styles/typography.css';
+@import 'styles/layout.css';
 
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-page);
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-body);
+    background-color: var(--bg-page);
+}
+
+/* App layout styles */
 .app-layout {
     display: flex;
     flex-direction: row;
@@ -10,7 +35,6 @@
 
 .main-content {
     flex: 1;
-    padding: 20px;
     overflow-y: auto;
     /* Fixed content width that doesn't shift with sidebar */
     max-width: calc(100% - var(--collapsed-width));
@@ -29,85 +53,4 @@
 .App {
     text-align: center;
     background-color: var(--bg-page);
-}
-
-/* Section container styling */
-.content-section {
-    margin-bottom: 40px;
-    padding: 30px;
-    background-color: var(--bg-card);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-medium);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-}
-
-.content-section:hover {
-    box-shadow: 0 8px 25px var(--shadow-medium);
-    transform: translateY(-3px);
-}
-
-/* Unified headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--text-title);
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* Section heading with subtle underline */
-.section-heading {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    position: relative;
-}
-
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
-    border-radius: 2px;
-}
-
-/* Card styling */
-.info-card {
-    padding: 25px;
-    background: var(--bg-card-dark);
-    border-radius: var(--border-radius-md);
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-}
-
-.info-card:hover {
-    box-shadow: 0 8px 25px var(--shadow-medium);
-    transform: translateY(-3px);
-}
-
-/* Button styling */
-.custom-button {
-    background: var(--primary-dark);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-body);
-    font-weight: var(--font-weight-medium);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-}
-
-.custom-button:hover {
-    background: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-light);
 }

@@ -15,7 +15,7 @@ import Garden from "./components/Garden/Garden";
 import Interests from "./components/Interests/Interests";
 
 // Import main centralized CSS
-import "./styles/main.css";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
