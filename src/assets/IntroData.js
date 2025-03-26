@@ -1,12 +1,16 @@
 // Personal information
-export const personalInfo = {
-  name: 'Vansh Jhunjhunwala',
-  description:
-   `I am a passionate software engineer with a keen interest 
-    in web development and open-source [contributions](https://www.mesgeg.org). I love exploring new technologies and building
-    innovative **solutions** to real-world problems. My goal is to create impactful applications that 
-    enhance user experiences and drive positive change in the tech community.`
-};
+
+export const personalDescription =
+`
+By day (and most nights), I am a student of physics. Along the way, I've collected snippets of computer science, 
+philosophy, and startup wisdom. Sometimes I build things that are cool and nerdy. More commonly, I sit down and 
+try to understand things deeply. 
+
+In the past, I haven't been great at presenting my projects and ideas. This website is part of my ongoing attempt at 
+self-accountability – part resume, part second brain, and part simmering ideas. Look around, maybe you'll find something 
+you like.
+`
+
 
 
 // All links in a single structure

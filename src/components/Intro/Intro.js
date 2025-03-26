@@ -8,7 +8,7 @@ import {
   LetterboxdIcon
 } from '../../assets/Icons';
 
-import { personalInfo, ProfessionalLinks } from '../../assets/IntroData';
+import { personalDescription, ProfessionalLinks } from '../../assets/IntroData';
 import ReactMarkdown from 'react-markdown';
 import MarkdownRenderers from '../General/MarkdownRenderers';
 
@@ -38,7 +38,7 @@ const Intro = () => {
     // Hide the Easter egg after 3 seconds
     setTimeout(() => {
       setShowEasterEgg(false);
-    }, 3000);
+    }, 1000);
   };
 
   return (
@@ -58,7 +58,7 @@ const Intro = () => {
           
           <div className="description-container">
             <ReactMarkdown components={MarkdownRenderers}>
-              {personalInfo.description}
+              {personalDescription}
             </ReactMarkdown>
           </div>
         </header>

@@ -121,7 +121,7 @@ name-a {
 
 /* Description container to handle markdown formatting */
 .description-container {
-  max-width: 95%;
+  max-width: 90%;
   opacity: 0;
   animation: fadeIn 1.5s ease-out forwards 2s; /* Appears after name underline */
   text-align: left; /* Left alignment */
@@ -130,7 +130,7 @@ name-a {
 /* Description text styling */
 .description-container p {
   font-family: var(--font-body);
-  font-size: 1.25rem; /* Increased size */
+  font-size: 1.1rem; /* Increased size */
   color: var(--text-subtitle);
   line-height: 1.6;
   margin-bottom: 0.8rem;

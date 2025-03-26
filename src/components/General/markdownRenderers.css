@@ -1,0 +1,136 @@
+/* Intro page styling */
+@import '../../styles/colors.css';
+@import '../../styles/typography.css';
+@import '../../styles/layout.css';
+
+
+  /* Markdown paragraph */
+  .markdown-paragraph {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: var(--text-body);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Markdown links */
+  .markdown-link {
+    color: var(--text-subtitle);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-medium) ease;
+  }
+  
+  .markdown-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-medium) ease;
+  }
+  
+  .markdown-link:hover {
+    color: var(--primary-light);
+  }
+  
+  .markdown-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Markdown headings */
+  .markdown-heading {
+    font-family: var(--font-heading);
+    color: var(--text-title);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    line-height: var(--line-height-tight);
+  }
+  
+  .markdown-h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .markdown-h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .markdown-h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Markdown lists */
+  .markdown-list {
+    list-style-type: disc;
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-xl);
+  }
+  
+  .markdown-list-item {
+    color: var(--text-body);
+    margin: var(--spacing-xs) 0;
+    line-height: var(--line-height-relaxed);
+  }
+  
+  /* Markdown code blocks */
+  .markdown-code {
+    font-family: var(--font-mono);
+    background-color: var(--overlay-light);
+    padding: 0.2em 0.4em;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9em;
+    color: var(--text-title);
+  }
+  
+  .markdown-pre {
+    background-color: var(--overlay-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+    margin: var(--spacing-md) 0;
+  }
+  
+  .markdown-pre .markdown-code {
+    background: none;
+    padding: 0;
+  }
+  
+  /* Markdown emphasis */
+  .markdown-bold {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-title);
+  }
+  
+  .markdown-emphasis {
+    font-style: italic;
+    color: var(--text-subtitle);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .markdown-paragraph {
+      font-size: 1.15rem;
+    }
+    
+    .markdown-h1 {
+      font-size: var(--font-size-xl);
+    }
+    
+    .markdown-h2 {
+      font-size: var(--font-size-lg);
+    }
+    
+    .markdown-h3 {
+      font-size: var(--font-size-md);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .markdown-paragraph {
+      font-size: 1.1rem;
+    }
+  }
+  
