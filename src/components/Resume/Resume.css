@@ -14,6 +14,34 @@
     background-color: var(--bg-page);
 }
 
+/* Resume introduction styling */
+.resume-introduction {
+    max-width: 90%px;
+    margin: 0 0 var(--spacing-xl) 0; /* Left-aligned with bottom margin */
+    padding: 0 var(--spacing-sm);
+    animation: fadeIn 0.8s ease-in-out;
+    font-family: var(--font-cursive);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Style for markdown content in the introduction */
+.resume-introduction .markdown-paragraph {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-body);
+    font-size: var(--font-size-md);
+}
+
+.resume-introduction .markdown-bold {
+    color: var(--text-title);
+    font-weight: var(--font-weight-semibold);
+}
+
+.resume-introduction .markdown-emphasis {
+    font-style: italic;
+    color: var(--text-subtitle);
+}
+
 /* 3-Pane Layout */
 .resume-layout {
     display: flex;
@@ -31,13 +59,13 @@
 }
 
 .primary-skills-pane {
-    width: 270px;
-    min-width: 270px;
+    width: 300px;
+    min-width: 300px;
 }
 
 .middle-pane {
-    width: 300px;
-    min-width: 300px;
+    width: 320px;
+    min-width: 320px;
 }
 
 .experiences-pane {
@@ -59,17 +87,32 @@
 .primary-skill-card {
     background: var(--bg-light);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
     box-shadow: 0 4px 12px var(--shadow-light);
     cursor: pointer;
     transition: all 0.3s ease;
-    height: 100px;
+    min-height: 100px;
+    height: auto;
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     border: 1px solid var(--primary-light);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    word-break: break-word;
+    z-index: 5;
+}
+
+.primary-skill-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0.7;
 }
 
 .primary-skill-card:hover {
@@ -79,9 +122,21 @@
 }
 
 .primary-skill-card h3 {
-    margin: 0 0 var(--spacing-xs) 0;
+    margin: 0;
+    padding-right: 15px;
     font-size: var(--font-size-lg);
     color: var(--text-title);
+    line-height: 1.3;
+}
+
+.primary-skill-card.selected:before {
+    opacity: 1;
+    width: 8px;
+}
+
+.primary-skill-card.selected {
+    padding-left: var(--spacing-lg);
+    transform: translateY(-3px);
 }
 
 .subskill-count {
@@ -393,9 +448,10 @@
 }
 
 .connection-dot-right {
-    right: -4px;
+    right: -5px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 6;
 }
 
 .connection-dot-left {
@@ -559,5 +615,27 @@
     .download-resume-button {
         font-size: 1em;
         padding: 10px 20px;
+    }
+}
+
+/* Add responsive styles for the introduction */
+@media (max-width: 768px) {
+    .resume-introduction {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .resume-introduction .markdown-paragraph {
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-introduction {
+        font-size: var(--font-size-sm);
+    }
+    
+    .resume-introduction .markdown-paragraph {
+        font-size: var(--font-size-sm);
     }
 }

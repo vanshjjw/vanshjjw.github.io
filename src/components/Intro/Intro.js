@@ -5,7 +5,8 @@ import {
   LinkedInIcon, 
   EmailIcon,
   SubstackIcon,
-  LetterboxdIcon
+  LetterboxdIcon,
+  LocationIcon
 } from '../../assets/Icons';
 
 import { personalDescription, ProfessionalLinks } from '../../assets/IntroData';
@@ -62,6 +63,20 @@ const Intro = () => {
             </ReactMarkdown>
           </div>
         </header>
+
+        {/* Location section - inline layout */}
+        <div className="links-section">
+          <div className="links-row">
+            <p className="links-message">Based in: </p>
+            
+            <div className="all-links">
+              <div className="location-item">
+                <LocationIcon width={20} height={20} />
+                <span>Oxford, UK</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Links section - inline layout */}
         <div className="links-section">

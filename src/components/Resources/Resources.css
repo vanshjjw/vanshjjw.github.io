@@ -1,0 +1,230 @@
+/* Resources Page Styling */
+@import '../../styles/colors.css';
+@import '../../styles/typography.css';
+@import '../../styles/layout.css';
+
+/* 
+ * Main container 
+ * --spacing-2xl controls the overall page padding (80px)
+ * To increase/decrease padding around the entire page, modify this value
+ */
+.resources-container {
+  max-width: var(--container-xl); /* Controls max-width (1200px) */
+  margin: 0 auto; /* Centers the container */
+  padding: var(--spacing-2xl); /* Controls outer padding (80px) */
+  font-family: var(--font-body);
+  color: var(--text-body);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Header styles */
+.resources-header {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  color: var(--text-title);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 
+ * Introduction text styling
+ * --spacing-xl controls space below the intro (60px)
+ * To adjust space between intro and first section, modify this value
+ */
+.resources-intro-text {
+  font-family: var(--font-cursive);
+  font-size: var(--font-size-md); /* Controls font size (1.2rem) */
+  color: var(--text-body);
+  line-height: var(--line-height-relaxed); /* Controls line height (1.9) */
+  margin-bottom: var(--spacing-xl); /* Space after intro text (60px) */
+  max-width: 800px; /* Controls max-width of intro text */
+  text-align: left; /* Ensures left alignment */
+}
+
+/* 
+ * Resource sections container 
+ * --spacing-xl controls space between sections (60px)
+ * To adjust spacing between resource categories, modify this value
+ */
+.resources-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl); /* Controls space between sections (60px) */
+}
+
+/* 
+ * Individual resource section
+ * No margins or padding here - controlled by children
+ */
+.resource-section {
+  position: relative;
+  text-align: left; /* Ensures left alignment */
+}
+
+/* 
+ * Section heading 
+ * --spacing-md controls space below heading (20px)
+ * To adjust space between heading and list, modify this value
+ */
+.resource-section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg); /* Controls font size (1.3rem) */
+  color: var(--text-title);
+  margin-bottom: var(--spacing-md); /* Space below heading (20px) */
+  position: relative;
+  display: inline-block;
+  text-align: left; /* Ensures left alignment */
+}
+
+/* Heading underline styling */
+.resource-section-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* Distance of underline from text */
+  width: 100%; /* Width of underline (full) */
+  height: 2px; /* Thickness of underline */
+  background: var(--primary-gradient);
+}
+
+/* 
+ * Resource list 
+ * --spacing-lg controls indent of list (40px)
+ * To adjust how far the list is indented, modify this value
+ */
+.resources-list {
+  list-style-position: outside;
+  list-style-type: disc;
+  padding-left: var(--spacing-lg); /* Controls list indent (40px) */
+  max-width: 800px; /* Controls max width of list */
+  margin-left: 0; /* Ensures no extra left margin */
+  text-align: left; /* Ensures left alignment */
+}
+
+/* 
+ * Resource item 
+ * --spacing-md controls space between items (20px)
+ * To adjust spacing between list items, modify this value
+ */
+.resource-item {
+  margin-bottom: var(--spacing-md); /* Space between items (20px) */
+  line-height: var(--line-height-relaxed); /* Line height (1.9) */
+  position: relative;
+  padding-left: 0; /* Removed extra padding to ensure left alignment */
+}
+
+/* 
+ * Resource title 
+ * --spacing-xs controls space between title and description (5px)
+ * To adjust spacing between title and description, modify this value
+ */
+.resource-title {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-dark);
+  text-decoration: none;
+  margin-right: var(--spacing-xs); /* Space between title and description (5px) */
+  transition: color var(--transition-medium) ease;
+  position: relative;
+}
+
+/* Hover color change */
+.resource-title:hover {
+  color: var(--primary-light);
+}
+
+/* Animated underline on hover */
+.resource-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-medium) ease;
+}
+
+.resource-title:hover::after {
+  transform: scaleX(1);
+}
+
+/* 
+ * Resource description 
+ * No direct spacing controls - follows the flow
+ */
+.resource-description {
+  font-size: var(--font-size-base); /* Font size (1rem) */
+  color: var(--text-subtitle);
+}
+
+/* Visual separator for sections */
+.resource-section:not(:last-child)::after {
+  content: none;
+}
+
+/* 
+ * Responsive adjustments
+ * Modify these values to control spacing at different screen sizes
+ */
+@media (max-width: 768px) {
+  /* Tablet adjustments */
+  .resources-container {
+    padding: var(--spacing-lg); /* Reduced outer padding (40px) */
+  }
+  
+  .resources-intro-text {
+    font-size: var(--font-size-base); /* Smaller intro text (1rem) */
+  }
+  
+  .resources-sections {
+    gap: var(--spacing-lg); /* Reduced section spacing (40px) */
+  }
+  
+  .section-heading {
+    font-size: var(--font-size-md); /* Smaller heading (1.2rem) */
+  }
+}
+
+@media (max-width: 500px) {
+  /* Mobile adjustments */
+  .resources-container {
+    padding: var(--spacing-md); /* Smaller padding (20px) */
+  }
+  
+  .resources-list {
+    padding-left: var(--spacing-md); /* Reduced list indent (20px) */
+  }
+  
+  .resource-item {
+    margin-bottom: var(--spacing-sm); /* Closer items (10px) */
+  }
+  
+  /* Stack title and description */
+  .resource-title, .resource-description {
+    display: block;
+  }
+  
+  /* Add space between stacked title and description */
+  .resource-description {
+    margin-top: var(--spacing-xs); /* Space after title (5px) */
+    font-size: var(--font-size-sm); /* Smaller text (0.85rem) */
+  }
+  
+  .resources-sections {
+    gap: var(--spacing-md); /* Reduced section spacing (20px) */
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

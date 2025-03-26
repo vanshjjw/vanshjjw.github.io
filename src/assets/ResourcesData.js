@@ -4,28 +4,27 @@ export const RESOURCES_INTRO = `
 A curated collection of resources that have shaped my thinking and learning journey. 
 These are books, articles, and tools I've found particularly valuable and return to frequently.`
 
+// Physics resources
+export const physicsResources = [
+    {
+        title: "Quantum Computing for the Very Curious",
+        description: "An interactive essay introducing quantum computing concepts.",
+        link: "https://quantum.country/qcvc"
+    },
+    {
+        title: "Feynman Lectures on Physics",
+        description: "The complete collection of Feynman's legendary lectures.",
+        link: "https://www.feynmanlectures.caltech.edu/"
+    },
+    {
+        title: "Arxiv Quantum Physics",
+        description: "Latest research papers in quantum physics.",
+        link: "https://arxiv.org/list/quant-ph/recent"
+    }
+];
 
-const Physics = [
-        {
-            title: "Quantum Computing for the Very Curious",
-            description: "An interactive essay introducing quantum computing concepts.",
-            link: "https://quantum.country/qcvc"
-        },
-        {
-            title: "Feynman Lectures on Physics",
-            description: "The complete collection of Feynman's legendary lectures.",
-            link: "https://www.feynmanlectures.caltech.edu/"
-        },
-        {
-            title: "Arxiv Quantum Physics",
-            description: "Latest research papers in quantum physics.",
-            link: "https://arxiv.org/list/quant-ph/recent"
-        }
-    ]
-
-
-
-const ComputerScience = [
+// Computer Science resources
+export const csResources = [
     {
         title: "Teach Yourself CS",
         description: "A well-structured self-learning guide covering CS fundamentals.",
@@ -41,11 +40,10 @@ const ComputerScience = [
         description: "A complete computer science study plan for becoming a software engineer.",
         link: "https://github.com/jwasham/coding-interview-university"
     }
-    
-]       
+];
 
-
-const Startups = [
+// Startup resources
+export const startupResources = [
     {
         title: "Y Combinator Library",
         description: "Startup advice and resources from Y Combinator.",
@@ -61,14 +59,13 @@ const Startups = [
         description: "Community of founders sharing their journeys and revenue numbers.",
         link: "https://www.indiehackers.com/"
     }
-]
+];
 
 
-
-
-// Resource data organized by category
-export const resourcesData = {
-    "Physics": Physics,
-    "Computer Science": ComputerScience,
-    "Startups": Startups
+export const resourcesList = {
+    "Physics": physicsResources,
+    "Computer Science Nerdy Things": csResources,
+    "Startups, Ideas and Design": startupResources
 }
+
+export default resourcesList;

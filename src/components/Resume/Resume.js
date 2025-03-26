@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './Resume.css';
+import ReactMarkdown from 'react-markdown';
 
 // Import components
 import PrimarySkillCard from './components/PrimarySkillCard';
 import SubSkillCard from './components/SubSkillCard';
 import ExperienceCard from './components/ExperienceCard';
 import ConnectionLines from './components/ConnectionLines';
+import MarkdownRenderers from '../General/MarkdownRenderers';
 
 import { DownloadIcon } from '../../assets/Icons';
 
 // Import data
 import { software, research, leadership, entrepreneurship } from '../../assets/GraphicalData/SkillGraphData';
 import experiencesData from '../../assets/GraphicalData/ExperiencesData';
+import { RESUME_INTRODUCTION } from '../../assets/GraphicalData/ResumeIntro';
 
 // Main Resume Component
 const Resume = () => {
@@ -183,6 +186,13 @@ const Resume = () => {
 
     return (
         <div className="resume-container">
+            {/* Introduction section */}
+            <div className="resume-introduction">
+                <ReactMarkdown components={MarkdownRenderers}>
+                    {RESUME_INTRODUCTION}
+                </ReactMarkdown>
+            </div>
+            
             <div className="resume-layout">
                 {/* Left Pane - Primary Skills */}
                 <div className="pane primary-skills-pane">
