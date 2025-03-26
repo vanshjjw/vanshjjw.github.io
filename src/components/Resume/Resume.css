@@ -97,22 +97,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid var(--primary-light);
     position: relative;
     overflow: visible;
     word-break: break-word;
     z-index: 5;
+    border: 1px solid var(--primary-light);
 }
 
+/* Removing the brown bar pseudo-element */
 .primary-skill-card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background: var(--primary-gradient);
-    opacity: 0.7;
+    display: none; /* Hide the vertical bar */
 }
 
 .primary-skill-card:hover {
@@ -130,13 +124,16 @@
 }
 
 .primary-skill-card.selected:before {
-    opacity: 1;
-    width: 8px;
+    display: none; /* Also hide the bar when card is selected */
 }
 
 .primary-skill-card.selected {
-    padding-left: var(--spacing-lg);
+    border-color: #8d6e63; /* Darker border when selected, same as subskill cards */
+    border-width: 2px; /* Thicker border when selected, same as subskill cards */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background-color: rgba(224, 215, 205, 0.85);
     transform: translateY(-3px);
+    padding-left: var(--spacing-lg); /* Maintain padding */
 }
 
 .subskill-count {
