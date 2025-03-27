@@ -10,31 +10,32 @@ explorations at the intersection of **physics** and **computer science**.
 
 const uclDescription =
 `
-I worked with Professor Dan Browne, and researched quantum error-correction codes 
-(specifically the bivariate bicycle codes). I did some work on optimisation these codes, creating nice families 
-of such codes and ended up creating a python package to do so.
+I researched quantum error-correction (**bivariate bicycle**) codes. I did some work on optimisating their numerical search, 
+generalising their construction to more groups, and finding useful families of such codes. 
+I ended up creating a **python package** to deliver all this work.
 `
 
 const ghystonDescription =
 `   
-I worked as a full-stack developer, and worked on multiple projects. I worked on the backend of a project to
-create a database ETL pipeline, and also worked on the frontend of a project to create an API endpoint.
-I also worked on a project to create a web app for a client, and worked on the backend of that project.
+I trained as a **full-stack developer**, and worked on multiple projects. I created database 
+ETL pipelines, API endpoints, and frontend features. I also built and deployed advanced 
+web scrapers using **Python** and **Docker**.
 `
 
 
 const oxfordIncubatorDescription =
     `
-I co-founded a startup to use quantum memristors as anti-counterfeiting devices. 
-I worked on the business side of things, and also did some work on the technical side.
-I worked on the business plan, and also did some work on the technical side to create a prototype of the device.
+I co-founded a startup to use **quantum memristors** as anti-counterfeiting devices. 
+I worked on both the business and technical side of things. I helped **develop a product** from existing IP, 
+**create a business plan**, and **pitch** to potential investors.
 `
 
 
 const oqsDescription =
 `
-Led the society's initiatives in quantum computing education and outreach. Organized workshops, 
-seminars, and networking events with industry professionals.
+I revamped the society's to focus more on **undergraduates** and **access**. I organised some of the biggest events in 
+the society's history and liased with speakers, sponsors and industry partners.
+
 `
 
 
@@ -82,7 +83,7 @@ export const experiencesData = [
     website: "https://unistep.org/",
     subtitle: "Student Entrepreneur",
     location: "Oxford, UK",
-    dates: "Jl - Aug 2022",
+    dates: "Jul - Aug 2022",
     description: oxfordIncubatorDescription
   },
   
@@ -90,7 +91,7 @@ export const experiencesData = [
   {
     id: 5,
     type: "other-experience",
-    title: "Oxford Quantum Information Society",
+    title: "Oxford University Quantum Information Society",
     website: "https://www.oxfordquantum.org/",
     subtitle: "President",
     location: "Oxford, UK",

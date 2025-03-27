@@ -9,7 +9,7 @@ import ExperienceCard from './components/ExperienceCard';
 import ConnectionLines from './components/ConnectionLines';
 import MarkdownRenderers from '../General/MarkdownRenderers';
 
-import { DownloadIcon } from '../../assets/Icons';
+import { DownloadIcon, EducationIcon, WorkExperienceIcon, OtherExperienceIcon } from '../../assets/Icons';
 
 // Import data
 import { software, research, leadership, entrepreneurship } from '../../assets/GraphicalData/SkillGraphData';
@@ -184,6 +184,13 @@ const Resume = () => {
         }
     }, [activeExperienceIds, hoveredExperienceId]);
 
+    // Inside the Resume component, add this helper component
+    const ExperienceBreak = ({ icon: Icon }) => (
+        <div className="experience-break">
+            <Icon width={28} height={28} />
+        </div>
+    );
+
     return (
         <div className="resume-container">
             {/* Introduction section */}
@@ -238,15 +245,25 @@ const Resume = () => {
                 {/* Right Pane - Experiences */}
                 <div className="pane experiences-pane">
                     <div className="experiences-container">
-                        {experiencesData.map(experience => (
-                            <ExperienceCard
-                                key={experience.id}
-                                item={experience}
-                                isConnected={isExperienceHighlighted(experience.id)}
-                                isConnectable={connectedExperienceIds.includes(experience.id)}
-                                onExpand={handleCardExpand}
-                                onHover={handleExperienceHover}
-                            />
+                        {experiencesData.map((experience, index) => (
+                            <React.Fragment key={experience.id}>
+                                {/* Add Education icon before first experience */}
+                                {index === 0 && <ExperienceBreak icon={EducationIcon} />}
+                                
+                                {/* Add Work icon before second experience (index 1) */}
+                                {index === 1 && <ExperienceBreak icon={WorkExperienceIcon} />}
+                                
+                                {/* Add Other icon before fifth experience (index 4) */}
+                                {index === 4 && <ExperienceBreak icon={OtherExperienceIcon} />}
+                                
+                                <ExperienceCard
+                                    item={experience}
+                                    isConnected={isExperienceHighlighted(experience.id)}
+                                    isConnectable={connectedExperienceIds.includes(experience.id)}
+                                    onExpand={handleCardExpand}
+                                    onHover={handleExperienceHover}
+                                />
+                            </React.Fragment>
                         ))}
                     </div>
                 </div>

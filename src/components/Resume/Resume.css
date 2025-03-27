@@ -6,7 +6,7 @@
 /* Resume container styling */
 .resume-container {
     max-width: var(--container-xl);
-    margin: 0 auto 0 0; /* Shift leftward by removing right margin */
+    margin-left: -5%; /* Shift leftward by removing right margin */
     padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xl) var(--spacing-sm); /* Reduce left padding */
     font-family: var(--font-body);
     color: var(--text-body);
@@ -164,7 +164,7 @@
 .resume-card {
     background-color: var(--bg-card);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e0e0;
     height: 180px;
@@ -624,4 +624,17 @@
     .resume-introduction .markdown-paragraph {
         font-size: var(--font-size-sm);
     }
+}
+
+/* Simplified experience break styling */
+.experience-break {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-sm) 0;
+    margin: var(--spacing-sm) 0;
+}
+
+.experience-break svg {
+    color: var(--text-muted);
+    opacity: 0.7;
 }
