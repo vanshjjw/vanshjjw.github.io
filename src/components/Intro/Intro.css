@@ -142,7 +142,7 @@ name-a {
 
 /* Description container to handle markdown formatting */
 .description-container {
-  max-width: 90%;
+  max-width: 87%;
   opacity: 0;
   animation: fadeIn 1.5s ease-out forwards 2s; /* Appears after name underline */
   text-align: left; /* Left alignment */

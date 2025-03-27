@@ -2,15 +2,15 @@
 
 export const personalDescription =
 `
-By day (and most nights), I am a student of physics. Along the way, I've collected snippets of computer science, 
-philosophy, and startup wisdom. Sometimes I build things that are cool and nerdy. More commonly, I sit down and 
-try to understand things deeply. 
+By day (and most nights), I’m a student of physics. That mostly means chasing elegant models to solve interesting problems 
+and occasionally staring at a whiteboard like it might answer back. Along the way, I’ve picked up snippets of computer science, 
+philosophy, and startup wisdom. Sometimes, I build things that are cool and nerdy. More often, I care about understanding things at a 
+fundamental level. I’m still figuring out the right balance between the two.
 
-In the past, I haven't been great at presenting my projects and ideas. This website is part of my ongoing attempt at 
-self-accountability – part resume, part second brain, and part simmering ideas. Look around, maybe you'll find something 
-you like.
+I haven’t always been great at finishing or sharing my projects and ideas. This website is an attempt at 
+self-accountability—part resume, part notebook, part second brain. If you're here take a look around; maybe
+you'll find something interesting.
 `
-
 
 
 // All links in a single structure
@@ -18,19 +18,19 @@ export const ProfessionalLinks = [
   // Professional links
   {
     name: 'GitHub',
-    url: 'https://github.com/your-username',
+    url: 'https://github.com/vanshjjw',
     iconType: 'github',
     isExternal: true
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/your-profile',
+    url: 'https://www.linkedin.com/in/vansh-jhunjhunwala-a7b291208/',
     iconType: 'linkedin',
     isExternal: true
   },
   {
     name: 'Email',
-    url: 'mailto:your.email@example.com',
+    url: 'mailto:vansh.jhunjhunwala@ccc.ox.ac.uk',
     iconType: 'email',
     isExternal: false
   }

@@ -3,8 +3,9 @@
 
 const oxfordDescription =
 `
-In my Masters, I am mostly doing courses on Quantum Information, Condensed Matter and Computational Algorithms.
-In my Bachelors, I achieved First-Class Honours and ranked 21 out of 145. 
+My Master's consists of courses on **Quantum Information**, **Condensed Matter** and **Computational Algorithms**.
+My dissertation is on Quantum error correction and **ZX-calculus**. My Bachelor's was dominated by courses and
+explorations at the intersection of **physics** and **computer science**.
 `
 
 const uclDescription =
@@ -39,17 +40,6 @@ seminars, and networking events with industry professionals.
 
 
 export const experiencesData = [
-  // Placeholder card for all projects that links to the projects page
-  {
-    id: 0,
-    type: "project",
-    title: "Projects",
-    description: "See Projects Page for demos and more details",
-    website: "/projects",
-    location: "",
-    dates: "2021 - Now",
-
-  },
 
   // Education
   {
@@ -57,7 +47,7 @@ export const experiencesData = [
     type: "education",
     title: "University of Oxford",
     website: "https://www.ox.ac.uk/",
-    subtitle: "Masters, Mathematical and Theoretical Physics\nBachelors, Physics",
+    subtitle: "Master's, Mathematical and Theoretical Physics\nBachelor's, Physics",
     location: "Oxford, UK",
     dates: "2021 - 2025",
     description: oxfordDescription
@@ -107,6 +97,15 @@ export const experiencesData = [
     dates: "Apr 2023 - Apr 2024",
     description: oqsDescription
   },
+
+  // Placeholder card for all projects that links to the projects page
+  {
+    id: 0,
+    type: "project",
+    title: "Projects",
+    description: "See Projects Page for demos and more details",
+    website: "/projects",
+  }
 ];
 
 export default experiencesData; 

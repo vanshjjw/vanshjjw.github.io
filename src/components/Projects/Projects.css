@@ -7,7 +7,7 @@
 .projects-container {
   max-width: var(--container-xl);
   margin: 0 auto;
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-md);
   font-family: var(--font-body);
   color: var(--text-body);
   animation: fadeIn 0.8s ease-in-out;
@@ -16,7 +16,7 @@
 .projects-subtitle {
   text-align: center;
   font-size: var(--font-size-md);
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto var(--spacing-xl);
   color: var(--text-body);
   line-height: var(--line-height-relaxed);
@@ -270,6 +270,8 @@
 
 /* Projects section */
 .projects-section {
+  padding-left: var(--spacing-2xl);
+  padding-right: var(--spacing-2xl);
   margin-bottom: var(--spacing-2xl);
 }
 
@@ -284,7 +286,7 @@
   font-family: var(--font-heading);
   font-size: var(--font-size-xl);
   color: var(--text-title);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
   position: relative;
 }
 

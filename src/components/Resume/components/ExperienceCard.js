@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../Resume.css';
 import { LocationIcon, RightArrowIcon } from '../../../assets/Icons';
 
-// Helper function to format text with line breaks
-const formatTextWithLineBreaks = (text) => {
-    return text.split('\n\n').map((paragraph, index) => (
-        <React.Fragment key={index}>
-            {index > 0 && <br />}
-            {paragraph}
-        </React.Fragment>
-    ));
-};
-
 // Helper function to format subtitle with line breaks
 const formatSubtitle = (subtitle) => {
     if (!subtitle) return null;
@@ -19,6 +9,24 @@ const formatSubtitle = (subtitle) => {
         <div key={index} className="subtitle-line">
             {line}
         </div>
+    ));
+};
+
+// Helper function to format text with line breaks and underlines
+const formatTextWithLineBreaksAndUnderlines = (text) => {
+    // Split text into paragraphs
+    return text.split('\n\n').map((paragraph, index) => (
+        <React.Fragment key={index}>
+            {index > 0 && <br />}
+            {/* Process bold formatting within each paragraph */}
+            {paragraph.split(/(\*\*.*?\*\*)/).map((part, i) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                    // Handle bold text with semi-bold weight
+                    return <span key={i} style={{ fontWeight: 550 }}>{part.slice(2, -2)}</span>;
+                }
+                return part;
+            })}
+        </React.Fragment>
     ));
 };
 
@@ -96,7 +104,7 @@ const ExperienceCard = ({ item, isConnected, isConnectable, onExpand, onHover })
             {hasDescription && isExpanded && (
                 <div className="card-description-container">
                     <div className="card-description">
-                        {formatTextWithLineBreaks(item.description)}
+                        {formatTextWithLineBreaksAndUnderlines(item.description)}
                     </div>
                 </div>
             )}

@@ -110,4 +110,12 @@ export const CodingProjects = [
 ]
 
 
+export const INTRODUCTION =
+`> Sometimes I build because its useful, sometimes I build because its cool. 
+I mostly try to build things that are both, but end of building things that are neither.
+
+
+`
+
+
 
