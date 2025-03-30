@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown';
 
 // Import components
 import PrimarySkillCard from './components/PrimarySkillCard';
-import SubSkillCard from './components/SubSkillCard';
 import ExperienceCard from './components/ExperienceCard';
 import ConnectionLines from './components/ConnectionLines';
 import MarkdownRenderers from '../General/MarkdownRenderers';
@@ -22,134 +21,34 @@ const Resume = () => {
     
     const [selectedSkillId, setSelectedSkillId] = useState(null);
     
-    // All possible connections for the selected skill (used for drawing lines)
-    const [connectedExperienceIds, setConnectedExperienceIds] = useState([]);
-    
-    // Experiences that should be highlighted (connected to selected subskills)
+    // Experiences that should be highlighted (connected to selected skill)
     const [activeExperienceIds, setActiveExperienceIds] = useState([]);
     
     // Hover state for temporary highlighting
     const [hoveredExperienceId, setHoveredExperienceId] = useState(null);
     
     const [expandedCards, setExpandedCards] = useState([]);
-    const [selectedSubSkills, setSelectedSubSkills] = useState({});
     
-    // Track if we should show the guidance message for double-click functionality
-    const [showClickGuidance, setShowClickGuidance] = useState(false);
-    
-    // Track if the user has seen the guidance message in this session
-    const [hasSeenGuidance, setHasSeenGuidance] = useState(false);
-    
-    // Get the selected skill and its subskills
+    // Get the selected skill
     const selectedSkill = primarySkills.find(skill => skill.id === selectedSkillId);
-    const subSkills = selectedSkill ? selectedSkill.subSkills : [];
     
     // Handler for skill selection
     const handleSkillClick = (skillId) => {
         if (selectedSkillId === skillId) {
             // Deselect the skill
             setSelectedSkillId(null);
-            setConnectedExperienceIds([]);
             setActiveExperienceIds([]);
-            setSelectedSubSkills({});
-            setShowClickGuidance(false);
         } else {
             // Select a skill
             setSelectedSkillId(skillId);
             
-            // Get all experience IDs connected to any sub-skill (for connection drawing)
+            // Get all experience IDs connected to this skill
             const skill = primarySkills.find(s => s.id === skillId);
             if (skill) {
-                // Collect all possible connections for this skill
-                const allConnections = [];
-                skill.subSkills.forEach(subSkill => {
-                    subSkill.connections.forEach(expId => {
-                        if (!allConnections.includes(expId)) {
-                            allConnections.push(expId);
-                        }
-                    });
-                });
-                
-                // Set the complete list of possible connections
-                setConnectedExperienceIds(allConnections);
-                
-                // No active experiences until a subskill is selected
-                setActiveExperienceIds([]);
-                
-                // Reset subskill selection state
-                setSelectedSubSkills({});
-                setShowClickGuidance(false);
+                // Use direct connections from the restructured data
+                setActiveExperienceIds(skill.connections);
             }
         }
-    };
-    
-    // Update active experience IDs whenever selected subskills change
-    useEffect(() => {
-        // No skill selected = no active experiences
-        if (!selectedSkill) {
-            setActiveExperienceIds([]);
-            return;
-        }
-        
-        // Get all selected subskill IDs
-        const selectedSubSkillIds = Object.keys(selectedSubSkills)
-        
-        // If no subskills are selected, no active experiences
-        if (selectedSubSkillIds.length === 0) {
-            setActiveExperienceIds([]);
-            return;
-        }
-        
-        // Collect all active experiences connected to selected subskills
-        const activeExperiences = [];
-        selectedSubSkillIds.forEach(subSkillId => {
-            const subSkill = subSkills.find(s => s.id === subSkillId);
-            if (subSkill && subSkill.connections) {
-                subSkill.connections.forEach(expId => {
-                    if (!activeExperiences.includes(expId)) {
-                        activeExperiences.push(expId);
-                    }
-                });
-            }
-        });
-        
-        // Update active experiences
-        setActiveExperienceIds(activeExperiences);
-    }, [selectedSkill, subSkills, selectedSubSkills, setActiveExperienceIds]);
-    
-    // Handler for subskill selection - update selected subskills
-    const handleSubSkillClick = (subSkillId) => {
-        setSelectedSubSkills(prev => {
-            const newState = { ...prev };
-            
-            // If not selected, select it (first click)
-            if (!newState[subSkillId]) {
-                newState[subSkillId] = { state: 0 }; // State 0: selected, show connections
-                
-                // Show guidance message after first selection if user hasn't seen it
-                if (!hasSeenGuidance) {
-                    setShowClickGuidance(true);
-                    setHasSeenGuidance(true);
-                }
-                
-                return newState;
-            }
-            
-            // If already selected, cycle through states
-            const currentState = newState[subSkillId].state;
-            if (currentState === 0) {
-                // First click → second click: show tags (keep same connections)
-                newState[subSkillId] = { state: 1 };
-                
-                // Hide guidance message after second click
-                setShowClickGuidance(false);
-            } else if (currentState === 1) {
-                // Second click → third click: reset
-                delete newState[subSkillId]; // Remove from selected
-            }
-            
-            return newState;
-        });
     };
 
     // Experience hover handler - only manages hover state
@@ -216,33 +115,6 @@ const Resume = () => {
                     </div>
                 </div>
 
-                {/* Middle Pane - Sub-Skills */}
-                <div className="pane middle-pane">
-                    <div className="sub-skills-container">
-
-                        {showClickGuidance && (
-                            <div className="subskill-guidance-message">
-                                <div className="guidance-content">
-                                    <span className="guidance-icon">💡</span>
-                                    <p>Click again to see related tags!</p>
-                                </div>
-                            </div>
-                        )}
-
-                        {subSkills.map(subSkill => (
-                            <SubSkillCard
-                                key={subSkill.id}
-                                subSkill={subSkill}
-                                isSelected={!!selectedSubSkills[subSkill.id]}
-                                clickState={selectedSubSkills[subSkill.id]?.state || 0}
-                                onClick={handleSubSkillClick}
-                            />
-                        ))}
-                    </div>
-
-
-                </div>
-
                 {/* Right Pane - Experiences */}
                 <div className="pane experiences-pane">
                     <div className="experiences-container">
@@ -260,7 +132,7 @@ const Resume = () => {
                                 <ExperienceCard
                                     item={experience}
                                     isConnected={isExperienceHighlighted(experience.id)}
-                                    isConnectable={connectedExperienceIds.includes(experience.id)}
+                                    isConnectable={selectedSkill && activeExperienceIds.includes(experience.id)}
                                     onExpand={handleCardExpand}
                                     onHover={handleExperienceHover}
                                 />
@@ -273,9 +145,7 @@ const Resume = () => {
                 {selectedSkill && (
                     <ConnectionLines
                         selectedSkill={selectedSkill}
-                        subSkills={subSkills}
-                        selectedSubSkills={selectedSubSkills}
-                        connectedExperiences={connectedExperienceIds}
+                        activeExperiences={activeExperienceIds}
                     />
                 )}
             </div>
@@ -291,8 +161,6 @@ const Resume = () => {
                     <span>Download PDF</span>
                 </a>
             </div>
-
-
         </div>
     );
 };

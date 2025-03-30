@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../Resume.css';
 
-// Basic SVG Connection Lines Component
-const ConnectionLines = ({ selectedSkill, subSkills, selectedSubSkills, connectedExperiences }) => {
+// Updated Connection Lines Component for direct connections
+const ConnectionLines = ({ selectedSkill, activeExperiences }) => {
     const [paths, setPaths] = useState([]);
     
     // Draw connections whenever dependencies change
     useEffect(() => {
         // Skip if nothing to connect
-        if (!selectedSkill || !subSkills.length) {
+        if (!selectedSkill || !activeExperiences.length) {
             setPaths([]);
             return;
         }
@@ -39,52 +39,24 @@ const ConnectionLines = ({ selectedSkill, subSkills, selectedSubSkills, connecte
             const skillPos = getPosition(`skill-${selectedSkill.id}`);
             if (!skillPos) return;
             
-            // Draw connections from primary skill to each subskill
-            subSkills.forEach(subSkill => {
-                const subSkillPos = getPosition(`subskill-${subSkill.id}`);
-                if (!subSkillPos) return;
+            // Draw direct connections from primary skill to each experience
+            activeExperiences.forEach(expId => {
+                const expPos = getPosition(`experience-${expId}`);
+                if (!expPos) return;
                 
-                // Primary to sub-skill path
-                const dx = subSkillPos.left - skillPos.right;
+                // Calculate distance for bezier curve control points
+                const dx = expPos.left - skillPos.right;
                 const controlX = skillPos.right + dx / 2;
                 
                 newPaths.push({
-                    id: `skill-to-sub-${subSkill.id}`,
+                    id: `skill-to-exp-${expId}`,
                     d: `M ${skillPos.right} ${skillPos.centerY} 
                         C ${controlX} ${skillPos.centerY}, 
-                          ${controlX} ${subSkillPos.centerY}, 
-                          ${subSkillPos.left} ${subSkillPos.centerY}`,
+                          ${controlX} ${expPos.centerY}, 
+                          ${expPos.left} ${expPos.centerY}`,
                     stroke: '#8d6e63',
                     strokeWidth: 2
                 });
-                
-                // Only connect selected subskills to experiences
-                if (selectedSubSkills[subSkill.id] && 
-                    (selectedSubSkills[subSkill.id].state === 0 || selectedSubSkills[subSkill.id].state === 1)) {
-                    
-                    // Draw paths to connected experiences, but only for this subskill's connections
-                    subSkill.connections.forEach(expId => {
-                        // Make sure this experience is actually in the list of connectable experiences
-                        if (connectedExperiences.includes(expId)) {
-                            const expPos = getPosition(`experience-${expId}`);
-                            if (!expPos) return;
-                            
-                            const expDx = expPos.left - subSkillPos.right;
-                            const expControlX = subSkillPos.right + expDx / 2;
-                            
-                            newPaths.push({
-                                id: `sub-${subSkill.id}-to-exp-${expId}`,
-                                d: `M ${subSkillPos.right} ${subSkillPos.centerY} 
-                                    C ${expControlX} ${subSkillPos.centerY}, 
-                                      ${expControlX} ${expPos.centerY}, 
-                                      ${expPos.left} ${expPos.centerY}`,
-                                stroke: '#a89080',
-                                strokeWidth: 2,
-                                strokeDasharray: '5,3'
-                            });
-                        }
-                    });
-                }
             });
             
             setPaths(newPaths);
@@ -108,7 +80,7 @@ const ConnectionLines = ({ selectedSkill, subSkills, selectedSubSkills, connecte
             clearTimeout(drawTimer);
             window.removeEventListener('resize', handleResize);
         };
-    }, [selectedSkill, subSkills, selectedSubSkills, connectedExperiences]);
+    }, [selectedSkill, activeExperiences]);
     
     // Don't render anything if there are no paths
     if (!paths.length) return null;
@@ -134,7 +106,6 @@ const ConnectionLines = ({ selectedSkill, subSkills, selectedSubSkills, connecte
                     stroke={path.stroke}
                     strokeWidth={path.strokeWidth}
                     fill="none"
-                    strokeDasharray={path.strokeDasharray || ''}
                 />
             ))}
         </svg>
