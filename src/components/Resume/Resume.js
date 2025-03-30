@@ -12,13 +12,14 @@ import MarkdownRenderers from '../General/MarkdownRenderers';
 import { DownloadIcon, EducationIcon, WorkExperienceIcon, OtherExperienceIcon } from '../../assets/Icons';
 
 // Import data
-import { software, research, leadership, entrepreneurship } from '../../assets/GraphicalData/SkillGraphData';
+import { software, research, leadership } from '../../assets/GraphicalData/SkillGraphData';
 import experiencesData from '../../assets/GraphicalData/ExperiencesData';
 import { RESUME_INTRODUCTION } from '../../assets/GraphicalData/ResumeIntro';
 
 // Main Resume Component
 const Resume = () => {
-    const primarySkills = [software, research, leadership, entrepreneurship];
+    const primarySkills = [software, research, leadership];
+    
     const [selectedSkillId, setSelectedSkillId] = useState(null);
     
     // All possible connections for the selected skill (used for drawing lines)

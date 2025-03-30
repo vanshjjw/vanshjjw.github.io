@@ -3,116 +3,106 @@
 // Sub-skills contain a list of speciifc names/tags and connections to experiences
 
 
-
 // Currently there are 4 primary skills
 // 1. Software Development
 // 2. Research
 // 3. Leadership
-// 4. Entrepreneurship
 
 
 // Experience ids are as follows:
-// 0. Personal Projects
-// 1. Oxford 
+// 1. Oxford
 // 2. UCL
 // 3. Ghyston Ltd
 // 4. STEP Ignite Incubator
 // 5. Oxford Quantum Information Society
+// 6. Oxford Entreprenuers
+// 7. Personal Projects
 
 
 
 const software = {
-  id: 0,
-  name: "Software Engineering",
-  subSkills: [
-    {
-      id: "software-fullstack",
-      name: "Full-Stack Development",
-      tags: ["JavaScript", "React", "Node.js", "API", "Database", "ETL"],
-      connections: [2, 3, 4]
-    },
-    {
-      id: "software-gamedev",
-      name: "Game Development",
-      tags: ["C#", "Unity Engine", "Game Design", "Simulation"],
-      connections: [0]
-    },
-    {
-      id: "software-optimization",
-      name: "Software Optimization",
-      tags: ["Python", "C++", "CUDA", "Algorithm Design"],
-      connections: [1, 4]
-    }
+  id: 1,
+  name: "Software",
+  subSkills:  [
+        {
+          id: "11",
+          name: "Full-Stack Development",
+          tags: ["JavaScript", "API Endpoints", "Database ETL", "Web Components", "Python", "Docker"],
+          connections: [3]
+        },
+        {
+          id: "12",
+          name: "Algorithm Development & Optimization",
+          tags: ["Performance Tuning", "Custom Algorithms", "Computational Speedup", "Numerical Methods", "Complexity Analysis"],
+          connections: [2, 4]
+        },
+        {
+          id: "13",
+          name: "Simulation & Modeling",
+          tags: ["Physics Systems", "Racing Simulations", "Aerodynamics", "Game Development", "Data Visualization"],
+          connections: [2, 4]
+        }
   ]
 }
-
 
 const research = {
-  id: 1,
+  id: 2,
   name: "Research",
   subSkills: [
-    { 
-      id: "research-quantum",
-      name: "Quantum Computing Research",
-      tags: ["Quantum Computing", "Error Correction", "Qiskit"],
-      connections: [1, 4]
-    },    
     {
-      id: "research-physics",
-      name: "Physics Research",
-      tags: ["Data Analysis", "Algorithm Design", "Astrophysics"],
-      connections: [4]
+      id: "21",
+      name: "Quantum Computing",
+      tags: ["Error Correction", "Qiskit", ],
+      connections: [2, 4]
     },
-    {     
-      id: "research-methods",
+    {
+      id: "22",
+      name: "Physics and Computer Science",
+      tags: ["Data Analysis", "Algorithm Design", "Astrophysics"],
+      connections: [2, 4]
+    },
+    {
+      id: "23",
       name: "Research Methodology",
       tags: ["Data Analysis", "Optimization", "Simulation"],
-      connections: [1, 4]
+      connections: [1, 6]
     }
   ]
 }
 
-const leadership = {  
-  id: 2,
+const leadership = {
+  id: 3,
   name: "Leadership",
   subSkills: [
     {
-      id: "leadership-team",
-      name: "Team Leadership",
-      tags: ["Team Leadership", "Management"],
-      connections: [2, 3, 4]
+      id: "31",
+      name: "Academic & Society Management",
+      tags: ["President Experience", "Event Planning", "Membership Growth", "Budget Management", "Strategic Vision"],
+      connections: [1, 6]
     },
     {
-      id: "leadership-event",
-      name: "Event Management",
-      tags: ["Event Management", "Community Building", "Education"],
-      connections: [2, 3, 4]
-    }
+      id: "32",
+      name: "Entrepreneurship & Innovation",
+      tags: ["Startup Co-founding", "Product Development", "Prototype Design", "Pitching", "Industry Collaboration"],
+      connections: [3, 4, 5]
+    },
+    {
+      id: "33",
+      name: "Competition & Project Leadership",
+      tags: ["Hackathon Performance", "Time-Constrained Projects", "Team Coordination", "Goal Achievement"],
+      connections: [3, 4, 5]
+    },
+    
   ]
 }
 
-const entrepreneurship = {
-  id: 3,
-  name: "Entrepreneurship",
-  subSkills: [
-    {
-      id: "entrepreneurship-business",
-      name: "Business Development",
-      tags: ["Business Development", "Startup"],
-      connections: [2, 3, 4]
-    },
-    {
-      id: "entrepreneurship-product",
-      name: "Product Development",
-      tags: ["Product Development", "Prototyping", "Quantum Technology"],
-      connections: [2, 3, 4]
-    }
 
-  ]
-}
 
-// Export the skills
-export { software, research, leadership, entrepreneurship };
 
-// Also export as default for convenience
-export default { software, research, leadership, entrepreneurship };
+// // Export the skills
+export { software, research, leadership };
+
+// // Also export as default for convenience
+export default { software, research, leadership };
+
+
