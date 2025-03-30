@@ -90,7 +90,9 @@ const ExperienceCard = ({ item, isConnected, isConnectable, onExpand, onHover })
                         {formatSubtitle(item.subtitle)}
                     </div>
                     <div className="card-meta">
+                        {item.location && 
                         <div className="card-location"><LocationIcon />{item.location}</div>
+                        }
                         <div className="card-dates">{item.dates}</div>
                     </div>
                     {hasDescription && (

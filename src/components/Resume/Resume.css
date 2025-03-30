@@ -5,7 +5,7 @@
 
 /* Resume container styling */
 .resume-container {
-    max-width: var(--container-xl);
+    max-width: 105%;
     margin-left: -5%; /* Shift leftward by removing right margin */
     padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xl) var(--spacing-sm); /* Reduce left padding */
     font-family: var(--font-body);
@@ -167,7 +167,7 @@
     padding: var(--spacing-md);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e0e0;
-    height: 180px;
+    height: 160px;
     width: 100%;
     transition: all 0.3s ease;
     position: relative;

@@ -10,7 +10,7 @@ explorations at the intersection of **physics** and **computer science**.
 
 const uclDescription =
 `
-I researched quantum error-correction (**bivariate bicycle**) codes. I did some work on optimisating their numerical search, 
+I researched quantum error-correction (**bivariate bicycle**) codes. I did some work on optimising their numerical search, 
 generalising their construction to more groups, and finding useful families of such codes. 
 I ended up creating a **python package** to deliver all this work.
 `
@@ -33,8 +33,14 @@ I worked on both the business and technical side of things. I helped **develop a
 
 const oqsDescription =
 `
-I revamped the society's to focus more on **undergraduates** and **access**. I organised some of the biggest events in 
-the society's history and liased with speakers, sponsors and industry partners.
+I revamped the society to focus more on **undergraduates** and **access**. I organised some of the largest events in 
+the society's history and liaised with speakers, sponsors and industry partners.
+
+`
+
+const oxfordEntreprenuersDescription =
+`
+I organised events, panels and initiatives focused on **consolidating** and **promoting** entrepreneurship at Oxford. 
 
 `
 
@@ -98,13 +104,23 @@ export const experiencesData = [
     dates: "Apr 2023 - Apr 2024",
     description: oqsDescription
   },
+  {
+    id: 6,
+    type: "other-experience",
+    title: "Oxford Entreprenuers",
+    website: "https://www.oxfordentrepreneurs.co.uk/",
+    subtitle: "Executive Committee",
+    location: "Oxford, UK",
+    dates: "Oct 2023 - Apr 2025",
+    description: oxfordEntreprenuersDescription
+  },
 
   // Placeholder card for all projects that links to the projects page
   {
     id: 0,
-    type: "project",
-    title: "Projects",
-    description: "See Projects Page for demos and more details",
+    type: "other-experience",
+    title: "Personal Projects",
+    subtitle: "\n\nSee Projects Page for demos and details",
     website: "/projects",
   }
 ];
