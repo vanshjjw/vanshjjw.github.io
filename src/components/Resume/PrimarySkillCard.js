@@ -47,7 +47,7 @@ const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
                                     className={`toggle-btn ${viewMode === 'subskills' ? 'active' : ''}`}
                                     onClick={handleToggleViewMode}
                                 >
-                                    Specializations
+                                    Specialisations
                                 </button>
                                 <button 
                                     className={`toggle-btn ${viewMode === 'tools' ? 'active' : ''}`}

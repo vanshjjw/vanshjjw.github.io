@@ -221,6 +221,7 @@
     color: var(--text-body);
     margin: var(--spacing-sm) 0;
     padding-left: var(--spacing-md);
+    text-align: left;
     border-left: 2px solid var(--primary-dark);
     line-height: var(--line-height-relaxed);
 }

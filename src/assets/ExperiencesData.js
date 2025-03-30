@@ -117,7 +117,7 @@ const experiencesData = [
 
   // Placeholder card for all projects that links to the projects page
   {
-    id: 0,
+    id: 7,
     type: "other-experience",
     title: "Personal Projects",
     subtitle: "\n\nSee Projects Page for demos and details",

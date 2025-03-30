@@ -16,50 +16,57 @@
 const software = {
   id: 1,
   name: "Software",
-  connections: [2, 3, 4],
+  connections: [1, 2, 3, 7],
   subskills: [
-    "Full-Stack Development",
-    "Algorithm Development & Optimization",
+    "Algorithm Development & Optimisation",
+    "Full-Stack Web Development",
+    "Computational Physics Software",
     "Simulation & Modeling"
   ],
-  tools: [
-    "JavaScript",   
-    "API Endpoints", 
-    "Database ETL", 
-    "Web Components", 
+  tools: [ 
     "Python", 
+    "Java",
+    "React",
+    "Node.js",
+    "C#",
+    ".NET",
+    "C++",
+    "CUDA",
     "Docker",
+    "Git",
+    "Unix/Linux",
   ]
 }
 
 const research = {
   id: 2,
   name: "Research",
-  connections: [1, 2, 4, 6],
-  tools: [
-    "Error Correction", 
-    "Qiskit", 
-    "Data Analysis", 
-    "Algorithm Design", 
-    "Astrophysics", 
-    "Optimization", 
-    "Simulation"
-  ],
+  connections: [1, 2, 7],
   subskills: [
-    "Quantum Computing",
-    "Physics and Computer Science",
-    "Research Methodology"
+    "Theoretical and Computational Physics",
+    "Quantum Information and Computing",
+    "Product Design and Development",
+  ],
+  tools: [
+    "Python",
+    "Julia",
+    "C++",
+    "Qiskit",
+    "Data Analysis",
+    "Numerical Methods",
+    "Algorithm Design",
+    "Error Correction",
   ]
 }
 
 const leadership = {
   id: 3,
   name: "Leadership",
-  connections: [1, 3, 4, 5, 6],
+  connections: [4, 5, 6],
   subskills: [
-    "Academic & Society Management",
+    "Student Society Management",
     "Entrepreneurship & Innovation",
-    "Competition & Project Leadership"
+    "Hackathons & Project Leadership"
   ]
 }
 
