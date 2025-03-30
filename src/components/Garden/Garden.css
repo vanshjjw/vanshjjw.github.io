@@ -25,6 +25,13 @@
   gap: var(--spacing-lg);
 }
 
+.garden-subtitle {
+  font-size: var(--font-size-md);
+  line-height: 1.9;
+  font-family: var(--font-cursive);
+  color: var(--text-subtitle);
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

@@ -41,7 +41,7 @@ function App() {
                           <Route path="/intro" element={<Intro />} />
                           <Route path="/resume" element={<Resume />} />
                           <Route path="/projects" element={<Projects />} />
-                          <Route path="/garden" element={<Garden />} />
+                          <Route path="/digital-garden" element={<Garden />} />
                           <Route path="/resources" element={<Resources />} />
                           <Route path="/interests" element={<Interests />} />
                           <Route path="*" element={<Navigate to="/intro" replace />} />

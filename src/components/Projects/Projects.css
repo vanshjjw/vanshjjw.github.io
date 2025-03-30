@@ -16,9 +16,9 @@
 .projects-subtitle {
   text-align: center;
   font-size: var(--font-size-md);
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto var(--spacing-xl);
-  color: var(--text-body);
+  color: var(--text-subtitle);
   line-height: var(--line-height-relaxed);
   font-family: var(--font-cursive);
 }

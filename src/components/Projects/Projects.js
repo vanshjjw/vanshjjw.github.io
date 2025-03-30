@@ -1,9 +1,17 @@
-  import React from 'react';
-import Markdown from 'react-markdown';
-import { ResearchProjects, CodingProjects, INTRODUCTION } from '../../assets/ProjectsData';
-import ProjectCard from './ProjectCard';
-import { ResearchIcon, CodingIcon } from '../../assets/Icons';
+import React from 'react';
 
+import { 
+  ResearchProjects, 
+  CodingProjects, 
+  ProjectsIntroduction } from '../../assets/ProjectsData';
+
+
+
+import { 
+  ResearchIcon, 
+  CodingIcon } from '../../assets/Icons';
+
+import ProjectCard from './ProjectCard';
 import './Projects.css';
 
 
@@ -58,7 +66,7 @@ const Projects = () => {
     <div className="projects-container">
       
       <p className="projects-subtitle">
-        <Markdown>{INTRODUCTION}</Markdown>
+        {ProjectsIntroduction}
       </p>
       
       {/* Rendering in sections */}

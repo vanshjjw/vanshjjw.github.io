@@ -17,27 +17,16 @@
 /* Resume introduction styling */
 .resume-introduction {
     max-width: 90%;
-    padding: 0 var(--spacing-sm);
+    padding-left: 10%;
     animation: fadeIn 0.8s ease-in-out;
-    font-family: var(--font-cursive);
-    font-size: var(--font-size-md);
     line-height: var(--line-height-relaxed);
 }
 
 /* Style for markdown content in the introduction */
-.resume-introduction .markdown-paragraph {
-    margin-bottom: var(--spacing-md);
-    color: var(--text-body);
+.resume-introduction-text {
+    font-family: var(--font-cursive);
     font-size: var(--font-size-md);
-}
-
-.resume-introduction .markdown-bold {
-    color: var(--text-title);
-    font-weight: var(--font-weight-semibold);
-}
-
-.resume-introduction .markdown-emphasis {
-    font-style: italic;
+    line-height: var(--line-height-relaxed);
     color: var(--text-subtitle);
 }
 
@@ -51,7 +40,7 @@
 }
 
 .pane {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
     overflow-y: auto;
     flex-shrink: 0;
 }

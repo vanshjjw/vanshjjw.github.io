@@ -38,8 +38,8 @@ const Sidebar = () => {
                 <Link to="/intro" className={isActive('/intro')}>Intro</Link>
                 <Link to="/resume" className={isActive('/resume')}>Resume</Link>
                 <Link to="/projects" className={isActive('/projects')}>Projects</Link>
-                <Link to="/garden" className={isActive('/garden')}>Digital Garden</Link>
-                <Link to="/resources" className={isActive('/resources')}>Resources</Link>
+                <Link to="/digital-garden" className={isActive('/digital-garden')}>Digital Garden</Link>
+                {/* <Link to="/resources" className={isActive('/resources')}>Resources</Link> */}
             </nav>
         </div>
     );

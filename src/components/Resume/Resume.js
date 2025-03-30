@@ -6,7 +6,6 @@ import ReactMarkdown from 'react-markdown';
 import PrimarySkillCard from './PrimarySkillCard';
 import ExperienceCard from './ExperienceCard';
 import ConnectionLines from './ConnectionLines';
-import MarkdownRenderers from '../General/MarkdownRenderers';
 
 import { 
     DownloadIcon, 
@@ -17,21 +16,16 @@ import {
 
 // Import data
 import { software, research, leadership } from '../../assets/SkillGraphData';
-import {experiencesData, Introduction} from '../../assets/ExperiencesData';
+import {experiencesData, ResumeIntroduction} from '../../assets/ExperiencesData';
 
 
 // Main Resume Component
 const Resume = () => {
-    const primarySkills = [software, research, leadership];
+    const primarySkills = [research, software,leadership];
     
     const [selectedSkillId, setSelectedSkillId] = useState(null);
-    
-    // Experiences that should be highlighted (connected to selected skill)
     const [activeExperienceIds, setActiveExperienceIds] = useState([]);
-    
-    // Hover state for temporary highlighting
     const [hoveredExperienceId, setHoveredExperienceId] = useState(null);
-    
     const [expandedCards, setExpandedCards] = useState([]);
     
     // Get the selected skill
@@ -100,9 +94,7 @@ const Resume = () => {
         <div className="resume-container">
             {/* Introduction section */}
             <div className="resume-introduction">
-                <ReactMarkdown components={MarkdownRenderers}>
-                    {Introduction}
-                </ReactMarkdown>
+                <p className="resume-introduction-text">{ResumeIntroduction}</p>
             </div>
             
             <div className="resume-layout">

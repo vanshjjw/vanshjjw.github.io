@@ -119,18 +119,19 @@ const experiencesData = [
   {
     id: 7,
     type: "other-experience",
-    title: "Personal Projects",
-    subtitle: "\n\nSee Projects Page for demos and details",
-    website: "/projects",
+    title: "Projects",
+    subtitle: "\n\nSee page for demos and details",
+    website: "/#/projects",
   }
 ];
 
 
-const Introduction =
-`
-I'm a **quantum computing** enthusiast with a passion for **building** and **learning**.
-I'm a **quantum computing** enthusiast with a passion for **building** and **learning**.
+// const ResumeIntroduction =
+// `
+// "You cannot connect the dots looking forward; you can only connect them looking backwards."
+// `
 
-`
+const ResumeIntroduction = ``
 
-export {experiencesData, Introduction}; 
+
+export {experiencesData, ResumeIntroduction}; 
