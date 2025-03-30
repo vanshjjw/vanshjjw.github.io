@@ -54,8 +54,9 @@ const ConnectionLines = ({ selectedSkill, activeExperiences }) => {
                         C ${controlX} ${skillPos.centerY}, 
                           ${controlX} ${expPos.centerY}, 
                           ${expPos.left} ${expPos.centerY}`,
-                    stroke: '#8d6e63',
-                    strokeWidth: 2
+                    stroke: 'rgba(141, 110, 99, 0.5)', // Lighter color with transparency
+                    strokeWidth: 1.5,
+                    strokeDasharray: '5,4' // Dotted line pattern
                 });
             });
             
@@ -105,6 +106,7 @@ const ConnectionLines = ({ selectedSkill, activeExperiences }) => {
                     d={path.d}
                     stroke={path.stroke}
                     strokeWidth={path.strokeWidth}
+                    strokeDasharray={path.strokeDasharray}
                     fill="none"
                 />
             ))}

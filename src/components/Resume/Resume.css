@@ -433,22 +433,22 @@
 /* Connection dots for direct primary-to-experience connections */
 .connection-dot {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background-color: #8d6e63;
+    background-color: rgba(141, 110, 99, 0.5); /* Lighter color with transparency to match lines */
     z-index: 10;
-    border: 2px solid var(--bg-card);
+    border: 1px solid var(--bg-card);
 }
 
 .connection-dot-right {
-    right: -6px;
+    right: -5px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .connection-dot-left {
-    left: -6px;
+    left: -5px;
     top: 50%;
     transform: translateY(-50%);
 }

@@ -32,10 +32,14 @@ const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
         setViewMode(viewMode === 'subskills' ? 'tools' : 'subskills');
     };
     
+    // Determine the class names
+    // Only apply 'expanded' class if both selected and expanded
+    const cardClasses = `primary-skill-card ${isSelected ? 'selected' : ''} ${isSelected && isExpanded ? 'expanded' : ''}`;
+    
     return (
         <div className="skill-card-wrapper">
             <div 
-                className={`primary-skill-card ${isSelected ? 'selected' : ''} ${isExpanded && isSelected ? 'expanded' : ''}`}
+                className={cardClasses}
                 onClick={handleClick}
                 id={`skill-${skill.id}`}
             >
