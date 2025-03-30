@@ -12,7 +12,8 @@ import {
     DownloadIcon, 
     EducationIcon, 
     WorkExperienceIcon, 
-    OtherExperienceIcon } from '../../assets/Icons';
+    OtherExperienceIcon,
+    SkillsIcon } from '../../assets/Icons';
 
 // Import data
 import { software, research, leadership } from '../../assets/SkillGraphData';
@@ -108,6 +109,9 @@ const Resume = () => {
                 {/* Left Pane - Primary Skills */}
                 <div className="pane primary-skills-pane">
                     <div className="primary-skills-container">
+                        <div className="skills-header">
+                            <SkillsIcon width={28} height={28} />
+                        </div>
                         {primarySkills.map(skill => (
                             <PrimarySkillCard
                                 key={skill.id}

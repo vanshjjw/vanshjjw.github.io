@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Resume.css';
 
-// Enhanced Primary Skill Card component with expandable description and toggle
+// Enhanced Primary Skill Card component with conditional toggle
 const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
     const [viewMode, setViewMode] = useState('subskills'); // 'subskills' or 'tools'
     
-    // Reset expanded state when card is deselected
-    useEffect(() => {
-        if (!isSelected) {
-            setIsExpanded(false);
-        }
-    }, [isSelected]);
+    // Check if skill has both tools and subskills
+    const hasTools = skill.tools && skill.tools.length > 0;
+    const hasSubskills = skill.subskills && skill.subskills.length > 0;
+    const showToggle = hasTools && hasSubskills;
     
-    // Handle main card click - select the skill
+    // Handle main card click - simply select/deselect the skill
     const handleClick = () => {
-        if (isSelected) {
-            // If already selected, toggle expanded state
-            setIsExpanded(!isExpanded);
-        } else {
-            // When selecting a new card, tell parent to select this card
-            onClick(skill.id);
-            // Default to expanded when first selected
-            setIsExpanded(true);
-        }
+        onClick(skill.id);
     };
     
     // Handle view mode toggle
@@ -32,9 +21,8 @@ const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
         setViewMode(viewMode === 'subskills' ? 'tools' : 'subskills');
     };
     
-    // Determine the class names
-    // Only apply 'expanded' class if both selected and expanded
-    const cardClasses = `primary-skill-card ${isSelected ? 'selected' : ''} ${isSelected && isExpanded ? 'expanded' : ''}`;
+    // Determine the class names - selected cards are always expanded
+    const cardClasses = `primary-skill-card ${isSelected ? 'selected expanded' : ''}`;
     
     return (
         <div className="skill-card-wrapper">
@@ -44,39 +32,34 @@ const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
                 id={`skill-${skill.id}`}
             >
                 <div className="card-content">
-                    <h3 className="skill-title">{skill.name}</h3>
-                    
-                    {isSelected && (
-                        <div className="skill-expand-indicator">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
-                            </svg>
-                        </div>
-                    )}
+                    <p className="skill-title">{skill.name}</p>
                 </div>
                 
                 {isSelected && <div className="connection-dot connection-dot-right"></div>}
             </div>
             
-            {isSelected && isExpanded && (
+            {isSelected && (
                 <div className="skill-description-container">
                     <div className="skill-description">
-                        <div className="skill-view-toggle">
-                            <button 
-                                className={`toggle-btn ${viewMode === 'subskills' ? 'active' : ''}`}
-                                onClick={handleToggleViewMode}
-                            >
-                                Specializations
-                            </button>
-                            <button 
-                                className={`toggle-btn ${viewMode === 'tools' ? 'active' : ''}`}
-                                onClick={handleToggleViewMode}
-                            >
-                                Tools
-                            </button>
-                        </div>
+                        {showToggle && (
+                            <div className="skill-view-toggle">
+                                <button 
+                                    className={`toggle-btn ${viewMode === 'subskills' ? 'active' : ''}`}
+                                    onClick={handleToggleViewMode}
+                                >
+                                    Specializations
+                                </button>
+                                <button 
+                                    className={`toggle-btn ${viewMode === 'tools' ? 'active' : ''}`}
+                                    onClick={handleToggleViewMode}
+                                >
+                                    Tools
+                                </button>
+                            </div>
+                        )}
                         
-                        {viewMode === 'subskills' && skill.subskills && skill.subskills.length > 0 && (
+                        {/* Always show subskills if there's no toggle or if in subskills mode */}
+                        {(!showToggle || viewMode === 'subskills') && hasSubskills && (
                             <div className="skill-subskills">
                                 <ul>
                                     {skill.subskills.map((subskill, index) => (
@@ -86,7 +69,8 @@ const PrimarySkillCard = ({ skill, isSelected, onClick }) => {
                             </div>
                         )}
                         
-                        {viewMode === 'tools' && skill.tools && skill.tools.length > 0 && (
+                        {/* Only show tools if there's a toggle and in tools mode */}
+                        {showToggle && viewMode === 'tools' && hasTools && (
                             <div className="skill-tools">
                                 <div className="tool-tags">
                                     {skill.tools.map((tool, index) => (

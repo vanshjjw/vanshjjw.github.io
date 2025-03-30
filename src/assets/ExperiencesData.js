@@ -129,6 +129,8 @@ const experiencesData = [
 const Introduction =
 `
 I'm a **quantum computing** enthusiast with a passion for **building** and **learning**.
+I'm a **quantum computing** enthusiast with a passion for **building** and **learning**.
+
 `
 
 export {experiencesData, Introduction}; 

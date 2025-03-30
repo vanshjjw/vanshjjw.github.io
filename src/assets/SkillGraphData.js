@@ -17,32 +17,19 @@ const software = {
   id: 1,
   name: "Software",
   connections: [2, 3, 4],
-  descriptions: {
-    "Specialisations": [
-      "JavaScript", 
-      "API Endpoints", 
-      "Database ETL", 
-      "Web Components", 
-      "Python", 
-      "Docker",
-      "Performance Tuning", 
-      "Custom Algorithms", 
-      "Computational Speedup", 
-      "Numerical Methods", 
-      "Complexity Analysis",
-      "Physics Systems", 
-      "Racing Simulations", 
-      "Aerodynamics", 
-      "Game Development", 
-      "Data Visualization"
-    ],
-    "Tools and Technologies": [
-      "Full-Stack Development",
-      "Algorithm Development & Optimization",
-      "Simulation & Modeling"
-    ]
-  }
-  
+  subskills: [
+    "Full-Stack Development",
+    "Algorithm Development & Optimization",
+    "Simulation & Modeling"
+  ],
+  tools: [
+    "JavaScript",   
+    "API Endpoints", 
+    "Database ETL", 
+    "Web Components", 
+    "Python", 
+    "Docker",
+  ]
 }
 
 const research = {
@@ -69,22 +56,6 @@ const leadership = {
   id: 3,
   name: "Leadership",
   connections: [1, 3, 4, 5, 6],
-  tools: [
-    "President Experience", 
-    "Event Planning", 
-    "Membership Growth", 
-    "Budget Management", 
-    "Strategic Vision",
-    "Startup Co-founding", 
-    "Product Development", 
-    "Prototype Design", 
-    "Pitching", 
-    "Industry Collaboration",
-    "Hackathon Performance", 
-    "Time-Constrained Projects", 
-    "Team Coordination", 
-    "Goal Achievement"
-  ],
   subskills: [
     "Academic & Society Management",
     "Entrepreneurship & Innovation",

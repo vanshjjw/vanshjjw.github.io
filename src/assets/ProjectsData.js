@@ -111,5 +111,4 @@ export const CodingProjects = [
 
 
 export const INTRODUCTION =
-`Sometimes I build for function, sometimes for fun. More often than not, I end up somewhere in between.`
-
+``

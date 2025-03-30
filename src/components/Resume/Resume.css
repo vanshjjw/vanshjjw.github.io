@@ -16,8 +16,7 @@
 
 /* Resume introduction styling */
 .resume-introduction {
-    max-width: 90%px;
-    margin: 0 0 var(--spacing-xl) 0; /* Left-aligned with bottom margin */
+    max-width: 90%;
     padding: 0 var(--spacing-sm);
     animation: fadeIn 0.8s ease-in-out;
     font-family: var(--font-cursive);
@@ -71,10 +70,18 @@
 .primary-skills-container {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing-xl) * 2);
-    padding-top: calc(var(--spacing-xl));
+    gap: calc(var(--spacing-lg));
+    padding-top: calc(var(--spacing-md));
     justify-content: center;
     height: 100%;
+}
+
+/* Skills header with icon */
+.skills-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-title);
 }
 
 /* Skill Card Wrapper - Similar to card-wrapper for experiences */
@@ -87,13 +94,14 @@
 }
 
 .primary-skill-card {
-    background: var(--bg-light);
+    background: var(--bg-card);
     border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 12px var(--shadow-light);
+    box-shadow: 0 4px 10px var(--shadow-light);
     padding: var(--spacing-md);
     cursor: pointer;
     transition: all 0.3s ease;
     min-height: 100px;
+    max-height: 100px;
     height: auto;
     width: 100%;
     display: flex;
@@ -107,33 +115,32 @@
 }
 
 .primary-skill-card .card-content {
+    margin-top: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.primary-skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px var(--shadow-medium);
-    border-color: var(--primary-light);
-    background-color: var(--hover-bg);
+.skill-title {
+    color: var(--text-title);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
 }
 
-.primary-skill-card h3.skill-title {
-    margin: 0;
-    padding: 0;
-    font-size: var(--font-size-lg);
-    color: var(--text-title);
-    line-height: 1.3;
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-semibold);
+.primary-skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    border-color: var(--primary-light);
+    background-color: var(--bg-card-dark);
 }
+
 
 .primary-skill-card.selected {
     border-color: var(--sidebar-hover-color);
     border-width: 2px;
-    box-shadow: 0 6px 15px var(--shadow-medium);
+    box-shadow: 0 0 0 var(--shadow-light);
     background-color: var(--bg-card-dark);
     transform: translateY(-3px);
 }
@@ -154,10 +161,6 @@
     transition: transform 0.3s ease;
 }
 
-.primary-skill-card.expanded .skill-expand-indicator {
-    transform: rotate(90deg);
-}
-
 /* Skill description container - similar to experience cards */
 .skill-description-container {
     background-color: var(--bg-card-dark);
@@ -165,7 +168,7 @@
     border-top: none;
     border-bottom-left-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
-    padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-md);
     box-shadow: 0 4px 12px var(--shadow-light);
     animation: expandDescription 0.3s ease-out;
     z-index: 4;
@@ -184,9 +187,6 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--border-medium);
-    padding-bottom: var(--spacing-sm);
 }
 
 .toggle-btn {
@@ -194,17 +194,12 @@
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
     cursor: pointer;
-    font-size: var(--font-size-base);
+    font-size: calc(var(--font-size-base) * 0.9 );
     color: var(--text-subtitle);
     border-radius: var(--border-radius-sm);
     transition: all 0.2s ease;
     font-family: var(--font-body);
     font-weight: var(--font-weight-medium);
-}
-
-.toggle-btn:hover {
-    background-color: var(--hover-bg);
-    color: var(--text-title);
 }
 
 .toggle-btn.active {
@@ -217,12 +212,12 @@
 /* Skill subskills list */
 .skill-subskills ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0; 
     margin: var(--spacing-xs) 0;
 }
 
 .skill-subskills li {
-    font-size: var(--font-size-base);
+    font-size: calc(var(--font-size-base) * 0.9 );
     color: var(--text-body);
     margin: var(--spacing-sm) 0;
     padding-left: var(--spacing-md);
@@ -508,26 +503,26 @@
 .download-resume-container {
     display: flex;
     justify-content: center;
-    margin-top: var(--spacing-xl);
 }
 
 .download-resume-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--text-body);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius-md);
-    text-decoration: none;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .download-resume-button:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
+    color: var(--text-body);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
