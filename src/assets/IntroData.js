@@ -2,7 +2,7 @@
 
 export const personalDescription =
 `
-By day (and most nights), I’m a student of physics. That mostly means chasing elegant models to solve interesting problems 
+By day (and most nights), I’m a student of physics. That mostly means chasing elegant models, solving interesting problems, 
 and occasionally staring at a whiteboard like it might answer back. Along the way, I’ve picked up snippets of computer science, 
 philosophy, and startup wisdom. Sometimes, I build things that are cool and nerdy. More often, I care about understanding things at a 
 fundamental level. I’m still figuring out the right balance between the two.

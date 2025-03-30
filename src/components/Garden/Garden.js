@@ -5,7 +5,7 @@ import './Garden.css';
 
 const Word =
 `
-One of these days, I will write something here.
+This page is under construction—I am still figuring out how best to use it
 `
 
 const Garden = () => {
