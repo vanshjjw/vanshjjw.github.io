@@ -77,11 +77,20 @@
     height: 100%;
 }
 
+/* Skill Card Wrapper - Similar to card-wrapper for experiences */
+.skill-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
 .primary-skill-card {
     background: var(--bg-light);
     border-radius: var(--border-radius-md);
     box-shadow: 0 4px 12px var(--shadow-light);
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     cursor: pointer;
     transition: all 0.3s ease;
     min-height: 100px;
@@ -94,53 +103,118 @@
     overflow: visible;
     word-break: break-word;
     z-index: 5;
-    border: 1px solid var(--primary-light);
+    border: 1px solid var(--border-light);
+}
+
+.primary-skill-card .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .primary-skill-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px var(--shadow-medium);
     border-color: var(--primary-light);
-    background-color: var(--bg-card-dark);
+    background-color: var(--hover-bg);
 }
 
-.primary-skill-card h3 {
+.primary-skill-card h3.skill-title {
     margin: 0;
-    padding: var(--spacing-sm) 0;
+    padding: 0;
     font-size: var(--font-size-lg);
     color: var(--text-title);
     line-height: 1.3;
-}
-
-.primary-skill-card.selected {
-    border-color: #8d6e63; /* Darker border when selected */
-    border-width: 2px; /* Thicker border when selected */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    background-color: rgba(224, 215, 205, 0.85);
-    transform: translateY(-3px);
-    min-height: 100px;
-    height: auto;
-}
-
-/* Skill details (tools and subskills) */
-.skill-details {
-    margin-top: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid rgba(141, 110, 99, 0.3);
-    animation: fadeIn 0.5s ease-out;
-}
-
-.skill-subskills, .skill-tools {
-    margin-bottom: var(--spacing-md);
-}
-
-.skill-subskills h4, .skill-tools h4 {
-    font-size: var(--font-size-sm);
-    color: var(--text-title);
-    margin: var(--spacing-xs) 0;
+    font-family: var(--font-heading);
     font-weight: var(--font-weight-semibold);
 }
 
+.primary-skill-card.selected {
+    border-color: var(--sidebar-hover-color);
+    border-width: 2px;
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    background-color: var(--bg-card-dark);
+    transform: translateY(-3px);
+}
+
+/* Change border radius when expanded - like experience cards */
+.primary-skill-card.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+}
+
+/* Skill expand indicator - arrow */
+.skill-expand-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+    transition: transform 0.3s ease;
+}
+
+.primary-skill-card.expanded .skill-expand-indicator {
+    transform: rotate(90deg);
+}
+
+/* Skill description container - similar to experience cards */
+.skill-description-container {
+    background-color: var(--bg-card-dark);
+    border: 2px solid var(--sidebar-hover-color);
+    border-top: none;
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+    box-shadow: 0 4px 12px var(--shadow-light);
+    animation: expandDescription 0.3s ease-out;
+    z-index: 4;
+    min-height: 180px;
+}
+
+.skill-description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    font-family: var(--font-body);
+}
+
+/* Toggle buttons for switching views */
+.skill-view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-medium);
+    padding-bottom: var(--spacing-sm);
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--text-subtitle);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+}
+
+.toggle-btn:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-title);
+}
+
+.toggle-btn.active {
+    color: var(--text-title);
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid var(--primary-dark);
+    background-color: var(--active-bg);
+}
+
+/* Skill subskills list */
 .skill-subskills ul {
     list-style-type: none;
     padding: 0;
@@ -148,27 +222,38 @@
 }
 
 .skill-subskills li {
-    font-size: var(--font-size-sm);
-    color: var(--text-subtitle);
-    margin: var(--spacing-xs) 0;
-    padding-left: var(--spacing-xs);
-    border-left: 2px solid rgba(141, 110, 99, 0.5);
+    font-size: var(--font-size-base);
+    color: var(--text-body);
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-md);
+    border-left: 2px solid var(--primary-dark);
+    line-height: var(--line-height-relaxed);
 }
 
+/* Tool tags */
 .tool-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) 0;
 }
 
 .tool-tag {
-    font-size: var(--font-size-xs);
-    background-color: rgba(141, 110, 99, 0.2);
-    color: var(--text-subtitle);
-    padding: 2px 8px;
-    border-radius: 12px;
+    font-size: var(--font-size-sm);
+    background-color: var(--overlay-light);
+    color: var(--text-body);
+    padding: 4px 12px;
+    border-radius: var(--border-radius-full);
     display: inline-block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border-light);
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+}
+
+.tool-tag:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--primary-light);
 }
 
 /* Experiences */
@@ -336,10 +421,12 @@
     from {
         max-height: 0;
         opacity: 0;
+        transform: translateY(-10px);
     }
     to {
-        max-height: 200px;
+        max-height: 400px;
         opacity: 1;
+        transform: translateY(0);
     }
 }
 

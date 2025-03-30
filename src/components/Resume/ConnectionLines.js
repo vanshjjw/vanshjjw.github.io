@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Resume.css';
+import './Resume.css';
 
 // Updated Connection Lines Component for direct connections
 const ConnectionLines = ({ selectedSkill, activeExperiences }) => {

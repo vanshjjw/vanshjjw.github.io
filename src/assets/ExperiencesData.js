@@ -46,7 +46,7 @@ I organised events, panels and initiatives focused on **consolidating** and **pr
 
 
 
-export const experiencesData = [
+const experiencesData = [
 
   // Education
   {
@@ -125,4 +125,10 @@ export const experiencesData = [
   }
 ];
 
-export default experiencesData; 
+
+const Introduction =
+`
+I'm a **quantum computing** enthusiast with a passion for **building** and **learning**.
+`
+
+export {experiencesData, Introduction}; 

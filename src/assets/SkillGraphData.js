@@ -17,29 +17,32 @@ const software = {
   id: 1,
   name: "Software",
   connections: [2, 3, 4],
-  tools: [
-    "JavaScript", 
-    "API Endpoints", 
-    "Database ETL", 
-    "Web Components", 
-    "Python", 
-    "Docker",
-    "Performance Tuning", 
-    "Custom Algorithms", 
-    "Computational Speedup", 
-    "Numerical Methods", 
-    "Complexity Analysis",
-    "Physics Systems", 
-    "Racing Simulations", 
-    "Aerodynamics", 
-    "Game Development", 
-    "Data Visualization"
-  ],
-  subskills: [
-    "Full-Stack Development",
-    "Algorithm Development & Optimization",
-    "Simulation & Modeling"
-  ]
+  descriptions: {
+    "Specialisations": [
+      "JavaScript", 
+      "API Endpoints", 
+      "Database ETL", 
+      "Web Components", 
+      "Python", 
+      "Docker",
+      "Performance Tuning", 
+      "Custom Algorithms", 
+      "Computational Speedup", 
+      "Numerical Methods", 
+      "Complexity Analysis",
+      "Physics Systems", 
+      "Racing Simulations", 
+      "Aerodynamics", 
+      "Game Development", 
+      "Data Visualization"
+    ],
+    "Tools and Technologies": [
+      "Full-Stack Development",
+      "Algorithm Development & Optimization",
+      "Simulation & Modeling"
+    ]
+  }
+  
 }
 
 const research = {

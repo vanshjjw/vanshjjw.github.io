@@ -3,17 +3,21 @@ import './Resume.css';
 import ReactMarkdown from 'react-markdown';
 
 // Import components
-import PrimarySkillCard from './components/PrimarySkillCard';
-import ExperienceCard from './components/ExperienceCard';
-import ConnectionLines from './components/ConnectionLines';
+import PrimarySkillCard from './PrimarySkillCard';
+import ExperienceCard from './ExperienceCard';
+import ConnectionLines from './ConnectionLines';
 import MarkdownRenderers from '../General/MarkdownRenderers';
 
-import { DownloadIcon, EducationIcon, WorkExperienceIcon, OtherExperienceIcon } from '../../assets/Icons';
+import { 
+    DownloadIcon, 
+    EducationIcon, 
+    WorkExperienceIcon, 
+    OtherExperienceIcon } from '../../assets/Icons';
 
 // Import data
-import { software, research, leadership } from '../../assets/GraphicalData/SkillGraphData';
-import experiencesData from '../../assets/GraphicalData/ExperiencesData';
-import { RESUME_INTRODUCTION } from '../../assets/GraphicalData/ResumeIntro';
+import { software, research, leadership } from '../../assets/SkillGraphData';
+import {experiencesData, Introduction} from '../../assets/ExperiencesData';
+
 
 // Main Resume Component
 const Resume = () => {
@@ -84,7 +88,7 @@ const Resume = () => {
         }
     }, [activeExperienceIds, hoveredExperienceId]);
 
-    // Inside the Resume component, add this helper component
+    // Experience Break Icons
     const ExperienceBreak = ({ icon: Icon }) => (
         <div className="experience-break">
             <Icon width={28} height={28} />
@@ -96,7 +100,7 @@ const Resume = () => {
             {/* Introduction section */}
             <div className="resume-introduction">
                 <ReactMarkdown components={MarkdownRenderers}>
-                    {RESUME_INTRODUCTION}
+                    {Introduction}
                 </ReactMarkdown>
             </div>
             

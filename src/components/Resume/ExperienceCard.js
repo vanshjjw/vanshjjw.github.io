@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../Resume.css';
-import { LocationIcon, RightArrowIcon } from '../../../assets/Icons';
+import './Resume.css';
+import { LocationIcon, RightArrowIcon } from '../../assets/Icons';
 
 // Helper function to format subtitle with line breaks
 const formatSubtitle = (subtitle) => {
