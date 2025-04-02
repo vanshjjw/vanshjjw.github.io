@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Preloader from "./components/General/Preloader";
 import ScrollToTop from "./components/General/ScrollToTop";
+import MobileWarning from "./components/General/MobileWarning";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -11,7 +12,7 @@ import Intro from "./components/Intro/Intro";
 import Projects from "./components/Projects/Projects";
 import Resources from "./components/Resources/Resources";
 import Resume from "./components/Resume/Resume";
-import Garden from "./components/Garden/Garden";
+import Garden from "./components/Digital-Garden/Garden";
 import Interests from "./components/Interests/Interests";
 
 // Import main centralized CSS
@@ -32,6 +33,7 @@ function App() {
   return (
       <Router>
           <Preloader load={load} />
+          <MobileWarning />
           <div className="App" id={load ? "no-scroll" : "scroll"}>
               <ScrollToTop />
               <div className="app-layout">
