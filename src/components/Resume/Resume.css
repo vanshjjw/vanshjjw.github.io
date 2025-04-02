@@ -439,9 +439,9 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(141, 110, 99, 0.5); /* Lighter color with transparency to match lines */
+    background-color: var(--border-light); /* Lighter color with transparency to match lines */
     z-index: 10;
-    border: 1px solid var(--bg-card);
+    border: 1px solid var(--border-light);
 }
 
 .connection-dot-right {
@@ -603,7 +603,7 @@
     text-align: center;
     opacity: 0;
     animation-name: fadeInDelayedPrompt;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;

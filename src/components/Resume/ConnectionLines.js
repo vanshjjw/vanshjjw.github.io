@@ -54,7 +54,7 @@ const ConnectionLines = ({ selectedSkill, activeExperiences }) => {
                         C ${controlX} ${skillPos.centerY}, 
                           ${controlX} ${expPos.centerY}, 
                           ${expPos.left} ${expPos.centerY}`,
-                    stroke: 'rgba(141, 110, 99, 0.5)', // Lighter color with transparency
+                    stroke: 'rgba(141, 110, 99, 0.8)', // Increased opacity from 0.5 to 0.8
                     strokeWidth: 1.5,
                     strokeDasharray: '5,4' // Dotted line pattern
                 });
