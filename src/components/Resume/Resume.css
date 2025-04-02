@@ -575,3 +575,36 @@
         font-size: var(--font-size-sm);
     }
 }
+
+/* Define the delayed fade-in animation */
+@keyframes fadeInDelayedPrompt {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Simple Skill Prompt */
+.skill-prompt-simple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--border-light); 
+    transform: translateY(-50%); 
+    color: var(--text-title); 
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 1px solid var(--border-light); 
+    border-radius: var(--border-radius-md);
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    max-width: 80%;
+    width: fit-content;
+    padding: 5% 10% 5% 10%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    opacity: 0;
+    animation-name: fadeInDelayedPrompt;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}

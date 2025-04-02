@@ -27,12 +27,17 @@ const Resume = () => {
     const [activeExperienceIds, setActiveExperienceIds] = useState([]);
     const [hoveredExperienceId, setHoveredExperienceId] = useState(null);
     const [expandedCards, setExpandedCards] = useState([]);
+    const [skillClickedOnce, setSkillClickedOnce] = useState(false);
     
     // Get the selected skill
     const selectedSkill = primarySkills.find(skill => skill.id === selectedSkillId);
     
     // Handler for skill selection
     const handleSkillClick = (skillId) => {
+        if (!skillClickedOnce) {
+            setSkillClickedOnce(true);
+        }
+
         if (selectedSkillId === skillId) {
             // Deselect the skill
             setSelectedSkillId(null);
@@ -101,6 +106,14 @@ const Resume = () => {
                 {/* Left Pane - Primary Skills */}
                 <div className="pane primary-skills-pane">
                     <div className="primary-skills-container">
+
+                        {/* Conditionally render the prompt */}
+                        {!skillClickedOnce && (
+                            <div className="skill-prompt-simple">
+                                💡 click a skill to connect the dots!
+                            </div>
+                        )}
+
                         <div className="skills-header">
                             <SkillsIcon width={28} height={28} />
                         </div>
