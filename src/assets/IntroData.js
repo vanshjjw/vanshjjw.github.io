@@ -33,7 +33,13 @@ export const ProfessionalLinks = [
     url: 'mailto:vansh.jhunjhunwala@ccc.ox.ac.uk',
     iconType: 'email',
     isExternal: false
-  }
+  },
+  {
+    name: 'Letterboxd',
+    url: 'https://letterboxd.com/BaryonCollider/',
+    iconType: 'letterboxd',
+    isExternal: true
+  },
 ]; 
 
 
@@ -44,12 +50,7 @@ export const PersonalLinks = [
     iconType: 'instagram',
     isExternal: true
   },
-  {
-    name: 'Letterboxd',
-    url: 'https://letterboxd.com/yourusername/',
-    iconType: 'letterboxd',
-    isExternal: true
-  },
+ 
   {
     name: 'Substack',
     url: 'https://substack.com/@yourname',
