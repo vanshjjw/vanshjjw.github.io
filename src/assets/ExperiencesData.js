@@ -126,12 +126,11 @@ const experiencesData = [
 ];
 
 
-// const ResumeIntroduction =
-// `
-// "You cannot connect the dots looking forward; you can only connect them looking backwards."
-// `
+const ResumeIntroduction =
+`
+"You cannot connect the dots looking forward; you can only connect them looking backwards."
+`
 
-const ResumeIntroduction = ``
 
 
 export {experiencesData, ResumeIntroduction}; 

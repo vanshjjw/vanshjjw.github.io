@@ -27,7 +27,7 @@
     font-family: var(--font-cursive);
     font-size: var(--font-size-md);
     line-height: var(--line-height-relaxed);
-    color: var(--text-subtitle);
+    color: var(--text-title);
 }
 
 /* 2-Pane Layout (updated from 3-pane) */
@@ -60,6 +60,7 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing-lg));
+    transform: translateY(-5%);
     padding-top: calc(var(--spacing-md));
     justify-content: center;
     height: 100%;
@@ -194,12 +195,6 @@
     font-family: var(--font-body);
     font-weight: var(--font-weight-medium);
     position: relative;
-}
-
-.toggle-btn:not(:last-child) {
-    /* Add a subtle separator if desired
-    border-right: 1px solid var(--contrast-border);
-    */
 }
 
 .toggle-btn.active {
