@@ -73,6 +73,10 @@
     color: var(--text-title);
 }
 
+.skills-header svg {
+    fill: var(--contrast-text);
+}
+
 /* Skill Card Wrapper - Similar to card-wrapper for experiences */
 .skill-card-wrapper {
     display: flex;
@@ -83,9 +87,8 @@
 }
 
 .primary-skill-card {
-    background: var(--bg-card);
+    background: var(--contrast-bg);
     border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 10px var(--shadow-light);
     padding: var(--spacing-md);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -100,7 +103,7 @@
     overflow: visible;
     word-break: break-word;
     z-index: 5;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--contrast-border);
 }
 
 .primary-skill-card .card-content {
@@ -112,26 +115,24 @@
 }
 
 .skill-title {
-    color: var(--text-title);
+    color: var(--contrast-text);
     font-family: var(--font-body);
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-lg);
 }
 
 .primary-skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px var(--shadow-medium);
-    border-color: var(--primary-light);
-    background-color: var(--bg-card-dark);
+    transform: translateY(-1px);
+    border-color: var(--contrast-selected-border);
+    background-color: var(--contrast-hover-bg);
 }
 
 
 .primary-skill-card.selected {
-    border-color: var(--sidebar-hover-color);
+    border-color: var(--contrast-selected-border);
     border-width: 2px;
-    box-shadow: 0 0 0 var(--shadow-light);
-    background-color: var(--bg-card-dark);
-    transform: translateY(-3px);
+    background-color: var(--contrast-bg-dark);
+    transform: none;
 }
 
 /* Change border radius when expanded - like experience cards */
@@ -152,16 +153,16 @@
 
 /* Skill description container - similar to experience cards */
 .skill-description-container {
-    background-color: var(--bg-card-dark);
-    border: 2px solid var(--sidebar-hover-color);
+    background-color: var(--contrast-bg-dark);
+    border: 2px solid var(--contrast-selected-border);
     border-top: none;
     border-bottom-left-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
     padding: var(--spacing-md) var(--spacing-md) var(--spacing-md);
-    box-shadow: 0 4px 12px var(--shadow-light);
     animation: expandDescription 0.3s ease-out;
     z-index: 4;
     min-height: 180px;
+    margin-top: -2px;
 }
 
 .skill-description {
@@ -171,31 +172,50 @@
     font-family: var(--font-body);
 }
 
-/* Toggle buttons for switching views */
+/* Toggle buttons for switching views - Choice Bar Style */
 .skill-view-toggle {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-md);
+    background-color: var(--contrast-bg);
+    border-radius: var(--border-radius-md);
+    padding: 4px;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--contrast-border);
 }
 
 .toggle-btn {
+    flex-grow: 1;
+    text-align: center;
     background: none;
     border: none;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-sm) 0;
     cursor: pointer;
     font-size: calc(var(--font-size-base) * 0.9 );
-    color: var(--text-subtitle);
+    color: var(--contrast-text);
+    opacity: 0.7;
     border-radius: var(--border-radius-sm);
     transition: all 0.2s ease;
     font-family: var(--font-body);
     font-weight: var(--font-weight-medium);
+    position: relative;
+}
+
+.toggle-btn:not(:last-child) {
+    /* Add a subtle separator if desired
+    border-right: 1px solid var(--contrast-border);
+    */
 }
 
 .toggle-btn.active {
-    color: var(--text-title);
+    color: var(--contrast-text);
     font-weight: var(--font-weight-semibold);
-    border-bottom: 2px solid var(--primary-dark);
-    background-color: var(--active-bg);
+    opacity: 1;
+    background-color: var(--contrast-bg-dark);
+}
+
+.toggle-btn:hover:not(.active) {
+    opacity: 1;
+    background-color: var(--contrast-hover-bg);
 }
 
 /* Skill subskills list */
@@ -211,7 +231,7 @@
     margin: var(--spacing-sm) 0;
     padding-left: var(--spacing-md);
     text-align: left;
-    border-left: 2px solid var(--primary-dark);
+    border-left: 2px solid var(--contrast-selected-border);
     line-height: var(--line-height-relaxed);
 }
 
@@ -225,20 +245,20 @@
 
 .tool-tag {
     font-size: var(--font-size-sm);
-    background-color: var(--overlay-light);
-    color: var(--text-body);
+    background-color: var(--contrast-bg);
+    color: var(--contrast-text);
     padding: 4px 12px;
     border-radius: var(--border-radius-full);
     display: inline-block;
     margin-bottom: 8px;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--contrast-border);
     font-family: var(--font-body);
     transition: all 0.2s ease;
 }
 
 .tool-tag:hover {
-    background-color: var(--hover-bg);
-    border-color: var(--primary-light);
+    background-color: var(--contrast-hover-bg);
+    border-color: var(--contrast-selected-border);
 }
 
 /* Experiences */

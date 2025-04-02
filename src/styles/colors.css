@@ -33,6 +33,15 @@
     /* Border colors */
     --border-light: rgba(93, 64, 55, 0.15);
     --border-medium: rgba(93, 64, 55, 0.25);
+
+    /* NEW Contrast Colors (Sage Green / Beige) */
+    --contrast-bg: #e8f0e6; /* Light sage green/beige */
+    --contrast-bg-dark: #d9e6d5; /* Slightly darker sage */
+    --contrast-border: #b5c9af; /* Muted green border */
+    --contrast-hover-bg: #f0f5ee; /* Very light hover */
+    --contrast-selected-border: #8aa382; /* Darker green for selected */
+    --contrast-shadow: rgba(138, 163, 130, 0.15); /* Shadow consistent with sage */
+    --contrast-text: #4b5c47; /* Dark green text */
     
     /* Sidebar specific colors */
     --sidebar-primary-color: #5d4037;
