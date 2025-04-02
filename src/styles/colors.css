@@ -35,14 +35,21 @@
     --border-medium: rgba(93, 64, 55, 0.25);
 
     /* NEW Contrast Colors (Sage Green / Beige) */
-    --contrast-bg: #e8f0e6; /* Light sage green/beige */
-    --contrast-bg-dark: #d9e6d5; /* Slightly darker sage */
-    --contrast-border: #b5c9af; /* Muted green border */
-    --contrast-hover-bg: #f0f5ee; /* Very light hover */
-    --contrast-selected-border: #8aa382; /* Darker green for selected */
-    --contrast-shadow: rgba(138, 163, 130, 0.15); /* Shadow consistent with sage */
-    --contrast-text: #4b5c47; /* Dark green text */
-    
+    --contrast-bg: #e8f0e6; /* Card Background */
+    --contrast-bg-dark: #d3dcd1; /* Card Darker Background (Selected/Description) */
+    --contrast-border: #b5c9af; /* Default Border */
+    --contrast-hover-bg: #f0f5ee; /* Hover Background */
+    --contrast-selected-border: #8aa382; /* Selected Border / Accent */
+    --contrast-shadow: rgba(138, 163, 130, 0.15); /* Shadow */
+    --contrast-text: #3f4d3c; /* Body Text */
+    /* Adding complementary contrast colors */
+    --contrast-title: #313d2f; /* Title Text (Darker Green) */
+    --contrast-subtitle: #435b40; /* Subtitle Text (Mid Green) */
+    --contrast-muted: #7b9b74; /* Muted Text (Lighter/Greyer Green) */
+    --contrast-primary-dark: #6a8a62; /* Primary Dark Accent (e.g., icons, links) */
+    --contrast-primary-light: #a8c3a1; /* Primary Light Accent */
+    --contrast-connected-border: #6a8a62; /* Connected state border (using primary dark) */
+
     /* Sidebar specific colors */
     --sidebar-primary-color: #5d4037;
     --sidebar-hover-color: #8d6e63;

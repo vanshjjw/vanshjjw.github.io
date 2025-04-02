@@ -70,11 +70,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: var(--spacing-md);
-    color: var(--text-title);
-}
-
-.skills-header svg {
-    fill: var(--contrast-text);
+    color: var(--text-title); /* Default Brown Theme */
 }
 
 /* Skill Card Wrapper - Similar to card-wrapper for experiences */
@@ -87,7 +83,7 @@
 }
 
 .primary-skill-card {
-    background: var(--contrast-bg);
+    background: var(--bg-card); /* Default Brown Theme */
     border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
     cursor: pointer;
@@ -103,7 +99,7 @@
     overflow: visible;
     word-break: break-word;
     z-index: 5;
-    border: 1px solid var(--contrast-border);
+    border: 1px solid var(--border-light); /* Default Brown Theme */
 }
 
 .primary-skill-card .card-content {
@@ -115,24 +111,24 @@
 }
 
 .skill-title {
-    color: var(--contrast-text);
+    color: var(--text-title); /* Default Brown Theme */
     font-family: var(--font-body);
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-lg);
 }
 
 .primary-skill-card:hover {
-    transform: translateY(-1px);
-    border-color: var(--contrast-selected-border);
-    background-color: var(--contrast-hover-bg);
+    transform: translateY(-1px); /* Subtle movement */
+    border-color: var(--primary-light); /* Default Brown Theme */
+    background-color: var(--hover-bg); /* Default Brown Theme */
 }
 
 
 .primary-skill-card.selected {
-    border-color: var(--contrast-selected-border);
+    border-color: var(--sidebar-hover-color); /* Default Brown Theme */
     border-width: 2px;
-    background-color: var(--contrast-bg-dark);
-    transform: none;
+    background-color: var(--bg-card-dark); /* Default Brown Theme */
+    transform: none; /* No movement when selected */
 }
 
 /* Change border radius when expanded - like experience cards */
@@ -153,8 +149,8 @@
 
 /* Skill description container - similar to experience cards */
 .skill-description-container {
-    background-color: var(--contrast-bg-dark);
-    border: 2px solid var(--contrast-selected-border);
+    background-color: var(--bg-card-dark); /* Default Brown Theme */
+    border: 2px solid var(--sidebar-hover-color); /* Default Brown Theme */
     border-top: none;
     border-bottom-left-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
@@ -162,7 +158,7 @@
     animation: expandDescription 0.3s ease-out;
     z-index: 4;
     min-height: 180px;
-    margin-top: -2px;
+    margin-top: -2px; /* Overlap border slightly */
 }
 
 .skill-description {
@@ -176,11 +172,11 @@
 .skill-view-toggle {
     display: flex;
     justify-content: center;
-    background-color: var(--contrast-bg);
+    background-color: var(--bg-card); /* Default Brown Theme */
     border-radius: var(--border-radius-md);
     padding: 4px;
     margin-bottom: var(--spacing-md);
-    border: 1px solid var(--contrast-border);
+    border: 1px solid var(--border-light); /* Default Brown Theme */
 }
 
 .toggle-btn {
@@ -191,7 +187,7 @@
     padding: var(--spacing-sm) 0;
     cursor: pointer;
     font-size: calc(var(--font-size-base) * 0.9 );
-    color: var(--contrast-text);
+    color: var(--text-subtitle); /* Default Brown Theme */
     opacity: 0.7;
     border-radius: var(--border-radius-sm);
     transition: all 0.2s ease;
@@ -207,15 +203,15 @@
 }
 
 .toggle-btn.active {
-    color: var(--contrast-text);
+    color: var(--text-title); /* Default Brown Theme */
     font-weight: var(--font-weight-semibold);
     opacity: 1;
-    background-color: var(--contrast-bg-dark);
+    background-color: var(--bg-card-dark); /* Default Brown Theme */
 }
 
 .toggle-btn:hover:not(.active) {
     opacity: 1;
-    background-color: var(--contrast-hover-bg);
+    background-color: var(--hover-bg); /* Default Brown Theme */
 }
 
 /* Skill subskills list */
@@ -227,11 +223,11 @@
 
 .skill-subskills li {
     font-size: calc(var(--font-size-base) * 0.9 );
-    color: var(--text-body);
+    color: var(--text-body); /* Default Brown Theme */
     margin: var(--spacing-sm) 0;
     padding-left: var(--spacing-md);
     text-align: left;
-    border-left: 2px solid var(--contrast-selected-border);
+    border-left: 2px solid var(--primary-dark); /* Default Brown Theme */
     line-height: var(--line-height-relaxed);
 }
 
@@ -245,20 +241,20 @@
 
 .tool-tag {
     font-size: var(--font-size-sm);
-    background-color: var(--contrast-bg);
-    color: var(--contrast-text);
+    background-color: var(--overlay-light); /* Default Brown Theme */
+    color: var(--text-body); /* Default Brown Theme */
     padding: 4px 12px;
     border-radius: var(--border-radius-full);
     display: inline-block;
     margin-bottom: 8px;
-    border: 1px solid var(--contrast-border);
+    border: 1px solid var(--border-light); /* Default Brown Theme */
     font-family: var(--font-body);
     transition: all 0.2s ease;
 }
 
 .tool-tag:hover {
-    background-color: var(--contrast-hover-bg);
-    border-color: var(--contrast-selected-border);
+    background-color: var(--hover-bg); /* Default Brown Theme */
+    border-color: var(--primary-light); /* Default Brown Theme */
 }
 
 /* Experiences */
@@ -286,20 +282,20 @@
 
 .card-wrapper.connected .resume-card,
 .card-wrapper.connected .card-description-container {
-    border-color: #8d6e63;
+    border-color: var(--contrast-connected-border); /* Contrast Theme */
     border-width: 2px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    background-color: var(--bg-card-dark);
+    box-shadow: 0 6px 15px var(--contrast-shadow); /* Contrast Theme */
+    background-color: var(--contrast-bg-dark); /* Contrast Theme */
     opacity: 1;
 }
 
 /* Card styling */
 .resume-card {
-    background-color: var(--bg-card);
+    background-color: var(--contrast-bg); /* Contrast Theme */
     border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px var(--contrast-shadow); /* Contrast Theme */
+    border: 1px solid var(--contrast-border); /* Contrast Theme */
     height: 160px;
     width: 100%;
     transition: all 0.3s ease;
@@ -311,8 +307,8 @@
 .resume-card.expanded {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-bottom: none; /* Remove bottom border when expanded */
-    opacity: 1; /* Full opacity when expanded */
+    border-bottom: none;
+    opacity: 1;
 }
 
 .resume-card:not(.no-description) {
@@ -321,8 +317,10 @@
 
 .resume-card:not(.no-description):hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    opacity: 1; /* Full opacity on hover */
+    box-shadow: 0 4px 12px var(--contrast-shadow); /* Contrast Theme */
+    opacity: 1;
+    border-color: var(--contrast-primary-dark); /* Contrast Theme */
+    background-color: var(--contrast-bg-dark); /* Contrast Theme */
 }
 
 .card-content {
@@ -334,7 +332,7 @@
 .card-title {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    color: var(--text-title);
+    color: var(--contrast-title); /* Contrast Theme */
     padding-right: var(--spacing-xs);
     margin-bottom: var(--spacing-xl);
 }
@@ -346,12 +344,12 @@
 }
 
 .card-title-link:hover {
-    color: var(--primary-dark);
+    color: var(--contrast-primary-dark); /* Contrast Theme */
 }
 
 .card-subtitle {
     position: relative;
-    color: var(--text-subtitle);
+    color: var(--contrast-subtitle); /* Contrast Theme */
     font-size: var(--font-size-base);
     margin-bottom: var(--spacing-sm);
     flex-grow: 1;
@@ -365,7 +363,7 @@
     display: flex;
     justify-content: space-between;
     font-size: var(--font-size-sm);
-    color: var(--text-muted);
+    color: var(--contrast-muted); /* Contrast Theme */
 }
 
 .card-location {
@@ -377,7 +375,7 @@
     width: 14px;
     height: 14px;
     margin-right: 5px;
-    color: var(--primary-dark);
+    color: var(--contrast-primary-dark); /* Contrast Theme */
 }
 
 .card-dates {
@@ -391,7 +389,7 @@
     width: 20px;
     height: 20px;
     transition: transform 0.3s ease;
-    color: var(--primary-dark);
+    color: var(--contrast-primary-dark); /* Contrast Theme */
 }
 
 .resume-card.expanded .card-expand-indicator {
@@ -400,25 +398,30 @@
 
 /* Description container */
 .card-description-container {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-light);
+    background-color: var(--contrast-bg); /* Contrast Theme */
+    border: 1px solid var(--contrast-border); /* Contrast Theme */
     border-top: none;
     border-bottom-left-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
     padding: var(--spacing-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px var(--contrast-shadow); /* Contrast Theme */
     animation: expandDescription 0.3s ease-out;
     height: 160px;
     overflow-y: auto;
-    margin-top: 0; /* Remove any gap */
-    z-index: 1; /* Ensure it appears above other elements */
+    margin-top: 0;
+    z-index: 1;
     scrollbar-width: none;
+}
+
+/* Make expanded description background match connected state if connected */
+.card-wrapper.connected .card-description-container {
+     background-color: var(--contrast-bg-dark); /* Contrast Theme */
 }
 
 .card-description {
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
-    color: var(--text-body);
+    color: var(--contrast-text); /* Contrast Theme */
 }
 
 /* Add a subtle animation for the description expansion */
@@ -476,7 +479,7 @@
     align-items: center;
     justify-content: center;
     margin: var(--spacing-lg) 0 var(--spacing-md);
-    color: var(--primary);
+    color: var(--text-title); /* Contrast Theme */
 }
 
 .experience-break svg {
