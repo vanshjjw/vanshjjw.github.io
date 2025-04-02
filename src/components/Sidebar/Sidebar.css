@@ -106,6 +106,7 @@
     padding: 0 25px;
     opacity: 1;
     transition: opacity var(--transition-medium) ease;
+    flex-grow: 1;
 }
 
 .sidebar.open .sidebar-nav {
@@ -158,6 +159,79 @@
     border-radius: 0 3px 3px 0;
 }
 
+/* Social links section */
+.sidebar-social {
+    padding: 20px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    transition: opacity var(--transition-medium) ease;
+}
+
+.sidebar.open .sidebar-social {
+    opacity: 0;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Social icon styling */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover text styling */
+.social-icon .hover-text {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: var(--bg-card-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effects */
+.social-icon:hover {
+    color: white;
+}
+
+.social-icon:hover svg {
+    transform: translateY(-2px);
+}
+
+.social-icon:hover .hover-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+}
+
 /* Ensuring the body content isn't hidden behind the sidebar and doesn't move */
 .app-layout {
     display: flex;
@@ -206,7 +280,8 @@
     
     /* Show sidebar content when open */
     .sidebar.open .sidebar-nav,
-    .sidebar.open .profile-pic {
+    .sidebar.open .profile-pic,
+    .sidebar.open .sidebar-social {
         opacity: 1;
     }
     
@@ -214,5 +289,18 @@
         transform: scale(1);
         margin-top: 50px;
         height: var(--profile-pic-size);
+    }
+
+    /* Adjust hover text position for mobile */
+    .social-icon .hover-text {
+        left: 50%;
+        bottom: 100%;
+        transform: translateX(-50%) translateY(-10px);
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .social-icon:hover .hover-text {
+        transform: translateX(-50%) translateY(-15px);
     }
 } 
