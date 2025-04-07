@@ -1,40 +1,91 @@
+/* Reset previous robot/bubble styles completely */
 .mobile-warning-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 20px;
+  backdrop-filter: blur(3px); /* Add subtle blur */
 }
 
 .mobile-warning-content {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
   text-align: center;
   max-width: 90%;
-  width: 400px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px; 
+  position: relative;
+  /* Remove background/padding/shadow from content box */
+  /* background-color: #ffffff; */ 
+  /* padding: 2rem; */ 
+  /* border-radius: 15px; */ 
+  /* box-shadow: 0 5px 15px rgba(0,0,0,0.2); */
+  color: #fff; /* Default text color to white */
 }
 
-.desktop-icon {
-  font-size: 3rem;
-  color: #007bff;
-  margin-bottom: 1rem;
+/* BB-8 Image Styling */
+.bb8-image {
+  display: block;
+  width: 180px; /* Adjust size as needed */
+  max-width: 70%; /* Ensure it doesn't overflow content box */
+  height: auto;
+  margin: 0 auto 1rem auto;
 }
 
-.mobile-warning-content h2 {
-  color: #333;
-  margin-bottom: 1rem;
+/* Hologram Projection */
+.hologram-projection {
+  background-color: rgba(0, 120, 255, 0.1);
+  border: 1px solid rgba(0, 150, 255, 0.5); 
+  color: #80ccff; 
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: relative;
+  font-family: 'Orbitron', sans-serif; 
+  text-shadow: 0 0 5px rgba(0, 150, 255, 0.7), 0 0 10px rgba(0, 150, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3) inset, 0 0 10px rgba(0, 150, 255, 0.2);
+  margin-top: -10px; /* Adjust overlap based on image */
+  z-index: 5;
+  animation: hologramFlicker 0.15s infinite alternate; 
+}
+
+/* Hologram Scanlines Effect */
+.hologram-projection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 150, 255, 0.1) 50%, transparent 50%);
+  background-size: 100% 4px; /* Adjust scanline thickness */
+  opacity: 0.3;
+  animation: scanlines 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hologramFlicker {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; } /* Adjust speed */
+}
+
+.hologram-projection h2 {
+  color: #cceeff; /* Lighter blue heading */
   font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
 }
 
-.mobile-warning-content p {
-  color: #666;
-  line-height: 1.5;
+.hologram-projection p {
+  color: #aaddff; /* Slightly different blue for body */
   font-size: 1rem;
-} 
+  line-height: 1.5;
+}
