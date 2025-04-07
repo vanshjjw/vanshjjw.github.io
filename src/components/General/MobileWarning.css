@@ -30,29 +30,31 @@
 /* BB-8 Image Styling */
 .bb8-image {
   display: block;
-  width: 180px; /* Adjust size as needed */
-  max-width: 70%; /* Ensure it doesn't overflow content box */
+  width: 220px; /* Keep larger size */
+  max-width: 80%;
   height: auto;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 3rem auto;
+  transform: rotate(-20deg);
+  translate: -10% 0;
 }
 
-/* Hologram Projection */
+/* Hologram Projection - Reverted to Original Blue Style */
 .hologram-projection {
-  background-color: rgba(0, 120, 255, 0.1);
+  background-color: rgba(0, 120, 255, 0.1); 
   border: 1px solid rgba(0, 150, 255, 0.5); 
   color: #80ccff; 
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 8px; /* Original radius */
   position: relative;
-  font-family: 'Orbitron', sans-serif; 
+  font-family: 'Orbitron', sans-serif; /* Original font */
   text-shadow: 0 0 5px rgba(0, 150, 255, 0.7), 0 0 10px rgba(0, 150, 255, 0.5);
   box-shadow: 0 0 15px rgba(0, 150, 255, 0.3) inset, 0 0 10px rgba(0, 150, 255, 0.2);
-  margin-top: -10px; /* Adjust overlap based on image */
+  margin-top: 10px; /* Adjusted overlap for larger image */
   z-index: 5;
-  animation: hologramFlicker 0.15s infinite alternate; 
+  animation: hologramFlicker 0.15s infinite alternate; /* Original flicker */
 }
 
-/* Hologram Scanlines Effect */
+/* Hologram Scanlines Effect - Reverted */
 .hologram-projection::before {
   content: '';
   position: absolute;
@@ -61,31 +63,34 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(rgba(0, 150, 255, 0.1) 50%, transparent 50%);
-  background-size: 100% 4px; /* Adjust scanline thickness */
-  opacity: 0.3;
-  animation: scanlines 2s linear infinite;
+  background-size: 100% 4px; /* Original size */
+  opacity: 0.3; /* Original opacity */
+  animation: scanlines 2s linear infinite; /* Original speed */
   pointer-events: none;
 }
 
+/* Original Flicker Animation */
 @keyframes hologramFlicker {
   0% { opacity: 0.9; }
   100% { opacity: 1; }
 }
 
+/* Original Scanlines Animation */
 @keyframes scanlines {
   0% { background-position: 0 0; }
-  100% { background-position: 0 100px; } /* Adjust speed */
+  100% { background-position: 0 100px; } /* Original speed */
 }
 
+/* Original Text Colors */
 .hologram-projection h2 {
-  color: #cceeff; /* Lighter blue heading */
-  font-size: 1.5rem;
+  color: #cceeff; 
+  font-size: 1.5rem; /* Original size */
   margin-bottom: 0.8rem;
-  font-weight: 700;
+  font-weight: 700; /* Original weight */
 }
 
 .hologram-projection p {
-  color: #aaddff; /* Slightly different blue for body */
-  font-size: 1rem;
+  color: #aaddff; 
+  font-size: 1rem; /* Original size */
   line-height: 1.5;
 }

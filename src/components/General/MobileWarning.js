@@ -18,16 +18,17 @@ const MobileWarning = () => {
 
         {/* BB-8 Image - Adjust path as necessary */}
         <img 
-          src="/images/general/download-5.webp" // <<<--- CONFIRM/ADJUST THIS PATH
-          alt="BB-8 indicating mobile view isn't ready"
+          src="/images/general/mobile-warning.webp"
+          alt="BB-8 looking sad about mobile view"
           className="bb8-image"
         />
 
         {/* Holographic Projection Text */}
         <div className="hologram-projection">
-          <h2>*Happy Beep Boop*</h2> 
+          <h2>*Sad beep boop*</h2> 
           <p>
-            Mobile interface calculations incomplete. Recommend switching to desktop viewport for optimal data retrieval.
+            Vansh still needs to design mobile interface. 
+            Please use a bigger screen, or switch to desktop mode in the meantime.
           </p>
         </div>
 
