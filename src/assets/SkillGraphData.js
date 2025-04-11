@@ -10,7 +10,7 @@
 // 3. Ghyston Ltd
 // 4. STEP Ignite Incubator
 // 5. Oxford Quantum Information Society
-// 6. Oxford Entreprenuers
+// 6. Oxford Entrepreneurs
 // 7. Personal Projects
 
 const software = {
@@ -34,6 +34,7 @@ const software = {
     "CUDA",
     "Docker",
     "Git",
+    "Azure DevOps",
     "Unix/Linux",
   ]
 }
@@ -45,7 +46,7 @@ const research = {
   subskills: [
     "Theoretical and Computational Physics",
     "Quantum Information and Computing",
-    "Product Design and Development",
+    "Statistics and Inference",
   ],
   tools: [
     "Python",
