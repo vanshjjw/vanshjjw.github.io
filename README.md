@@ -1,3 +1,3 @@
 ## Personal Website
 
-check htpps://vanshjhunjhunwala.com
+check [https://vanshjhunjhunwala.com](https://vanshjhunjhunwala.com)
