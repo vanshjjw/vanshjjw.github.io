@@ -160,6 +160,7 @@
     z-index: 4;
     min-height: 180px;
     margin-top: -2px; /* Overlap border slightly */
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); /* Keep bottom radius */
 }
 
 .skill-description {
@@ -174,9 +175,8 @@
     display: flex;
     justify-content: center;
     background-color: var(--bg-card); /* Default Brown Theme */
-    border-radius: var(--border-radius-md);
+    border-radius: 0; /* Sharp corners */
     padding: 4px;
-    margin-bottom: var(--spacing-md);
     border: 1px solid var(--border-light); /* Default Brown Theme */
 }
 
@@ -190,7 +190,7 @@
     font-size: calc(var(--font-size-base) * 0.9 );
     color: var(--text-subtitle); /* Default Brown Theme */
     opacity: 0.7;
-    border-radius: var(--border-radius-sm);
+    border-radius: 0; /* Sharp corners */
     transition: all 0.2s ease;
     font-family: var(--font-body);
     font-weight: var(--font-weight-medium);
@@ -202,6 +202,7 @@
     font-weight: var(--font-weight-semibold);
     opacity: 1;
     background-color: var(--bg-card-dark); /* Default Brown Theme */
+    border-radius: 0; /* Sharp corners */
 }
 
 .toggle-btn:hover:not(.active) {
@@ -211,19 +212,21 @@
 
 /* Skill subskills list */
 .skill-subskills ul {
-    list-style-type: none;
-    padding: 0; 
-    margin: var(--spacing-xs) 0;
+    list-style-type: disc; /* Use disc bullets */
+    margin: var(--spacing-md) 0 0 0;
 }
 
 .skill-subskills li {
     font-size: calc(var(--font-size-base) * 0.9 );
     color: var(--text-body); /* Default Brown Theme */
-    margin: var(--spacing-sm) 0;
-    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm); /* Keep bottom margin */
+    padding-left: var(--spacing-xs); /* Add small padding left of the bullet */
     text-align: left;
-    border-left: 2px solid var(--primary-dark); /* Default Brown Theme */
     line-height: var(--line-height-relaxed);
+    /* Remove background, border, and explicit radius from previous attempt */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
 }
 
 /* Tool tags */
@@ -238,8 +241,8 @@
     font-size: var(--font-size-sm);
     background-color: var(--overlay-light); /* Default Brown Theme */
     color: var(--text-body); /* Default Brown Theme */
-    padding: 4px 12px;
-    border-radius: var(--border-radius-full);
+    padding: 4px 10px; /* Adjusted padding */
+    border-radius: 0; /* Sharp corners */
     display: inline-block;
     margin-bottom: 8px;
     border: 1px solid var(--border-light); /* Default Brown Theme */

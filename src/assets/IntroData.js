@@ -2,14 +2,14 @@
 
 export const personalDescription =
 `
-By day (and most nights), I’m a student of physics. That mostly means chasing elegant models, solving interesting problems, 
+By day, and most nights, I study maths and physics. That mostly means chasing elegant models, solving interesting problems, 
 and occasionally staring at a whiteboard like it might answer back. Along the way, I’ve picked up snippets of computer science, 
 philosophy, and startup wisdom. Sometimes, I build things that are cool and nerdy. More often, I care about understanding things at a 
-fundamental level. I’m still finding the right balance between the two.
+fundamental level.
 
 I haven’t always been great at finishing or sharing my projects and ideas. This website is an attempt at 
 self-accountability—part resume, part notebook, part second brain. If you're here take a look around; maybe
-you'll find something interesting.
+you'll like something.
 `
 
 
