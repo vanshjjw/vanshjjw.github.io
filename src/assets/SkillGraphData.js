@@ -25,6 +25,7 @@ const software = {
   ],
   tools: [ 
     "Python", 
+    "Flask",
     "Java",
     "React",
     "Node.js",
@@ -51,8 +52,9 @@ const research = {
   tools: [
     "Python",
     "Julia",
-    "C++",
     "Qiskit",
+    "C++",
+    "CUDA",
     "Data Analysis",
     "Numerical Methods",
     "Algorithm Design",
@@ -65,7 +67,7 @@ const leadership = {
   name: "Leadership",
   connections: [4, 5, 6],
   subskills: [
-    "Student Society Management",
+    "Student Society Operations",
     "Entrepreneurship & Innovation",
     "Hackathons & Project Leadership"
   ]

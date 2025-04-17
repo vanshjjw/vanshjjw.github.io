@@ -5,7 +5,9 @@ import './Garden.css';
 
 const Word =
 `
-This page is under construction—I am still figuring out how best to use it
+This digital garden is currently under construction 🌱 
+I'm still cultivating the ideas and structure for this space.
+Come back soon to see what sprouts!
 `
 
 const Garden = () => {
