@@ -62,18 +62,20 @@ const Intro = () => {
           
           {/* Social Links Section */}
           <div className="intro-social-links">
-            {ProfessionalLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target={link.isExternal ? "_blank" : undefined}
-                rel={link.isExternal ? "noopener noreferrer" : undefined}
-                className="intro-social-link"
-              >
-                {renderIcon(link.iconType)}
-                <span className="link-name">{link.name}</span>
-              </a>
-            ))}
+            <div className="links-row">
+              {ProfessionalLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
+                  className="intro-social-link"
+                >
+                  {renderIcon(link.iconType)}
+                  <span className="link-name">{link.name}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </header>
       </div>

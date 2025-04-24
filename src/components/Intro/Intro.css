@@ -15,19 +15,6 @@
   --intro-padding-x: var(--spacing-xs); /* Control horizontal padding */
 }
 
-/* Background design element - subtle gradient */
-.intro-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, var(--bg-light) 0%, rgba(224, 215, 205, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
-  animation: pulse 20s infinite alternate ease-in-out;
-  z-index: 0;
-}
-
 /* Content wrapper - left aligned */
 .intro-content {
   z-index: 1;
@@ -144,7 +131,7 @@ name-a {
 .description-container {
   max-width: 94%;
   opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards 2s; /* Appears after name underline */
+  animation: fadeIn 1.5s ease-out forwards 2s;
   text-align: left; /* Left alignment */
 }
 
@@ -229,7 +216,7 @@ name-a {
   }
   
   .links-row {
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
   }
   
   .all-links {
@@ -242,8 +229,9 @@ name-a {
   }
   
   .intro-social-links {
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     margin-top: var(--spacing-lg);
+    align-items: flex-start; 
   }
 }
 
@@ -300,12 +288,7 @@ name-a {
   
   .intro-social-links {
     justify-content: center;
-    gap: var(--spacing-sm);
-  }
-  
-  .intro-social-link {
-    /* Maybe hide text on very small screens? Optional */
-    /* .link-name { display: none; } */
+    gap: var(--spacing-xs);
   }
   
   .intro-social-link svg {
@@ -314,43 +297,107 @@ name-a {
   }
 }
 
-/* Social Links Section - Rewritten */
+/* Social Links Section */
 .intro-social-links {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: center; 
   flex-wrap: wrap;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-sm);
   margin-top: var(--spacing-xl);
-  padding: var(--spacing-sm) 0;
   width: 100%;
   opacity: 0;
-  animation: fadeIn 1s ease-out forwards 3.7s;
+  animation: fadeIn 1s ease-out forwards 2.5s;
+  font-family: var(--font-body);
+  color: var(--text-subtitle);
 }
 
+/* Row containing the actual icons */
+.links-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center; 
+  gap: var(--spacing-lg); 
+}
+
+/* Individual Link/Icon Container */
 .intro-social-link {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   color: var(--text-subtitle);
-  font-family: var(--font-body);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
+  position: relative; 
 }
 
 .intro-social-link:hover {
   color: var(--primary-light);
-  transform: translateY(-2px);
 }
 
+/* Icon Styling */
 .intro-social-link svg {
-  width: 20px;
-  height: 20px;
-  margin-right: var(--spacing-xs);
+  width: 1.3em; 
+  height: 1.3em;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.intro-social-link:hover svg {
+    transform: scale(1.15);
 }
 
 .intro-social-link .link-name {
-  font-size: 1rem;
-  font-weight: 400;
+  /* Positioning */
+  position: absolute;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; 
+
+  background-color: var(--text-subtitle); 
+  color: var(--bg-page); 
+  padding: var(--spacing-xs) var(--spacing-sm); 
+  border-radius: var(--border-radius-md); 
+  font-size: 0.95rem; 
+  font-weight: 500;
+  line-height: 1.3; 
   white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25); 
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease 0.1s, visibility 0.2s ease 0.1s; 
+  pointer-events: none;
+}
+
+/* Show tooltip on hover */
+.intro-social-link:hover .link-name {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .links-row {
+       gap: var(--spacing-md); 
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-social-links {
+      align-items: flex-start; 
+  }
+  .links-label {
+      display: block;
+      margin-bottom: var(--spacing-sm);
+      margin-right: 0;
+  }
+  .links-row {
+       gap: var(--spacing-md); /* Maintain decent gap */
+       justify-content: flex-start;
+  }
+  .intro-social-link svg {
+       width: 2em; /* Larger icons for touch */
+       height: 2em;
+  }
 }
