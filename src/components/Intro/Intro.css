@@ -240,6 +240,11 @@ name-a {
     font-size: 1rem;
     top: -1.8rem;
   }
+  
+  .intro-social-links {
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
 }
 
 @media (max-width: 480px) {
@@ -292,4 +297,60 @@ name-a {
     left: 0.5rem;
     padding: 0.2rem 0.6rem;
   }
+  
+  .intro-social-links {
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .intro-social-link {
+    /* Maybe hide text on very small screens? Optional */
+    /* .link-name { display: none; } */
+  }
+  
+  .intro-social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Social Links Section - Rewritten */
+.intro-social-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-sm) 0;
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 3.7s;
+}
+
+.intro-social-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-subtitle);
+  font-family: var(--font-body);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.intro-social-link:hover {
+  color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.intro-social-link svg {
+  width: 20px;
+  height: 20px;
+  margin-right: var(--spacing-xs);
+  flex-shrink: 0;
+}
+
+.intro-social-link .link-name {
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
 }

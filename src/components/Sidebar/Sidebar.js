@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { 
-  GithubIcon, 
-  LinkedInIcon, 
-  EmailIcon,
-  SubstackIcon,
-  LetterboxdIcon
-} from '../../assets/Icons';
-import { ProfessionalLinks } from '../../assets/IntroData';
+import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -32,24 +24,6 @@ const Sidebar = () => {
         document.querySelector('.app-layout').classList.toggle('sidebar-open', isCollapsed);
     }, []);
 
-    // Helper function to render the correct icon based on type
-    const renderIcon = (iconType) => {
-        switch (iconType) {
-            case 'github':
-                return <GithubIcon />;
-            case 'linkedin':
-                return <LinkedInIcon />;
-            case 'email':
-                return <EmailIcon />;
-            case 'substack':
-                return <SubstackIcon />;
-            case 'letterboxd':
-                return <LetterboxdIcon />;
-            default:
-                return null;
-        }
-    };
-
     return (
         <div className={`sidebar ${isCollapsed ? 'open' : ''}`}>
             <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle Sidebar">
@@ -67,23 +41,6 @@ const Sidebar = () => {
                 <Link to="/digital-garden" className={isActive('/digital-garden')}>Digital Garden</Link>
                 {/* <Link to="/resources" className={isActive('/resources')}>Resources</Link> */}
             </nav>
-
-            <div className="sidebar-social">
-                <div className="social-links">
-                    {ProfessionalLinks.map((link, index) => (
-                        <a 
-                            key={index}
-                            href={link.url} 
-                            target={link.isExternal ? "_blank" : undefined} 
-                            rel={link.isExternal ? "noopener noreferrer" : undefined}
-                            className="social-icon"
-                        >
-                            {renderIcon(link.iconType)}
-                            <span className="hover-text">{link.name}</span>
-                        </a>
-                    ))}
-                </div>
-            </div>
         </div>
     );
 };
