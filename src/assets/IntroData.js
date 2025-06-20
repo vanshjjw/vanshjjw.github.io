@@ -30,7 +30,7 @@ export const ProfessionalLinks = [
   },
   {
     name: 'Email',
-    url: 'mailto:vansh.jhunjhunwala@ccc.ox.ac.uk',
+    url: 'mailto:vanshjjw@gmail.com',
     iconType: 'email',
     isExternal: false
   },
