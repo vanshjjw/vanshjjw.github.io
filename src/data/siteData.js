@@ -2,9 +2,11 @@
 // Site Data - Single source of truth
 // ============================================
 
+import bio from "./bio";
+
 export const personalInfo = {
   name: "Vansh Jhunjhunwala",
-  bio: `By day, and most nights, I study maths and physics—chasing elegant models, solving interesting problems, and occasionally staring at a whiteboard like it might answer back. Along the way, I've picked up snippets of computer science, philosophy, and startup wisdom. I like building things that are cool and nerdy, and understanding things at a fundamental level.`,
+  bio: bio,
   resumeUrl: "https://drive.google.com/file/d/1MG8tog908lEOsdXt30iybHhyeHe4zl3e/view?usp=drive_link",
   locations: [
     { city: "Oxford", current: false },
@@ -60,7 +62,7 @@ export const experience = [
   {
     id: "canopy",
     title: "Canopy Labs",
-    role: "ML Research",
+    role: "ML Researcher",
     period: "2025–",
     url: "https://canopylabs.ai/",
   },
@@ -80,8 +82,8 @@ export const experience = [
   },
   {
     id: "ghyston",
-    title: "Ghyston Ltd",
-    role: "Software Developer",
+    title: "Ghyston",
+    role: "Software Developer Intern",
     period: "2023",
     url: "https://www.ghyston.com/",
   },
@@ -152,24 +154,6 @@ export const influences = [
     author: "Marcus Aurelius",
     type: "book",
     url: "https://en.wikipedia.org/wiki/Meditations",
-  },
-  {
-    title: "The Bitter Lesson",
-    author: "Rich Sutton",
-    type: "essay",
-    url: "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
-  },
-  {
-    title: "Quantum Computing Since Democritus",
-    author: "Scott Aaronson",
-    type: "book",
-    url: "https://www.scottaaronson.com/democritus/",
-  },
-  {
-    title: "The Beginning of Infinity",
-    author: "David Deutsch",
-    type: "book",
-    url: "https://en.wikipedia.org/wiki/The_Beginning_of_Infinity",
   },
   {
     title: "How to Do Great Work",

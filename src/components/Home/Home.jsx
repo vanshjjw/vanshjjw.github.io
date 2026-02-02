@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { personalInfo, projects, experience, socialLinks, influences, resources } from '../../data/siteData';
 
-// ============================================
-// Hero Section
-// ============================================
 const Hero = () => {
   const [showEasterEgg, setShowEasterEgg] = useState(false);
 
@@ -14,14 +11,12 @@ const Hero = () => {
 
   return (
     <section className="mb-16">
-      {/* Easter Egg Toast */}
       {showEasterEgg && (
         <div className="fixed top-8 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50">
           General Kenobi
         </div>
       )}
 
-      {/* Name */}
       <h1 className="text-3xl md:text-4xl font-serif text-ink-title mb-4">
         <span 
           onClick={handleHelloClick}
@@ -33,7 +28,6 @@ const Hero = () => {
         <span>, I'm {personalInfo.name}</span>
       </h1>
 
-      {/* Location progression */}
       <div className="text-ink-muted text-sm mb-8 flex items-center gap-2">
         {personalInfo.locations.map((loc, index) => (
           <span key={loc.city} className="flex items-center gap-2">
@@ -45,54 +39,24 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Bio */}
-      <div className="text-ink-light text-base leading-relaxed max-w-2xl space-y-4 mb-8">
+      <div className="text-ink-light text-base leading-relaxed max-w-2xl space-y-4">
         {personalInfo.bio.split('\n\n').map((paragraph, index) => (
           <p key={index}>{paragraph}</p>
         ))}
-      </div>
-
-      {/* Links */}
-      <div className="flex flex-wrap gap-6 text-ink-muted">
-        {socialLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-          >
-            {link.name}
-          </a>
-        ))}
-        <a
-          href={personalInfo.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-primary transition-colors"
-        >
-          Resume
-        </a>
       </div>
     </section>
   );
 };
 
-// ============================================
-// Projects Section
-// ============================================
 const ProjectRow = ({ project }) => {
   const linkEntries = Object.entries(project.links);
   
   return (
     <div className="py-4 border-b border-ink/10 last:border-b-0 flex justify-between gap-4">
-      {/* Left: Title + Description stacked */}
       <div className="flex-1">
         <h3 className="font-medium text-ink-title">{project.title}</h3>
         <p className="text-ink-light text-sm mt-1">{project.description}</p>
       </div>
-      
-      {/* Right: Links */}
       <div className="flex items-start gap-3 text-sm flex-shrink-0 pt-1">
         {linkEntries.map(([label, url]) => (
           <a
@@ -123,11 +87,8 @@ const Projects = () => (
   </section>
 );
 
-// ============================================
-// Experience Section
-// ============================================
+
 const ExperienceRow = ({ item }) => {
-  // Handle multiline roles (like Oxford's two degrees)
   const roleLines = item.role.split('\n');
   
   return (
@@ -155,7 +116,7 @@ const ExperienceRow = ({ item }) => {
 const Experience = () => (
   <section className="mb-16">
     <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
-      Experience
+      Work
     </h2>
     <div>
       {experience.map((item) => (
@@ -165,9 +126,6 @@ const Experience = () => (
   </section>
 );
 
-// ============================================
-// Influences Section
-// ============================================
 const Influences = () => (
   <section className="mb-16">
     <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
@@ -194,9 +152,6 @@ const Influences = () => (
   </section>
 );
 
-// ============================================
-// Resources Section
-// ============================================
 const Resources = () => (
   <section className="mb-16">
     <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
@@ -220,9 +175,6 @@ const Resources = () => (
   </section>
 );
 
-// ============================================
-// Footer
-// ============================================
 const Footer = () => (
   <footer className="pt-8 border-t border-ink/10">
     <div className="flex flex-wrap justify-center gap-6 text-ink-muted">
@@ -249,9 +201,6 @@ const Footer = () => (
   </footer>
 );
 
-// ============================================
-// Main Home Component
-// ============================================
 const Home = () => {
   return (
     <div className="min-h-screen bg-warm-page">
