@@ -1,22 +1,19 @@
-@import './styles/colors.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-page);
-    color: var(--text-body);
-}
+@layer base {
+  body {
+    @apply bg-warm-page text-ink antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-weight: bold;
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply text-ink-title;
+  }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
+  a {
+    @apply text-inherit no-underline;
+  }
 }

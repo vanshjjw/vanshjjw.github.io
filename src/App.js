@@ -1,59 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router } from "react-router-dom";
-import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./components/Home/Home";
+import "./index.css";
 
-import Preloader from "./components/General/Preloader";
-import ScrollToTop from "./components/General/ScrollToTop";
-import MobileWarning from "./components/General/MobileWarning";
-
-import Sidebar from "./components/Sidebar/Sidebar";
-
-import Intro from "./components/Intro/Intro";
-import Projects from "./components/Projects/Projects";
-import Resources from "./components/Resources/Resources";
-import Resume from "./components/Resume/Resume";
-import Garden from "./components/Digital-Garden/Garden";
-import Interests from "./components/Interests/Interests";
-
-// Import main centralized CSS
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// Simple preloader
+const Preloader = ({ load }) => {
+  if (!load) return null;
+  
+  return (
+    <div className="fixed inset-0 bg-warm-page z-50 flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  );
+};
 
 function App() {
-  const [load, updateLoad] = useState(true);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      updateLoad(false);
-    }, 1200);
-
+      setLoad(false);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-      <Router>
-          <Preloader load={load} />
-          <MobileWarning />
-          <div className="App" id={load ? "no-scroll" : "scroll"}>
-              <ScrollToTop />
-              <div className="app-layout">
-                  <Sidebar />
-                  <div className="main-content">
-                      <Routes>
-                          <Route path="/intro" element={<Intro />} />
-                          <Route path="/resume" element={<Resume />} />
-                          <Route path="/projects" element={<Projects />} />
-                          <Route path="/digital-garden" element={<Garden />} />
-                          <Route path="/resources" element={<Resources />} />
-                          <Route path="/interests" element={<Interests />} />
-                          <Route path="*" element={<Navigate to="/intro" replace />} />
-                          
-                          {/* Add other routes here when additional sections are implemented */}
-                      </Routes>
-                  </div>
-              </div>
-          </div>
-      </Router>
+    <>
+      <Preloader load={load} />
+      <div className={load ? "opacity-0" : "opacity-100 transition-opacity duration-300"}>
+        <Home />
+      </div>
+    </>
   );
 }
 
