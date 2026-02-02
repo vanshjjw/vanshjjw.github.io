@@ -6,7 +6,7 @@ const Hero = () => {
 
   const handleHelloClick = () => {
     setShowEasterEgg(true);
-    setTimeout(() => setShowEasterEgg(false), 5000);
+    setTimeout(() => setShowEasterEgg(false), 2000);
   };
 
   return (
@@ -129,7 +129,7 @@ const Experience = () => (
 const Influences = () => (
   <section className="mb-16">
     <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
-      Things That Made Me Think
+      Ideas That Made Me Think
     </h2>
     <div>
       {influences.map((item, index) => (
@@ -155,20 +155,23 @@ const Influences = () => (
 const Resources = () => (
   <section className="mb-16">
     <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
-      Random Resources
+      Random Resources I Like
     </h2>
     <div>
       {resources.map((item, index) => (
-        <div key={index} className="py-3 border-b border-ink/10 last:border-b-0">
-          <a 
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink-title hover:text-primary transition-colors"
-          >
-            {item.title}
-          </a>
-          <span className="text-ink-muted text-sm ml-2">— {item.description}</span>
+        <div key={index} className="py-3 border-b border-ink/10 last:border-b-0 flex justify-between gap-4">
+          <div className="flex-1">
+            <a 
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-title hover:text-primary transition-colors"
+            >
+              {item.title}
+            </a>
+            <span className="text-ink-muted text-sm ml-2">— {item.author}</span>
+          </div>
+          <span className="text-ink-muted text-xs uppercase tracking-wide flex-shrink-0">{item.type}</span>
         </div>
       ))}
     </div>

@@ -94,13 +94,13 @@ export const experience = [
     period: "2022",
     url: "https://unistep.org/",
   },
-  {
-    id: "oqs",
-    title: "Oxford University Quantum Information Society",
-    role: "President",
-    period: "2023–24",
-    url: "https://www.oxfordquantum.org/",
-  },
+  // {
+  //   id: "oqs",
+  //   title: "Oxford University Quantum Information Society",
+  //   role: "President",
+  //   period: "2023–24",
+  //   url: "https://www.oxfordquantum.org/",
+  // },
 ];
 
 export const socialLinks = [
@@ -120,16 +120,10 @@ export const socialLinks = [
 
 export const influences = [
   {
-    title: "The Feynman Lectures on Physics",
-    author: "Richard Feynman",
-    type: "lectures",
-    url: "https://www.feynmanlectures.caltech.edu/",
-  },
-  {
     title: "Gödel, Escher, Bach",
     author: "Douglas Hofstadter",
     type: "book",
-    url: "https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach",
+    url: "https://archive.org/details/GEBen_201404",
   },
   {
     title: "Cities and Ambition",
@@ -165,33 +159,27 @@ export const influences = [
 
 export const resources = [
   {
+    title: "The Feynman Lectures on Physics",
+    author: "Richard Feynman",
+    type: "lectures",
+    url: "https://www.feynmanlectures.caltech.edu/",
+  },
+  {
     title: "How to Become a Good Theoretical Physicist",
-    description: "Gerard 't Hooft's self-study guide",
+    author: "Gerard 't Hooft",
+    type: "guide",
     url: "https://www.goodtheorist.science/",
   },
   {
-    title: "So You Want to Study Physics",
-    description: "Susan Fowler's physics self-study guide",
-    url: "https://www.susanrigetti.com/physics",
+    title: "The Theoretical Minimum",
+    author: "Leonard Susskind",
+    type: "lectures",
+    url: "https://theoreticalminimum.com/",
   },
   {
-    title: "The Missing Semester",
-    description: "CS tools they don't teach in school",
-    url: "https://missing.csail.mit.edu/",
-  },
-  {
-    title: "Teach Yourself CS",
-    description: "Self-study guide for computer science",
-    url: "https://teachyourselfcs.com/",
-  },
-  {
-    title: "nand2tetris",
-    description: "Build a computer from first principles",
+    title: "Nand2Tetris",
+    author: "Nisan & Schocken",
+    type: "course",
     url: "https://www.nand2tetris.org/",
-  },
-  {
-    title: "Seeing Theory",
-    description: "Visual introduction to probability",
-    url: "https://seeing-theory.brown.edu/",
   },
 ];
