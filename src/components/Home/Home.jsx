@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { personalInfo, projects, experience, socialLinks, influences, resources } from '../../data/siteData';
+import { personalInfo, projects, experience, socialLinks, influences } from '../../data/siteData';
 
 const Hero = () => {
   const [showEasterEgg, setShowEasterEgg] = useState(false);
@@ -152,32 +152,6 @@ const Influences = () => (
   </section>
 );
 
-const Resources = () => (
-  <section className="mb-16">
-    <h2 className="text-xl font-serif text-ink-title mb-6 pb-2 border-b-2 border-primary/30">
-      Random Resources I Like
-    </h2>
-    <div>
-      {resources.map((item, index) => (
-        <div key={index} className="py-3 border-b border-ink/10 last:border-b-0 flex justify-between gap-4">
-          <div className="flex-1">
-            <a 
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink-title hover:text-primary transition-colors"
-            >
-              {item.title}
-            </a>
-            <span className="text-ink-muted text-sm ml-2">— {item.author}</span>
-          </div>
-          <span className="text-ink-muted text-xs uppercase tracking-wide flex-shrink-0">{item.type}</span>
-        </div>
-      ))}
-    </div>
-  </section>
-);
-
 const Footer = () => (
   <footer className="pt-8 border-t border-ink/10">
     <div className="flex flex-wrap justify-center gap-6 text-ink-muted">
@@ -212,7 +186,6 @@ const Home = () => {
         <Experience />
         <Projects />
         <Influences />
-        <Resources />
         <Footer />
       </main>
     </div>
